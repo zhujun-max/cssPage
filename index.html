@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS效果</title>
+</head>
+
+<body>
+  <!-- <script src="./index.js"></script> -->
+  <div id="box">
+  </div>
+  <script>
+    var arr = [
+      '2020', 'border-button',
+      'button', 'card',
+      'clock', 'switch-button',
+      'douyin', 'hetongxue-piantou',
+      'jianzhi', 'line-font',
+      'loading', 'login',
+      'login2', 'login3',
+      'todo-list', 'page-404',
+      'split-font'
+    ]
+    var box = document.getElementById('box')
+    arr.map((v) => {
+      // 创建顶部点击栏
+      var actions = document.createElement('div')
+      actions.className = 'actions'
+      var preview = document.createElement('a')
+      var video = document.createElement('a')
+      preview.href = `./${v}/index.html`
+      preview.innerHTML = "效果预览"
+      video.href = "javascript:;"
+      video.innerHTML = "观看视频"
+      actions.appendChild(preview)
+      actions.appendChild(video)
+
+      // 创建外部的iframe和div
+      var div = document.createElement('div')
+      var iframe = document.createElement('iframe')
+      iframe.src = `./${v}/index.html`
+      iframe.frameborder = '0'
+      iframe.scrolling = 'no'
+      div.appendChild(iframe)
+      div.appendChild(actions)
+      box.appendChild(div)
+    })
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(197, 107, 120);
+    }
+
+    #box {
+      padding: 20px 0px;
+      width: 970px;
+      margin: 0 auto;
+      overflow: hidden;
+
+    }
+
+    #box>div {
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px;
+      width: 300px;
+      height: 200px;
+      background-size: 300px 200px;
+      background-position: center;
+      transition: all .6s;
+      box-shadow: 0 0 30px -10px rgb(75 44 44);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    iframe {
+      width: 400%;
+      height: 400%;
+      border: none;
+      transform: scale(0.25);
+      transform-origin: 0% 0%;
+    }
+
+    .actions {
+      z-index: 9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px 0;
+      text-align: center;
+      background-color: rgb(227, 205, 164);
+      transition: .2s;
+    }
+
+    .actions:hover {
+      padding: 20px 0;
+      transition: .2s;
+    }
+
+    .actions>a {
+      padding: 5px;
+      color: rgb(126, 130, 122);
+      text-decoration-line: none;
+      font-family: '微软雅黑';
+      font-weight: 200;
+    }
+
+    .actions>a:hover {
+      color: rgb(47, 52, 59);
+      text-decoration-line: none;
+      font-weight: 200;
+    }
+  </style>
+</body>
+
+</html>
