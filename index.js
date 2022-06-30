@@ -1,6 +1,8 @@
 var fs = require('fs')
+console.log('1111')
 fs.readdir(process.cwd(), function (err, data) {
   var stats = [];    //避免再次执行fs.stat
+  console.log('222222222')
   // console.log("");
   // if (!data.length) {
   //   return console.log('\033[31m No data to show!\033[39m\n');
