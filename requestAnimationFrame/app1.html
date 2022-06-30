@@ -1,0 +1,39 @@
+<!-- 模拟一个进度条动画，初始div宽度为1px,在step函数中将进度加1然后再更新到div宽度上，在进度达到100之前，一直重复这一过程。 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div id="test" style="width:1px;height:17px;background:#0f0;">0%</div>
+    <input type="button" value="Run" id="run" />
+    <script>
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        var start = null;
+        var ele = document.getElementById("test");
+        var progress = 0;
+
+        function step(timestamp) {
+            progress += 1;
+            ele.style.width = progress + "%";
+            ele.innerHTML = progress + "%";
+            if (progress < 100) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+        document.getElementById("run").addEventListener("click", function () {
+            ele.style.width = "1px";
+            progress = 0;
+            requestAnimationFrame(step);
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<div class="father">
+    <div class="son"></div>
+</div>
+
+<style>
+  .father {
+            display: table-cell;
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            /* 传统的vertical-align只对行内元素有效，块级元素无效的 */
+            vertical-align: middle;
+            /* text-align: center; */
+        }
+        .son {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+</style>

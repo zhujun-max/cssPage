@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        html,
+        body {
+            background: olive;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        /* 大小和颜色 */
+        .fa {
+            width: 70%;
+            height: 70%;
+            background:navy;
+        }
+        .son {
+            width: 50%;
+            height: 50%;
+            background: #999;
+        }
+/* 当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置 */
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="fa center">
+        <div class="son center">
+
+        </div>
+    </div>
+</body>
+</html>

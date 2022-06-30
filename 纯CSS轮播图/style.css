@@ -1,0 +1,175 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.main {
+	position: relative;
+	width: 1200px;
+	margin: 50px auto;
+	border: solid 1px #ccc; 
+}
+.imgs {
+	position: relative;
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+}
+.main a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.imgs a:first-child{
+	animation: imgAnimate 18s linear infinite alternate;
+} 
+.imgs:hover > .first-img,
+.imgs:hover + .controller .show-run {
+	animation-play-state: paused;
+}
+.imgs a img {
+	width: 100%;
+	height: 100%;
+}
+.controller {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 80%;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 560px;
+}
+.controller .show-run {
+	margin-bottom: -17px;
+	height: 16px;
+	width: 20%;
+	background: #FDB024;
+	animation: showAnimate 18s linear infinite alternate;
+}
+.controller .show-static {
+	margin-bottom: -17px;
+	height: 17px;
+	width: 100%;
+	background: #575757;
+}
+.controller a {
+	display: block;
+	box-sizing: border-box;
+	float: left;
+	width: 20%;
+	height: 17px;
+	margin: 0px;
+	border: solid 1px #CCC;
+}
+.controller a img {
+	display: none;
+	box-sizing: border-box;
+	width: 100%;
+	height: 150px;
+	margin-top: -160px;
+	border: solid 1px #FDB024; 
+}
+
+.controller a::after {
+	position: relative;
+	content: "";
+	display: none;
+	margin-left: -20px;
+	left: 50%;
+	width: 10px;
+	height: 0px;
+	border-left:20px solid transparent;   
+	border-right:20px solid transparent;    
+	border-top: solid 10px #FDB024;
+}
+.controller-tag1:hover > img,
+.controller-tag1:hover::after{
+	display: block;
+}
+.controller-tag2:hover > img,
+.controller-tag2:hover::after{
+	display: block;
+}
+.controller-tag3:hover > img,
+.controller-tag3:hover::after{
+	display: block;
+}
+.controller-tag4:hover > img,
+.controller-tag4:hover::after{
+	display: block;
+}
+.controller-tag5:hover > img,
+.controller-tag5:hover::after{
+	display: block;
+}
+
+@keyframes imgAnimate
+{
+	0% {
+		margin-top: 0px;
+	}
+	11.11% {
+		margin-top: 0px;
+	}
+	22.22% {
+		margin-top: -600px;
+	}
+	33.33% {
+		margin-top: -600px;
+	}
+	44.44% {
+		margin-top: -1200px;
+	}
+	55.55% {
+		margin-top: -1200px;
+	}
+	66.66% {
+		margin-top: -1800px;
+	}
+	77.77% {
+		margin-top: -1800px;
+	}
+	88.88% {
+		margin-top: -2400px;
+	}
+	100% {
+		margin-top: -2400px;
+	}
+}
+
+@keyframes showAnimate
+{
+	0% {
+		margin-left: 0px;
+	}
+	11.11% {
+		margin-left: 0px;
+	}
+	22.22% {
+		margin-left: 20%;
+	}
+	33.33% {
+		margin-left: 20%;
+	}
+	44.44% {
+		margin-left: 40%;
+	}
+	55.55% {
+		margin-left: 40%;
+	}
+	66.66% {
+		margin-left: 60%;
+	}
+	77.77% {
+		margin-left: 60%;
+	}
+	88.88% {
+		margin-left: 80%;
+	}
+	100% {
+		margin-left: 80%;
+	}
+}
+

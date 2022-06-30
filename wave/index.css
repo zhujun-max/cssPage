@@ -1,0 +1,27 @@
+body,
+html {
+  background-color: #32373c;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 300px;
+  height: 300px;
+  box-shadow: 17px 17px 34px #292d31, -17px -17px 34px #3c4147;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+}
+.container #canvas {
+  position: absolute;
+}
+.container .proNum {
+  font-size: 48px;
+  color: #fff;
+  z-index: 1000;
+}

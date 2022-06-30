@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            background-color: rgb(241, 221, 238);
+        }
+        .shell{
+            position: relative;
+            width: 70%;
+            padding: 50px;
+        }
+        h2{
+            color: rgb(123, 150, 241);
+            font-size: 90px;
+            margin-left: 400px;
+            font: 500 80px '优设标题黑';
+        }
+        p{
+            color: rgb(98, 98, 98);
+            font-size: 22px;
+            text-align: justify;
+        }
+        .left{
+            height: 500px;
+            float: left;
+            shape-margin: 20px;
+            shape-outside: url(./img.png);
+        }
+        .right{
+            height: 500px;
+            float: right;
+            shape-outside: url(./img2.png);
+            margin: 240px -80px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <img src="./img.png" alt="" class="left">
+        <img src="./img2.png" alt="" class="right">
+        <h2>Self study front end</h2>
+        <p>
+            You need to know your goal and become the best front-end developer. To achieve it, you must make a plan.
+            <br />
+            If you look at twitter or jobs, usually you'll see that calling yourself a front-end developer needs to know
+            10 to 20 things. Such a long list is ridiculous.
+            <br />
+            You don't need to know everything. In fact, you can find a job as well. Sometimes, even experienced
+            developers don't know and understand everything.
+            <br />
+            Therefore, web front-end development is based on three basic skills:
+            <br />
+            These are the three skills you can use to build almost everything. If you have a good grasp of them, it is
+            enough to find a job in front-end development. Of course, you also need to know one or two JavaScript
+            frameworks, which is even better.
+            <br />
+            Seriously study these three basic skills.
+            <br />
+            Don't start by learning Vue JS, react, angular, etc. Finally, you choose a framework and stick to it.
+            <br />
+            How to choose the framework to learn? My personal suggestion is to choose the framework that you are
+            interested in and the demand of the job market is large. If there are many needs for junior angular
+            developers, please learn angular. If other frameworks are in high demand, please choose the one with high
+            demand. If you are not sure, choose a framework that you are interested in and popular. Of course, you can
+            also choose react. After all, you need to learn a framework.
+            <br />
+            What about the other technologies listed in the job requirements? You should read something about them, but
+            you can almost ignore them.
+            <br />
+            You can complete the basic knowledge in git in a day or two, but it's also very important. Stylized
+            components, if you know JavaScript and CSS, you can quickly master them. Module bundle, you are likely to
+            use the starter package for a long time in your career.
+        </p>
+    </div>
+</body>
+
+</html>

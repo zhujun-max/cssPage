@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<title>scrollReveal.js演示2_dowebok</title>
+<meta charset="utf-8">
+<style>
+* { margin: 0; padding: 0;}
+.dowebok { font-family: "Microsoft Yahei";}
+.dowebok h1 { margin: 60px 0 30px; font-size: 60px; font-weight: 500; text-align: center;}
+.dowebok-explain { margin-bottom: 80px; font-size: 14px; text-align: center;}
+.dowebok .list { width: 1064px; margin: 0 auto; overflow: hidden; zoom: 1;}
+.dowebok .list ul { float: left; width: 246px; margin: 0 10px; list-style-type: none;}
+.dowebok .list li { margin-bottom: 20px;}
+.dowebok .list img { width: 100%; border-radius: 5px; vertical-align: top;}
+</style>
+</head>
+
+<body class="dowebok">
+<h1>scrollReveal.js演示2</h1>
+
+<p class="dowebok-explain">页面滚动显示动画效果，IE10 以下无效</p>
+
+<div class="list"> 
+	<ul>
+		<li data-scroll-reveal="enter top"><img src="images/1.jpg" alt=""></li>
+		<li data-scroll-reveal="enter right after 0.5s"><img src="images/2.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 300px after 0.3s"><img src="images/3.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 0.5s and move 200px"><img src="images/4.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 100px"><img src="images/5.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 300px after 0.3s"><img src="images/6.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/7.jpg" alt=""></li>
+		<li data-scroll-reveal="enter left"><img src="images/8.jpg" alt=""></li>
+	</ul>
+	<ul>	
+		<li data-scroll-reveal="enter top"><img src="images/9.jpg" alt=""></li>
+		<li data-scroll-reveal="enter left"><img src="images/10.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top"><img src="images/11.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/12.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 100px"><img src="images/13.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 0.5s and move 200px"><img src="images/14.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/15.jpg" alt=""></li>
+		<li data-scroll-reveal="enter right after 0.5s"><img src="images/16.jpg" alt=""></li>
+	</ul>
+	<ul>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/17.jpg" alt=""></li>
+		<li data-scroll-reveal="enter left"><img src="images/18.jpg" alt=""></li>
+		<li data-scroll-reveal="enter right after 0.5s"><img src="images/19.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top"><img src="images/20.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 100px"><img src="images/21.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 0.5s and move 200px"><img src="images/22.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 300px after 0.3s"><img src="images/23.jpg" alt=""></li>
+		<li data-scroll-reveal="enter right after 0.5s"><img src="images/24.jpg" alt=""></li>
+	</ul>
+	<ul>
+		<li data-scroll-reveal="enter left"><img src="images/25.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/26.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 100px"><img src="images/27.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 0.5s and move 200px"><img src="images/28.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/29.jpg" alt=""></li>
+		<li data-scroll-reveal="enter left"><img src="images/30.jpg" alt=""></li>
+		<li data-scroll-reveal="enter top over 3s after 0.5s"><img src="images/31.jpg" alt=""></li>
+		<li data-scroll-reveal="enter bottom over 1s and move 100px"><img src="images/32.jpg" alt=""></li>
+	</ul>
+</div>
+
+<script src="js/scrollReveal.js"></script> 
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+		(function(){
+		window.scrollReveal = new scrollReveal({reset: true});
+	})();
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+<style>
+.dowebok .vad { margin: 50px 0 5px; padding-bottom: 150px; font-family: Consolas,arial,宋体; text-align:center;}
+.dowebok .vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 50px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+.dowebok .vad a:hover { color: #fff; background-color: #000;}
+.dowebok .thead { width: 728px; height: 90px; margin: 0 auto; border-bottom: 40px solid transparent;}
+</style>
+<p class="vad">
+	<a href="http://www.dowebok.com/" target="_blank">dowebok.com</a>
+	<a href="http://www.dowebok.com/134.html" target="_blank">说 明</a>
+	<a href="http://www.dowebok.com/134.html" target="_blank">下 载</a>
+</p>
+
+</body>
+</html>

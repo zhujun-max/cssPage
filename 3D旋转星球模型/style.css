@@ -1,0 +1,161 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #000;
+}
+.window {
+	position: relative;
+	float: left;
+	margin: 0px 150px;
+	perspective: 800px;
+}
+.father {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin: 100px auto;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% -150px; /*中心旋转*/
+	/*transform-origin: 0 100px; 绕左前轴旋转*/
+	/*transform: translateZ(-150px);*/
+	animation: xuanz 5s linear 1s infinite;
+}
+.children {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/*transition:all 1s ease;*/
+	opacity: 0.5;
+}
+.c1 {
+	background: red;
+	transform-origin: bottom;
+	transform: rotateX(90deg);
+}
+.c2 {
+	background: white;
+}
+.c3 {
+	background: green;
+	transform: translateZ(-300px);
+}
+.c4 {
+	transform-origin: top;
+	background: orange;
+	transform: rotateX(-90deg);
+}
+.c5 {
+	background: blue;
+	transform: rotateY(90deg);
+	transform-origin: left;
+}
+.c6 {
+	transform: rotateY(-90deg);
+	background: gray;
+	transform-origin: right;
+}
+@keyframes xuanz{
+	0% {
+		transform: rotateY(0deg);
+	}
+	20% {
+		transform: rotateY(90deg);
+	}
+	40% {
+		transform: rotateY(180deg);
+	}
+	80% {
+		transform: rotateY(270deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+.ball {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin: 100px auto;
+	transform-style: preserve-3d;
+	animation: gundong 5s linear 1s infinite;
+}
+.xcircle,.ycircle,.zcircle {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	border-radius: 50%;
+	transition:all 1s ease;
+}
+.x1,.x3,.y1,.y3,.z1,.z3 {
+	width: 87.5%;
+	height: 87.5%;
+	margin: 6.25% auto;
+}
+.x2,.y2,.z2 {
+	width: 100%;
+	height: 100%;
+}
+.x2,.xLine {
+	border: solid 2px blue;
+	transform: rotateX(90deg);
+}
+.z2,.zLine {
+	border: solid 2px orange;
+	transform: rotateY(90deg);
+}
+.ycircle,.yLine {
+	border: solid 2px red;
+}
+.yLine {
+	transform: rotateZ(90deg);
+}
+.x1 {
+	border: solid 2px blue;
+	transform: rotateX(90deg) translateZ(75px);
+}
+.x3 {
+	border: solid 2px blue;
+	transform: rotateX(90deg) translateZ(-75px);
+}
+.z1 {
+	border: solid 2px orange;
+	transform: rotateY(90deg) translateZ(75px);
+}
+.z3 {
+	border: solid 2px orange;
+	transform: rotateY(90deg) translateZ(-75px);
+}
+.y1 {
+	border: solid 2px red;
+	transform: translateZ(75px);
+}
+.y3 {
+	border: solid 2px red;
+	transform: translateZ(-75px);
+}
+.xLine,.yLine,.zLine {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+}
+@keyframes gundong{
+	0% {
+		transform: rotateY(0deg) rotateX(0deg);
+	}
+	20% {
+		transform: rotateY(90deg) rotateX(90deg);
+	}
+	40% {
+		transform: rotateY(180deg) rotateX(180deg);
+	}
+	80% {
+		transform: rotateY(270deg) rotateX(270deg);
+	}
+	100% {
+		transform: rotateY(360deg) rotateX(360deg);
+	}
+}

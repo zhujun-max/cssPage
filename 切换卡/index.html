@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="joinin-info">
+    <ul id="tabs-nav">
+      <li class="tabs-selected">
+        <h3>招商方向</h3>
+      </li>
+      <li class="">
+        <h3>招商标准</h3>
+      </li>
+      <li class="">
+        <h3>资质要求</h3>
+      </li>
+      <li class="">
+        <h3>资费标准</h3>
+      </li>
+    </ul>
+    <div class="tabs-panel">
+    </div>
+	<div class="tabs-panel tabs-hide">
+    </div>
+    <div class="tabs-panel tabs-hide">
+    </div>
+<script type="text/javascript">
+  window.onload = function () {
+      var ul = document.getElementById('joinin-info').getElementById("tabs-nav");
+      var lis = ul.getElementsByTagName("li");
+      var panels = document.getElementsByClassName("tabs-panel");
+      for (var i = 0; i < lis.length; i++) {
+        (function (i) {
+            lis[i].onmouseover = function () {
+              for (var j = 0; j < lis.length; j++) {
+                lis[j].setAttribute("class"," ");
+                panels[j].setAttribute("class","tabs-panel tabs-hide");
+              };
+              lis[i].setAttribute("class","tabs-selected");
+              panels[i].setAttribute("class","tabs-panel");
+          }
+        })(i);
+      };
+  }
+</script>
+</body>
+</html>

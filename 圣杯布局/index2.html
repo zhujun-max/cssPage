@@ -1,0 +1,46 @@
+<!-- 圣杯布局：两边定宽，中间自适应的三栏布局，中间栏要放在文档流前面以优先渲染。 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+      .content{padding: 0 100px;}
+      .col{
+          float: left;
+          height: 200px;
+          position: relative;
+      }
+      .left,.right{
+          width: 100px;
+      }
+      .left{
+          background-color: blue;
+      }
+      .right{
+          background-color: green;
+      }
+      .center{
+          width: 100%;
+          background-color: pink;
+      }
+      .left{margin-left:-100%;}
+      .right{margin-left:-100px;}
+      .left{right:100px;}
+      .right{left:100px;}
+
+    </style>
+</head>
+<body>
+  <div class="content">
+    <div class="center col">
+    </div>
+    <div class="left col">
+    </div>
+    <div class="right col">
+    </div>
+  </div>
+
+</body>
+</html>

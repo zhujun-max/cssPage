@@ -1,0 +1,54 @@
+<!-- 圣杯布局 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .left {
+      background: #E79F6D;
+      width: 150px;
+      float: left;
+    }
+
+    .main {
+      background: #D6D6D6;
+      width: 100%;
+      float: left;
+    }
+
+    .right {
+      background: #77BBDD;
+      width: 190px;
+      float: left;
+    }
+    .left {
+      margin-left: -100%;
+    }
+    .right{
+      margin-left:-190px;
+    }
+    /* 设置padding后，margin是不占用其他元素的padding的，padding只是用来调节内部元素与本身的距离，margin调节才是本身与周围之间的距离 */
+    .con {
+      padding-left: 150px;
+      padding-right: 190px;
+    }
+    .left {
+      position: relative;
+      left: -150px;
+    }
+    .right {
+      position: relative;
+      right: -190px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="con">
+    <div class="main">Main</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+  </div>
+</body>
+
+</html>

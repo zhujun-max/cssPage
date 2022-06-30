@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .main {
+            display: flex;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .content {
+            flex: 1;
+            width: 0;
+        }
+        /* 另外一种方法
+        .content {
+            flex: 1;
+            overflow: hidden；
+        } */
+
+        .content>* {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <img alt="" class="logo" src="pic.jpg">
+        <div class="content">
+            <h4 class="name">a name</h4>
+            <p class="info">a info</p>
+            <p class="notice">This is notice content. notice content. notice content. notice content. notice content. notice
+                content. notice content. notice content. notice content. notice content. notice content. notice content.
+                notice content. notice content. notice content. notice content. notice content. notice content. notice content.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

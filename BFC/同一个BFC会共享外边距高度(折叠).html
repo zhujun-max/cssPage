@@ -1,0 +1,42 @@
+<!-- <head>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+</body> -->
+
+<!-- 两个 div 元素都处于同一个 BFC 容器下 (这里指 body 元素) 所以第一个 div 的下边距和第二个 div 的上边距发生了重叠，
+所以两个盒子之间距离只有 100px，而不是 200px。
+
+首先这不是 CSS 的 bug，我们可以理解为一种规范，如果想要避免外边距的重叠，可以将其放在不同的 BFC 容器中。 -->
+
+<head>
+    <style>
+        .container {
+            overflow: hidden;
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            margin: 100px;
+        }
+    </style>
+
+    <div class="container">
+        <p></p>
+    </div>
+    <div class="container">
+        <p></p>
+    </div>
+</head>

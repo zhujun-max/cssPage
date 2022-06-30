@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <style>
+    .keepbj {
+      /* //通过class来设置 */
+      width: 300px;
+      height: 300px;
+      border: 1px solid #f00;
+    }
+
+    #div1 {
+      float: left;
+      width: 40px;
+      height: 100px;
+      border: 1px solid #f00;
+      
+    }
+
+    #div2 {
+      float: right;
+      width: 40px;
+      height: 100px;
+      border: 1px solid #f00;
+      
+    }
+
+    #div3 {
+      clear: both; 
+      /* //div3就不受float的影响。 */
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+
+</head>
+
+<body>
+ 
+    <div id='div1'>我会在左边</div>
+    <!-- <div id='div2'>我会在右边</div> -->
+  
+  <div id='div3'>
+    我不会受flaot的影响。
+  </div>
+</body>
+
+</html>

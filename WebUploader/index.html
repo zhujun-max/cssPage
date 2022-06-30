@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>文件上传</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .shadow {
+            width: 50%;
+            height: 300px;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .dot {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: dotted 3px #cfcfcf;
+        }
+        .fake {
+            width: 150px;
+            height: 50px;
+            background: #00b7fe;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: -50px;
+            margin-left: -75px;
+        }
+        .fake:active {
+            background: #025670;
+        }
+        .submit {
+            display: block;
+            width: 100px;
+            height: 30px;
+            background: #00b7fe;
+            border: solid 3px #00b7fe;
+            color: #fff;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            table-layout: fixed;
+        }
+        table tr:first-child {
+            background: #00b7fe;
+            color: #fff;
+        }
+        table td {
+            text-align: center;
+            border-bottom: solid 1px #00b7fe;
+        }
+    </style>
+</head>
+<body>
+    <div id="uploader" class="shadow">
+        <div id="dragWrapper" class="dot">
+            <div class="btns">
+                <div id="picker" class="fake">选择文件</div>
+            </div>
+        </div>
+    </div>
+    <button class="submit" id="submit">开始上传</button>
+    <table id="table">
+        <tr>
+            <th>文件名</th>
+            <th>文件大小</th>
+            <th>进度</th>
+            <th>状态</th>
+        </tr>
+    </table>
+            
+    <script type="text/javascript">
+        var uploader = WebUploader.create({
+
+            // 可拖拽区域
+            dnd: '#uploader',
+
+            // 禁用浏览器拖拽文件的默认处理
+            disableGlobalDnd: true,
+
+            // 文件接收服务端。
+            server: 'http://webuploader.duapp.com/server/fileupload.php',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#picker',
+
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize: false
+        });
+        
+        // 当有文件被添加进队列的时候
+        uploader.on( 'fileQueued', function( file ) {
+            $('#table').append(
+                '<tr id="' + file.id + '">'
+                + '<td>' + file.name + '</td>'
+                + '<td>' + Math.round(file.size / 1000) + 'KB</td>'
+                + '<td><div class="progress">0%</div></td>'
+                + '<td><p class="state">未开始</p></td>'
+                + '</tr>'
+            );
+        });
+
+        // 开始上传操作
+        $('#submit').on('click', function() {
+            uploader.upload();
+        });
+
+        // 文件上传过程中创建进度条实时显示。
+        uploader.on( 'uploadProgress', function( file, percentage ) {
+            var $li = $( '#'+file.id );
+            var $percent = $li.find('.progress');
+
+            // 避免重复创建
+            if ( !$percent.length ) {
+                $percent = $('<div class="progress progress-striped active">' +
+                '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                '</div>' +
+                '</div>').appendTo( $percent );
+            }
+
+            $li.find('p.state').text('上传中');
+
+            $percent.css( 'width', percentage * 100 + '%' );
+        });
+
+        uploader.on( 'uploadSuccess', function( file ) {
+            $( '#'+file.id ).find('p.state').text('已上传');
+        });
+
+        uploader.on( 'uploadError', function( file ) {
+            $( '#'+file.id ).find('p.state').text('上传出错');
+        });
+
+        uploader.on( 'uploadComplete', function( file ) {
+            $( '#'+file.id ).find('.progress').fadeOut();
+        });
+
+    </script>
+</body>
+</html>
