@@ -1,0 +1,19 @@
+/* 实现滤镜关键CSS样式 */
+[data-filter*=image-]{flex:0 1 20%;line-height:0;position:relative;z-index:0;}
+[data-filter*=image-] img{height:auto;width:100%;}
+[data-filter="image-grayscale"] img{filter:grayscale(50%);}
+[data-filter="image-saturate"] img{filter:saturate(360%);}
+[data-filter="image-sepia"] img{filter:sepia(100%);}
+[data-filter="image-invert"] img{filter:invert(100%);}
+[data-filter="image-opacity"] img{filter:opacity(50%);}
+[data-filter="image-brightness"] img{filter:brightness(120%);}
+[data-filter="image-contrast"] img{filter:contrast(160%);}
+[data-filter="image-hue-rotate"] img{filter:hue-rotate(160deg);}
+[data-filter="image-blur"] img{filter:blur(2px);}
+
+
+body{background:#163065;color:#fff;font-family:'Dosis',sans-serif;line-height:1;}
+.lanren{display:flex;flex-wrap:wrap;}
+.lanren h2{background:rgba(100,0,50,0.8);color:#fff;display:block;font-size:1.25rem;font-weight:300;left:0;line-height:1.5;margin:0;padding:.5rem;position:absolute;top:0;z-index:1;}
+.lanren a{color:#fff;display:inline-block;font-size:1rem;}
+.lanren a:hover{color:#f8be00;}

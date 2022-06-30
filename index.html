@@ -14,15 +14,36 @@
   </div>
   <script>
     var arr = [
-      '2020', 'border-button',
-      'button', 'card',
-      'clock', 'switch-button',
-      'douyin', 'hetongxue-piantou',
-      'jianzhi', 'line-font',
-      'loading', 'login',
-      'login2', 'login3',
-      'todo-list', 'page-404',
-      'split-font'
+      '1',
+      '2020',
+      '20种炫酷的菜单线条动画特效UI设计效果',
+      'border-button',
+      'button',
+      'Canvas光束光线爆炸特效',
+      'card',
+      'clock',
+      // 'docs',
+      'douyin',
+      'hetongxue-piantou',
+      'jianzhi',
+      'jiaoben5961',
+      'jiaoben6024',
+      'JS口袋妖怪列表选择交互',
+      'line-font',
+      'loading',
+      'login',
+      'login2',
+      'login3',
+      'page-404',
+      'pxLineBg',
+      // 'shaolei',
+      'split-font',
+      'switch-button',
+      'todo-list',
+      '多款炫酷鼠标悬停图文动画效果',
+      // '粒子特效',
+      '纯CSS3图片滤镜效果',
+      '纯CSS3花瓣旋转加载动画'
     ]
     var box = document.getElementById('box')
     arr.map((v) => {
@@ -30,13 +51,13 @@
       var actions = document.createElement('div')
       actions.className = 'actions'
       var preview = document.createElement('a')
-      var video = document.createElement('a')
+      var code = document.createElement('a')
       preview.href = `./${v}/index.html`
       preview.innerHTML = "效果预览"
-      video.href = "javascript:;"
-      video.innerHTML = "观看视频"
+      code.href = `https://github.com/zhujun-max/cssPage/blob/master/${v}/index.html`
+      code.innerHTML = "查看代码"
       actions.appendChild(preview)
-      actions.appendChild(video)
+      actions.appendChild(code)
 
       // 创建外部的iframe和div
       var div = document.createElement('div')

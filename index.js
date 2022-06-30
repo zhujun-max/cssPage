@@ -10,6 +10,7 @@ fs.readdir(process.cwd(), function (err, data) {
   // console.log('	选择你要查看的文件或目录！\n');
   // console.log(data);
   data.map((d) => {
+    console.log(d)
     // console.log(d);
     // 使用stat()方法，区分是文件还是目录
     //语法：fs.stat(路径+/+遍历后的数据d,回调函数)
