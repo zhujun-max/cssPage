@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊的前端小窝</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(170, 190, 250);
+        }
+        .shell{
+            width: 260px;
+            height: 400px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+            overflow: hidden;
+        }
+        .main-top{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #5f71e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+            transition: .3s;
+        }
+        .line{
+            width: 8px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transform: translate(-50%);
+            background-color: rgba(255, 255, 255, .5);
+        }
+        .ball img{
+            width: 130px;
+            transition: .3s;
+        }
+        .ball{
+            width: 130px;
+            height: 130px;
+            background-color: #5f71e0;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.5);
+            display: block;
+            z-index: 99;
+        }
+        .main-top h2{
+            transform: translate(-65px,-40px);
+        }
+        .main-top span{
+            position: absolute;
+            writing-mode: tb-rl;
+            font-size: 5px;
+            transform: translate(100px);
+        }
+        .main-bottom{
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            font-size: 5px;
+            color: #5f71e0;
+            padding:3px 0;
+        }
+        .main-bottom span{
+            display: block;
+            padding:5px;
+        }
+        .shell:hover .main-top{
+            height: 290px;
+        }
+        .shell:hover .ball img{
+            transform: rotate(30deg) scale(1.2) translate(0px,-15px);
+        }
+        /*  */
+        .shell:nth-child(2) .main-top,
+        .shell:nth-child(2) .ball{
+            background-color: #e98b1d;
+        }
+        .shell:nth-child(2) .main-bottom{
+            color: #e98b1d;
+        }
+        /*  */
+        .shell:nth-child(3) .main-top,
+        .shell:nth-child(3) .ball{
+            background-color: #72aea8;
+        }
+        .shell:nth-child(3) .main-bottom{
+            color: #72aea8;
+        }
+</style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="main-top">
+            <h2>AJ-1</h2>
+            <div class="ball">
+                <img src="./image/Aj1.png" alt="">
+            </div>
+            <div class="line"></div>
+            <span>Air Jordan 1 Retro High Turbo Green (GS) 蒂芙尼绿</span>
+        </div>
+        <div class="main-bottom">
+            <h2>Air Jordan</h2>
+            <span>
+                &nbsp; &nbsp; &nbsp; 创立于1985年，是以Nike旗下知名NBA球星迈
+                克尔·乔丹(Michael Jordan)命名的系列。30多年过
+                去了，Air Jordan系列已然成为全球超高人气的篮球
+                鞋系列。许多热门鞋款也已经成为潮流人士的心爱之
+                选。
+            </span>
+        </div>
+    </div>
+<!--  -->
+    <div class="shell">
+        <div class="main-top">
+            <h2>AJ-2</h2>
+            <div class="ball">
+                <img src="./image/Aj2.png" alt="">
+            </div>
+            <div class="line"></div>
+            <span>Air Jordan 1 Retro High Turbo Green (GS) 蒂芙尼绿</span>
+        </div>
+        <div class="main-bottom">
+            <h2>Air Jordan</h2>
+            <span>
+                &nbsp; &nbsp; &nbsp; 创立于1985年，是以Nike旗下知名NBA球星迈
+                克尔·乔丹(Michael Jordan)命名的系列。30多年过
+                去了，Air Jordan系列已然成为全球超高人气的篮球
+                鞋系列。许多热门鞋款也已经成为潮流人士的心爱之
+                选。
+            </span>
+        </div>
+    </div>
+<!--  -->
+    <div class="shell">
+        <div class="main-top">
+            <h2>AJ-3</h2>
+            <div class="ball">
+                <img src="./image/Aj3.png" alt="">
+            </div>
+            <div class="line"></div>
+            <span>Air Jordan 1 Retro High Turbo Green (GS) 蒂芙尼绿</span>
+        </div>
+        <div class="main-bottom">
+            <h2>Air Jordan</h2>
+            <span>
+                &nbsp; &nbsp; &nbsp; 创立于1985年，是以Nike旗下知名NBA球星迈
+                克尔·乔丹(Michael Jordan)命名的系列。30多年过
+                去了，Air Jordan系列已然成为全球超高人气的篮球
+                鞋系列。许多热门鞋款也已经成为潮流人士的心爱之
+                选。
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>

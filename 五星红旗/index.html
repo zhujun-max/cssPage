@@ -1,0 +1,77 @@
+<style>
+    .China-flag {
+        margin: 5vw auto 2vw auto;
+        width: 51.2vw;
+        height: 34.1vw;
+        background: #f00;
+    }
+
+    /* flag-star本身一个三角形 */
+    /* 这里用before，after也创建了两个三角形，好处就是不用单独声明html */
+    .flag-star,
+    .flag-star::before,
+    .flag-star::after {
+        width: 0;
+        height: 0;
+        border-right: 5vw solid transparent;
+        border-left: 5vw solid transparent;
+        border-top: 3.5vw solid #ff0;
+    }
+
+    .flag-star {
+        position: relative;
+    }
+
+    .flag-star::after,
+    .flag-star::before {
+        position: absolute;
+        content: "";
+        /* 让before和after的三角形和flag-star重合 */
+        top: -3.5vw;
+        left: -5vw;
+    }
+
+    /* 让另外两个三角形渲染整体形成五角星 */
+    .flag-star::after {
+        transform: rotate(72deg);
+    }
+
+
+    .flag-star::before {
+        transform: rotate(-70.5deg);
+    }
+
+    /* ==after旋转288 */
+    /* .flag-star::after {
+        transform: rotate(288deg);
+    } */
+
+    /* 几何学的计算。。*/
+    .flag-star:nth-child(1) {
+        transform: translate(3.5vw, 7vw) scale(0.9);
+    }
+
+    .flag-star:nth-child(2) {
+        transform: translate(11vw, -2vw) scale(0.33) rotate(-45deg);
+    }
+
+    .flag-star:nth-child(3) {
+        transform: translate(15vw, -2vw) scale(0.33) rotate(45deg);
+    }
+
+    .flag-star:nth-child(4) {
+        transform: translate(15vw, 0px) scale(0.33);
+    }
+
+    .flag-star:nth-child(5) {
+        transform: translate(11vw, 0px) scale(0.33) rotate(-45deg);
+    }
+</style>
+
+<div class="China-flag">
+    <div class="flag-star"></div>
+    <div class="flag-star"></div>
+    <div class="flag-star"></div>
+    <div class="flag-star"></div>
+    <div class="flag-star"></div>
+</div>
