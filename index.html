@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./vue.js"></script>
+  <script src="./vue.js"></script>
   <title>CSS效果</title>
 </head>
 
@@ -14,264 +14,13 @@
   <div id="app" :class="(scrollTop-200)/220*3+':::'+(scrollTop+screenHeight+220)/220*3 ">
     <div v-for="(v,i) in arr" :key="i" :class="'a'+i">
       <div class="actions">
-        <a>{{v}}</a>
-        <a>{{i}}</a>
+        <a :href="'./'+v+'/index.html'">{{v}}</a>
+        <a :href="">{{i}}</a>
       </div>
-      <iframe :src="'./'+v+'/index.html'" frameborder="0" scrolling="no" v-if="i>=(scrollTop-200)/220*3 && i<=(scrollTop+screenHeight+220)/220*3"></iframe>
+      <iframe :src="'./'+v+'/index.html'" frameborder="0" scrolling="no"
+        v-if="i>=(scrollTop-200)/220*3 && i<=(scrollTop+screenHeight+220)/220*3"></iframe>
     </div>
   </div>
-  <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-          screenHeight:0,
-          scrollTop:0, // 滚动条当前的位置
-          arr: [
-"01-social-icon-hover-glow-effect",
-"02-login-form-glass-effect",
-"03-chatting-ui",
-"04-svg-text-drawing-effect",
-"05-button-hover-border-drawing-effect",
-"06-libra-ui-concept",
-"07-3d-cubic-images",
-"08-parallax-scrolling",
-"09-japanese-pronunciation",
-"1",
-"10-navigation-bar",
-"11-canvas-bar-chart",
-"12-skill-progress-bar",
-"13-css-3d-tutorial",
-"14-image-slider",
-"15-responsive-navbar",
-"16-svg-animation-truck",
-"17-upload-button",
-"18-elsa-magic-effect",
-"19-profile-card",
-"20-typewritter-effect",
-"2020",
-"2021.10.10.广告名片",
-"2021.10.24.鼠标跟随",
-"2021.11.13.选项卡",
-"2021.11.21鼠标视差滚轮响应",
-"2021.11.7.贼帅的高级杂志切换效果",
-"2021.12.19.圣诞树",
-"2021.2.12翻页漫画",
-"2021.2.203D轮播图片",
-"2021.3.14登入页面",
-"2021.3.1动态输入框",
-"2021.3.19视觉差名片",
-"2021.4.25.高端个人名片",
-"2021.4.9.原来轮播图也可以那么漂亮",
-"2021.5.29瀑布流布局",
-"2021.6.27.Css键盘",
-"2021.7.11.滑动视差",
-"2021.7.18.搜索框2",
-"2021.7.25.360度全景图",
-"2021.7.4.滚轮视差",
-"2021.9.12.侧边导航栏",
-"2021.9.26.js轮播图",
-"2021.9.7.砖石布局",
-"2022.1.23.简而美翻转登录注册",
-"2022.3.13.文字环绕图片",
-"2022.3.27.鼠标悬停方向感应名片",
-"2022.4.3.文件分支树",
-"20种炫酷的菜单线条动画特效UI设计效果",
-"21-range-slider",
-"22-face-reco-mask",
-"23-fullwebsite-design-agency",
-"24-fetch-get-data",
-"25-neumorphism-tabs",
-"26-glassmorphism",
-"27-glitch-effect",
-"28-css-colors",
-"29-resizable-element",
-"30-gradient-background-animation",
-"31-05-wechat-emoji-effect",
-"31-webcomponent-get-started",
-"32-place-item-center",
-"33-text-image-layout",
-"34-drag-drop-api",
-"35-collision-physics",
-"36-tech-website",
-"37-container-queries",
-"38-horizontal-scrolling",
-"39-web-animations",
-"3dCard",
-"3D导航栏",
-"3D折叠效果",
-"3D排版",
-"3D旋转星球模型",
-"3D翻转",
-"40-multi-column-layout",
-"41-css-scroll-snap",
-"42-clipboard-api",
-"43-css-gradient-shadow",
-"44-css-pointer-events",
-"45-URLSearchParams",
-"46-css-aspect-ratio",
-"47-css-custom-scrollbar",
-"book",
-"border-button",
-"button",
-"calculator",
-"Canvas光束光线爆炸特效",
-"card",
-"ClipTransition",
-"clock",
-"CSS3时钟效果",
-"CSS实现垂直居中",
-"CSS鹦鹉",
-"cube",
-"cyberpunk",
-"div高度随宽度变化",
-"docs",
-"douyin",
-"egg",
-"file_manager",
-"fingerprint",
-"flex实现瀑布流",
-"Flex布局集锦",
-"H5弹跳小球",
-"H5粒子时间",
-"H5粒子时间+弹跳小球",
-"hetongxue-piantou",
-"H5繁星",
-"hjiaoben84",
-"iphone",
-"iPhone12页面卷动逐行滑入效果",
-"iPhone镂空动画",
-"jianzhi",
-"jiaoben5961",
-"jiaoben6024",
-"jiaoben8023",
-"JS加载效果特效",
-"JS口袋妖怪列表选择交互",
-"JS颜色插件",
-"landingPage",
-"light",
-"LightOff",
-"line-font",
-"loading",
-"login",
-"login2",
-"login3",
-"masonry",
-"page-404",
-"polaroid",
-"profile",
-"pxLineBg",
-"shaolei",
-"shichagundong",
-"slider",
-"sortCard",
-"split",
-"split-font",
-"svg_animation",
-"svg_text_animation",
-"switch-button",
-"TENS",
-"todo-list",
-"underline",
-"wave",
-"viewport",
-"waterfallflow",
-"wushiyin",
-"WebUploader",
-"yijiansanlian",
-"五彩按钮",
-"五星红旗",
-"切换卡",
-"刮刮乐",
-"双飞翼布局",
-"圣杯布局",
-"多款炫酷鼠标悬停图文动画效果",
-"拉伸和透明",
-"故障风特效",
-"指纹按钮",
-"文件上传",
-"新拟态UI",
-"新拟态计算机",
-"模态框手撸版",
-"模态框插件",
-"水滴融合",
-"浮动文字",
-"滑动门",
-"漂亮的input输入框",
-"火焰文字",
-"登录框",
-"粒子特效",
-"纯CSS3图片滤镜效果",
-"纯CSS3花瓣旋转加载动画",
-"赛博朋克",
-"纯CSS轮播图",
-"错误页面",
-"闪光文字",
-"页面滑动",
-"黑金卡片"
-         ]
-          },
-         methods: {
-        //滚动事件
-        handleScroll () {
-            this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            // console.log('滚动条高度', scrollTop)
-
-            // var offsetTop = document.querySelector('#tabbarBox').offsetTop // 获取所需元素到文档顶部的距离，然后判断滚动条位置让该元素是否固定定位
-            // console.log(scrollTop)
-            // if (scrollTop > offsetTop) {
-            //   this.tabbarBoxFixed = true
-            // } else {
-            //   this.tabbarBoxFixed = false
-            // }
-          },
-        },
-        mounted () {
-          	// window.screenWidth = document.body.clientWidth;
-            // window.screenHeight = window.screen.height
-            // this.screenWidth = window.screenWidth;
-            this.screenHeight = window.screen.height
-
-            // console.log('页面高度',window.screenHeight);
-            console.log('页面高度2',window.screen.height);
-            // console.log('页面宽度',window.screenWidth);
-          // 向页面添加股东事件
-          window.addEventListener('scroll', this.handleScroll, true);
-        },
-        destroyed () { //离开这个界面之后，删除滚动事件，不然容易除bug
-          window.removeEventListener('scroll', this.handleScroll)
-        }
-      })
-  </script>
-  <!-- <script>
-    // var scriptObjs = document.scripts;
-    // console.log(scriptObjs)
-    // var currentPath = scriptObjs[scriptObjs.length - 1].src.substring(0, scriptObjs[scriptObjs.length - 1].src.lastIndexOf("/") + 1);
-    // console.log(currentPath)
-    var box = document.getElementById('box')
-    arr.map((v) => {
-      // 创建顶部点击栏
-      var actions = document.createElement('div')
-      actions.className = 'actions'
-      var preview = document.createElement('a')
-      var code = document.createElement('a')
-      // preview.href = `./${v}/index.html`
-      preview.innerHTML = "效果预览"
-      // code.href = `https://github.com/zhujun-max/cssPage/blob/master/${v}/index.html`
-      code.innerHTML = "查看代码"
-      actions.appendChild(preview)
-      actions.appendChild(code)
-
-      // 创建外部的iframe和div
-      var div = document.createElement('div')
-      var iframe = document.createElement('iframe')
-      // iframe.src = `./${v}/index.html`
-      iframe.frameborder = '0'
-      iframe.scrolling = 'no'
-      div.appendChild(iframe)
-      div.appendChild(actions)
-      box.appendChild(div)
-    })
-  </script> -->
   <style>
     body {
       margin: 0;
@@ -340,6 +89,7 @@
       font-weight: 200;
     }
   </style>
+  <script src="./index.js"></script>
 </body>
 
 </html>

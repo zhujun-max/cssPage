@@ -1,32 +1,210 @@
-var fs = require('fs')
-// console.log('1111')
-fs.readdir(process.cwd(), function (err, data) {
-  var stats = [];    //避免再次执行fs.stat
-  // console.log('222222222')
-  // console.log("");
-  // if (!data.length) {
-  //   return console.log('\033[31m No data to show!\033[39m\n');
-  // }
-  // console.log('	选择你要查看的文件或目录！\n');
-  // console.log(data);
-  data.map((d) => {
-    // console.log(d)
-    // console.log(d);
-    // 使用stat()方法，区分是文件还是目录
-    //语法：fs.stat(路径+/+遍历后的数据d,回调函数)
-   return fs.stat(__dirname+'/'+d,(err,stat) => {
-      if (err) throw err
-      if (stat.isDirectory()) {
-        //判断当前文件是否是目录
-        console.log(d);
-      }else if (stat.isFile()) {
-        //判断当前文件是否是普通文件
-        // console.log('文件:'+d);
-      }
-    })
-  })
-
-
-  affr = data.filter((v) => {return v.indexOf('.') === -1})
-  console.log(affr)
-})
+var app = new Vue({
+  el: "#app",
+  data: {
+    screenHeight: 0, //当前屏幕的高度
+    scrollTop: 0, // 滚动条当前的位置
+    arr: [
+      "01-social-icon-hover-glow-effect",
+      "02-login-form-glass-effect",
+      "03-chatting-ui",
+      "04-svg-text-drawing-effect",
+      "05-button-hover-border-drawing-effect",
+      "06-libra-ui-concept",
+      "07-3d-cubic-images",
+      "08-parallax-scrolling",
+      "09-japanese-pronunciation",
+      "1",
+      "10-navigation-bar",
+      "11-canvas-bar-chart",
+      "12-skill-progress-bar",
+      "13-css-3d-tutorial",
+      "14-image-slider",
+      "15-responsive-navbar",
+      "16-svg-animation-truck",
+      "17-upload-button",
+      "18-elsa-magic-effect",
+      "19-profile-card",
+      "20-typewritter-effect",
+      "2020",
+      "2021.10.10.广告名片",
+      "2021.10.24.鼠标跟随",
+      "2021.11.13.选项卡",
+      "2021.11.21鼠标视差滚轮响应",
+      "2021.11.7.贼帅的高级杂志切换效果",
+      "2021.12.19.圣诞树",
+      "2021.2.12翻页漫画",
+      "2021.2.203D轮播图片",
+      "2021.3.14登入页面",
+      "2021.3.1动态输入框",
+      "2021.3.19视觉差名片",
+      "2021.4.25.高端个人名片",
+      "2021.4.9.原来轮播图也可以那么漂亮",
+      "2021.5.29瀑布流布局",
+      "2021.6.27.Css键盘",
+      "2021.7.11.滑动视差",
+      "2021.7.18.搜索框2",
+      "2021.7.25.360度全景图",
+      "2021.7.4.滚轮视差",
+      "2021.9.12.侧边导航栏",
+      "2021.9.26.js轮播图",
+      "2021.9.7.砖石布局",
+      "2022.1.23.简而美翻转登录注册",
+      "2022.3.13.文字环绕图片",
+      "2022.3.27.鼠标悬停方向感应名片",
+      "2022.4.3.文件分支树",
+      "20种炫酷的菜单线条动画特效UI设计效果",
+      "21-range-slider",
+      "22-face-reco-mask",
+      "23-fullwebsite-design-agency",
+      "24-fetch-get-data",
+      "25-neumorphism-tabs",
+      "26-glassmorphism",
+      "27-glitch-effect",
+      "28-css-colors",
+      "29-resizable-element",
+      "30-gradient-background-animation",
+      "31-05-wechat-emoji-effect",
+      "31-webcomponent-get-started",
+      "32-place-item-center",
+      "33-text-image-layout",
+      "34-drag-drop-api",
+      "35-collision-physics",
+      "36-tech-website",
+      "37-container-queries",
+      "38-horizontal-scrolling",
+      "39-web-animations",
+      "3dCard",
+      "3D导航栏",
+      "3D折叠效果",
+      "3D排版",
+      "3D旋转星球模型",
+      "3D翻转",
+      "40-multi-column-layout",
+      "41-css-scroll-snap",
+      "42-clipboard-api",
+      "43-css-gradient-shadow",
+      "44-css-pointer-events",
+      "45-URLSearchParams",
+      "46-css-aspect-ratio",
+      "47-css-custom-scrollbar",
+      "book",
+      "border-button",
+      "button",
+      "calculator",
+      "Canvas光束光线爆炸特效",
+      "card",
+      "ClipTransition",
+      "clock",
+      "CSS3时钟效果",
+      "CSS实现垂直居中",
+      "CSS鹦鹉",
+      "cube",
+      "cyberpunk",
+      "div高度随宽度变化",
+      "docs",
+      "douyin",
+      "egg",
+      "file_manager",
+      "fingerprint",
+      "flex实现瀑布流",
+      "Flex布局集锦",
+      "H5弹跳小球",
+      "H5粒子时间",
+      "H5粒子时间+弹跳小球",
+      "hetongxue-piantou",
+      "H5繁星",
+      "hjiaoben84",
+      "iphone",
+      "iPhone12页面卷动逐行滑入效果",
+      "iPhone镂空动画",
+      "jianzhi",
+      "jiaoben5961",
+      "jiaoben6024",
+      "jiaoben8023",
+      "JS加载效果特效",
+      "JS口袋妖怪列表选择交互",
+      "JS颜色插件",
+      "landingPage",
+      "light",
+      "LightOff",
+      "line-font",
+      "loading",
+      "login",
+      "login2",
+      "login3",
+      "masonry",
+      "page-404",
+      "polaroid",
+      "profile",
+      "pxLineBg",
+      "shaolei",
+      "shichagundong",
+      "slider",
+      "sortCard",
+      "split",
+      "split-font",
+      "svg_animation",
+      "svg_text_animation",
+      "switch-button",
+      "TENS",
+      "todo-list",
+      "underline",
+      "wave",
+      "viewport",
+      "waterfallflow",
+      "wushiyin",
+      "WebUploader",
+      "yijiansanlian",
+      "五彩按钮",
+      "五星红旗",
+      "切换卡",
+      "刮刮乐",
+      "双飞翼布局",
+      "圣杯布局",
+      "多款炫酷鼠标悬停图文动画效果",
+      "拉伸和透明",
+      "故障风特效",
+      "指纹按钮",
+      "文件上传",
+      "新拟态UI",
+      "新拟态计算机",
+      "模态框手撸版",
+      "模态框插件",
+      "水滴融合",
+      "浮动文字",
+      "滑动门",
+      "漂亮的input输入框",
+      "火焰文字",
+      "登录框",
+      "粒子特效",
+      "纯CSS3图片滤镜效果",
+      "纯CSS3花瓣旋转加载动画",
+      "赛博朋克",
+      "纯CSS轮播图",
+      "错误页面",
+      "闪光文字",
+      "页面滑动",
+      "黑金卡片",
+    ],
+  },
+  methods: {
+    //滚动事件
+    handleScroll() {
+      this.scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+    },
+  },
+  mounted() {
+    this.screenHeight = window.screen.height;
+    console.log("页面高度2", window.screen.height);
+    // 向页面添加滚动事件
+    window.addEventListener("scroll", this.handleScroll, true);
+  },
+  destroyed () {
+    console.log('执行了吗')
+    //离开这个界面之后，删除滚动事件，不然容易除bug
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+});
