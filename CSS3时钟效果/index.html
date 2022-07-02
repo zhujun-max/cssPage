@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<title></title>
 	<style type="text/css">
 		body {
-			/*background-color: #ccc;*/
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			display: flex;
+			align-items: center;
 		}
+
 		ul {
 			margin: 0;
 			padding: 0;
 			list-style: none;
 		}
-		h1{
+
+		h1 {
 			text-align: center;
 			color: #333;
 			margin-top: 40px;
@@ -28,7 +35,8 @@
 			background-color: #292a38;
 			margin: 50px auto;
 		}
-		#pointer  #circle {
+
+		#pointer #circle {
 			width: 10px;
 			height: 10px;
 			border-radius: 100%;
@@ -44,16 +52,19 @@
 			top: 50%;
 			transform-origin: left center;
 		}
+
 		#line-hour li {
 			width: 10px;
 			height: 2px;
 			background-color: #fff;
 		}
+
 		#line-min li {
 			width: 5px;
 			height: 2px;
 			background-color: #fff;
 		}
+
 		/*数字*/
 		#number {
 			position: absolute;
@@ -66,10 +77,12 @@
 			font-size: 15px;
 			color: #fff;
 		}
+
 		#number li {
 			position: absolute;
 			transform: translate(-50%, -50%);
 		}
+
 		/*指针*/
 		#pointer li {
 			position: absolute;
@@ -78,27 +91,28 @@
 			transform-origin: left center;
 			background: #fff;
 		}
-		#pointer  #hour {
+
+		#pointer #hour {
 			width: 45px;
 			height: 3px;
 			margin-top: -1px;
 		}
-		#pointer  #min {
+
+		#pointer #min {
 			width: 60px;
 			height: 2px;
 			margin-top: -1px;
 		}
-		#pointer  #sec {
+
+		#pointer #sec {
 			width: 80px;
 			height: 1px;
 			margin-top: -1px;
 		}
 	</style>
 </head>
+
 <body>
-
-	<h1>CSS 时钟效果分步实现</h1>
-
 	<div id="clock">
 		<ul id="line-min"></ul>
 		<ul id="line-hour">
@@ -113,14 +127,14 @@
 	</div>
 </body>
 <script>
-	window.onload = function(){
+	window.onload = function () {
 
 		var line_min = document.getElementById('line-min');
 		var line_hour = document.getElementById('line-hour');
 		var number = document.getElementById('number');
 
 		//初始化方法
-		function init(){
+		function init () {
 			drawLines(line_min, 60, 85);
 			drawLines(line_hour, 12, 80);
 			drawNumbers(number);
@@ -135,11 +149,11 @@
 		 * @param total 刻度线的总个数
 		 * @param translateX 刻度线在x轴方向的偏移量
 		 */
-		function drawLines(wrap, total, translateX){
-			var gap = 360/total;
+		function drawLines (wrap, total, translateX) {
+			var gap = 360 / total;
 			var strHtml = '';
-			for(var i=0; i<total; i++){
-				strHtml += '<li style="transform:rotate('+ (i*gap) + 'deg) translate(' + translateX + 'px,-50%)"></li>';
+			for (var i = 0; i < total; i++) {
+				strHtml += '<li style="transform:rotate(' + (i * gap) + 'deg) translate(' + translateX + 'px,-50%)"></li>';
 			}
 			wrap.innerHTML = strHtml;
 		}
@@ -149,16 +163,16 @@
 		 * 绘制时钟数字
 		 * @param wrap 数字的父容器
 		 */
-		function drawNumbers(wrap){
+		function drawNumbers (wrap) {
 			var radius = wrap.offsetWidth / 2;
 			var strHtml = '';
-			for(var i=1; i<=12; i++){
-				var myAngle = (i-3)/6 * Math.PI;
+			for (var i = 1; i <= 12; i++) {
+				var myAngle = (i - 3) / 6 * Math.PI;
 
-				var myX = radius + radius*Math.cos(myAngle) , // x=r+rcos(θ)
-					myY = radius + radius*Math.sin(myAngle) ; // y=r+rsin(θ)
+				var myX = radius + radius * Math.cos(myAngle), // x=r+rcos(θ)
+					myY = radius + radius * Math.sin(myAngle); // y=r+rsin(θ)
 
-				strHtml += '<li style="left:' + myX + 'px; top:'+ myY +'px">' + i + '</li>';
+				strHtml += '<li style="left:' + myX + 'px; top:' + myY + 'px">' + i + '</li>';
 			}
 			wrap.innerHTML = strHtml;
 		}
@@ -167,30 +181,31 @@
 		/*
 		 * 钟表走动，转动秒针、分针、时针
 		 */
-		function move(){
+		function move () {
 			var domHour = document.getElementById("hour"),
-			    domMin = document.getElementById("min"),
-			    domSec = document.getElementById("sec");
+				domMin = document.getElementById("min"),
+				domSec = document.getElementById("sec");
 
-			setInterval(function(){
+			setInterval(function () {
 				// alert(111);
 				var now = new Date(),
 					hour = now.getHours(),
-				    min = now.getMinutes(),
-				    sec = now.getSeconds();
+					min = now.getMinutes(),
+					sec = now.getSeconds();
 
-				var secAngle = sec*6 - 90,  // s*6-90
-				    minAngle = min*6 + sec*0.1 - 90,  // m*6+s*0.1-90
-				    hourAngle = hour*30 + min*0.5 - 90;  // h*30+m*0.5 - 90
+				var secAngle = sec * 6 - 90,  // s*6-90
+					minAngle = min * 6 + sec * 0.1 - 90,  // m*6+s*0.1-90
+					hourAngle = hour * 30 + min * 0.5 - 90;  // h*30+m*0.5 - 90
 
 				domSec.style = "transform:rotate(" + secAngle + "deg)";
 				domMin.style = "transform:rotate(" + minAngle + "deg)";
 				domHour.style = "transform:rotate(" + hourAngle + "deg)";
 
 				document.title = hour + ':' + min + ':' + sec;
-			},1000);
+			}, 1000);
 		}
 
 	}
 </script>
+
 </html>

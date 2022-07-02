@@ -33,19 +33,19 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   /* flex 布局，设置子元素水平垂直居中 */
   display: flex;
   justify-content: center;
   align-items: center;
   /* 设置渐变的背景颜色 */
-  background: linear-gradient(to bottom right, #272c46, #464c6d);
+  /* background: linear-gradient(to bottom right, #272c46, #464c6d); */
 }
 /* 包含所有布局样式的容器 */
 .container {
   width: 480px;
-  height: 1042px;
+  /* height: 1042px; */
   border-radius: 50px;
   /* 设置一个渐变的背景颜色，用来模拟渐变边框 */
   background: linear-gradient(to bottom, #fba85c, rgba(251, 168, 92, 0.1));

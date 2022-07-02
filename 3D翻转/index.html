@@ -1,125 +1,144 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-		<style type="text/css">
-			#window {
-				perspective:500px;
-				perspective-origin:50% 50%;
-				-webkit-perspective:500px;
-				-moz-perspective:500px;
-				-ms-perspective:500px;
-				-o-perspective:500px;
-				-webkit-perspective-origin:50% 50%;
-				-moz-perspective-origin:50% 50%;
-				-ms-perspective-origin:50% 50%;
-				-o-perspective-origin:50% 50%;
-				overflow: hidden;
-			}
-			#pagegroup {
-				width: 300px;
-				height: 300px;
-				margin: 50px auto;
-				position: relative;
-				transform-style:preserve-3d;
-				-webkit-transform-style:preserve-3d;
-				-moz-transform-style:preserve-3d;
-				-ms-transform-style:preserve-3d;
-				-o-transform-style:preserve-3d;
-			}
-			.page {
-				background: black;
-				width: 300px;
-				height:300px;
-				color: white;
-				text-align: center;
-				font-size: 200px;
-				position: absolute;
-				transition:all 1s ease;
-				-webkit-transition:all 1s ease;
-				-moz-transition:all 1s ease;
-				-ms-transition:all 1s ease;
-				-o-transition:all 1s ease;
-				transform-origin:bottom;
-				-webkit-transform-origin:bottom;
-				-moz-transform-origin:bottom;
-				-ms-transform-origin:bottom;
-				-o-tranform-origin:bottom;
-				backface-visibility: hidden; /*设置旋转的背面是否可见*/
-				-webkit-backface-visibility: hidden;
-				-moz-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
-				-o-backface-visibility: hidden;
 
-			}
-			#page2,#page3,#page4,#page5 {
-				transform:rotateX(90deg);
-				-webkit-transform:rotateX(90deg);
-				-moz-transform:rotateX(90deg);
-				-ms-transform:rotateX(90deg);
-				-o-transform:rotateX(90deg);
-			}
-			#op {
-				text-align: center;
-				text-decoration: none;
-				font-size: 50px;
-			}
-		</style>
-		<script type="text/javascript">
-			var pageId = 1;
-			function next () {
-				if (pageId==5) {
-					alert("已至最后一页！");
-					return;
-				};
-				var page = document.getElementById('page'+pageId);
-				page.style.mozTransform = "rotateX(-90deg)"; 
-				page.style.transform = "rotateX(-90deg)";
-				page.style.msTransform = "rotateX(-90deg)";
-				page.style.oTransform = "rotateX(-90deg)";
-				page.style.webkitTransform = "rotateX(-90deg)";
-				pageId ++;
-				var pageNext = document.getElementById('page'+pageId);
-				pageNext.style.mozTransform = "rotateX(0deg)"; 
-				pageNext.style.transform = "rotateX(0deg)";
-				pageNext.style.msTransform = "rotateX(0deg)";
-				pageNext.style.oTransform = "rotateX(0deg)";
-				pageNext.style.webkitTransform = "rotateX(0deg)";
-			}
-			function prev() {
-				if (pageId==1) {
-					alert("已至第一页！");
-					return;
-				};
-				var page = document.getElementById('page'+pageId);
-				page.style.mozTransform = "rotateX(90deg)"; 
-				page.style.transform = "rotateX(90deg)";
-				page.style.msTransform = "rotateX(90deg)";
-				page.style.oTransform = "rotateX(90deg)";
-				page.style.webkitTransform = "rotateX(90deg)";
-				pageId --;
-				var pagePrev = document.getElementById('page'+pageId);
-				pagePrev.style.mozTransform = "rotateX(0deg)"; 
-				pagePrev.style.transform = "rotateX(0deg)";
-				pagePrev.style.msTransform = "rotateX(0deg)";
-				pagePrev.style.oTransform = "rotateX(0deg)";
-				pagePrev.style.webkitTransform = "rotateX(0deg)";
-			}
-		</script>
-	</head>
-	<body>
-		<div id="window">
-			<div id="pagegroup">
-				<div class="page" id="page1">1</div>
-				<div class="page" id="page2">2</div>
-				<div class="page" id="page3">3</div>
-				<div class="page" id="page4">4</div>
-				<div class="page" id="page5">5</div>
-			</div>
-			<div id="op">
-				<a href="javascript:prev();">上一页</a>
-				&nbsp;&nbsp;
-				<a href="javascript:next();">下一页</a>
-			</div>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			margin-top: 50%;
+			transform: translateY(-50%);
+		}
+
+		#window {
+			perspective: 500px;
+			perspective-origin: 50% 50%;
+			-webkit-perspective: 500px;
+			-moz-perspective: 500px;
+			-ms-perspective: 500px;
+			-o-perspective: 500px;
+			-webkit-perspective-origin: 50% 50%;
+			-moz-perspective-origin: 50% 50%;
+			-ms-perspective-origin: 50% 50%;
+			-o-perspective-origin: 50% 50%;
+			overflow: hidden;
+		}
+
+		#pagegroup {
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+			position: relative;
+			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			-o-transform-style: preserve-3d;
+		}
+
+		.page {
+			background: black;
+			width: 300px;
+			height: 300px;
+			color: white;
+			text-align: center;
+			font-size: 200px;
+			position: absolute;
+			transition: all 1s ease;
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transform-origin: bottom;
+			-webkit-transform-origin: bottom;
+			-moz-transform-origin: bottom;
+			-ms-transform-origin: bottom;
+			-o-tranform-origin: bottom;
+			backface-visibility: hidden;
+			/*设置旋转的背面是否可见*/
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+
+		}
+
+		#page2,
+		#page3,
+		#page4,
+		#page5 {
+			transform: rotateX(90deg);
+			-webkit-transform: rotateX(90deg);
+			-moz-transform: rotateX(90deg);
+			-ms-transform: rotateX(90deg);
+			-o-transform: rotateX(90deg);
+		}
+
+		#op {
+			text-align: center;
+			text-decoration: none;
+			font-size: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		var pageId = 1;
+		function next () {
+			if (pageId == 5) {
+				alert("已至最后一页！");
+				return;
+			};
+			var page = document.getElementById('page' + pageId);
+			page.style.mozTransform = "rotateX(-90deg)";
+			page.style.transform = "rotateX(-90deg)";
+			page.style.msTransform = "rotateX(-90deg)";
+			page.style.oTransform = "rotateX(-90deg)";
+			page.style.webkitTransform = "rotateX(-90deg)";
+			pageId++;
+			var pageNext = document.getElementById('page' + pageId);
+			pageNext.style.mozTransform = "rotateX(0deg)";
+			pageNext.style.transform = "rotateX(0deg)";
+			pageNext.style.msTransform = "rotateX(0deg)";
+			pageNext.style.oTransform = "rotateX(0deg)";
+			pageNext.style.webkitTransform = "rotateX(0deg)";
+		}
+		function prev () {
+			if (pageId == 1) {
+				alert("已至第一页！");
+				return;
+			};
+			var page = document.getElementById('page' + pageId);
+			page.style.mozTransform = "rotateX(90deg)";
+			page.style.transform = "rotateX(90deg)";
+			page.style.msTransform = "rotateX(90deg)";
+			page.style.oTransform = "rotateX(90deg)";
+			page.style.webkitTransform = "rotateX(90deg)";
+			pageId--;
+			var pagePrev = document.getElementById('page' + pageId);
+			pagePrev.style.mozTransform = "rotateX(0deg)";
+			pagePrev.style.transform = "rotateX(0deg)";
+			pagePrev.style.msTransform = "rotateX(0deg)";
+			pagePrev.style.oTransform = "rotateX(0deg)";
+			pagePrev.style.webkitTransform = "rotateX(0deg)";
+		}
+	</script>
+</head>
+
+<body>
+	<div id="window">
+		<div id="pagegroup">
+			<div class="page" id="page1">1</div>
+			<div class="page" id="page2">2</div>
+			<div class="page" id="page3">3</div>
+			<div class="page" id="page4">4</div>
+			<div class="page" id="page5">5</div>
 		</div>
-	</body>
+		<div id="op">
+			<a href="javascript:prev();">上一页</a>
+			&nbsp;&nbsp;
+			<a href="javascript:next();">下一页</a>
+		</div>
+	</div>
+</body>
+
 </html>

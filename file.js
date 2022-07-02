@@ -1,9 +1,8 @@
 // 作用：执行node file.js 可获取根目录的所有文件夹名称
 // 想法：最开始是想直接获取文件目录，动态展示文件夹中的内容。但最后在浏览器中执行fs模块文件一直报错，导致无法使用，只能手动获取名称后替换到index.js文件arr下。
-// 思路： 1. 使用WebContainers，在浏览器中使用node。但是使用fs文件模块一直报错，就不想管了
+// 思路： 使用WebContainers，在浏览器中使用node。但是使用fs文件模块一直报错，就不想管了
 var fs = require("fs");
 fs.readdir(process.cwd(), function (err, data) {
-  // console.log(JSON.stringify(data));
   // 找出所有文件夹，排除掉了以下字段中的后缀名。
   console.log(JSON.stringify(data.filter((v) =>
     !["js", "json", "md", "git", "html"].includes(v.split(".").pop())
