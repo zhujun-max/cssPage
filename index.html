@@ -10,13 +10,14 @@
 </head>
 
 <body>
-  <!-- <script src="./index.js"></script> -->
   <div id="app" >
     <div v-for="(v,i) in arr">
       <div class="actions">
         <a :href="'./'+v+'/index.html'">效果预览</a>
         <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
       </div>
+      <!-- 由于是直接使用的iframe标签，如果一次引入全部文件，极其消耗性能，
+        便根据滚动条距离来判断页面显示的区域 -->
       <iframe :src="'./'+v+'/index.html'" frameborder="0" scrolling="no"
         v-if="i>=(scrollTop-200)/220*3 && i<=(scrollTop+screenHeight+220)/220*3"></iframe>
     </div>
@@ -89,7 +90,6 @@
       font-weight: 200;
     }
   </style>
-  <script src="./file.js"></script>
   <script src="./index.js"></script>
 </body>
 
