@@ -1,0 +1,109 @@
+:root {
+  --card-width: 20vw;
+  --divider-width: 2vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.masonry {
+  width: calc(var(--card-width) * 4 + var(--divider-width) * 3);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  counter-reset: cards;
+}
+
+.card {
+  width: var(--card-width);
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.card.show {
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card::before {
+  counter-increment: cards;
+  content: counter(cards);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20px;
+  z-index: 1;
+  margin: auto;
+  font-size: 50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  place-items: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+.divider1,
+.divider2,
+.divider3 {
+  flex-basis: 100%;
+  width: var(--divider-width);
+  /* background-color: pink; */
+}
+
+/* flex items order */
+.divider1 {
+  order: 1;
+}
+
+.divider2 {
+  order: 2;
+}
+
+.divider3 {
+  order: 3;
+}
+
+.card:nth-of-type(4n + 1) {
+  order: 1;
+}
+
+.card:nth-of-type(4n + 2) {
+  order: 2;
+}
+
+.card:nth-of-type(4n + 3) {
+  order: 3;
+}
+
+.card:nth-of-type(4n + 4) {
+  order: 4;
+}
+
+@keyframes slideIn {
+  from {
+    filter: opacity(0);
+    transform: translateY(100px);
+  }
+
+  to {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
