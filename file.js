@@ -3,6 +3,11 @@
 // 思路： 1. 使用WebContainers，在浏览器中使用node。但是使用fs文件模块一直报错，就不想管了
 var fs = require("fs");
 fs.readdir(process.cwd(), function (err, data) {
+  // console.log(JSON.stringify(data));
+  // 找出所有文件夹，排除掉了以下字段中的后缀名。
+  console.log(JSON.stringify(data.filter((v) =>
+    !["js", "json", "md", "git", "html"].includes(v.split(".").pop())
+  )))
   data.map((d) => {
     // console.log(d);
     // 使用stat()方法，区分是文件还是目录
@@ -11,7 +16,7 @@ fs.readdir(process.cwd(), function (err, data) {
       if (err) throw err;
       if (stat.isDirectory()) {
         //判断当前文件是否是目录
-        console.log('目录:' + d);
+        // console.log(d);
       } else if (stat.isFile()) {
         //判断当前文件是否是普通文件
         // console.log('文件:'+d);
