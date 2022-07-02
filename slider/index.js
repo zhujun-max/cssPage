@@ -30,7 +30,7 @@ $(function () {
   var timer = setInterval(perpic, 5000);
 
   function perpic() {
-    console.log("nowLi = " + nowLi);
+    // console.log("nowLi = " + nowLi);
     nowLi++;
     if (nowLi >= li_count) {
       nowLi = 0;

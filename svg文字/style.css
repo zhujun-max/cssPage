@@ -1,13 +1,14 @@
 body {
+  margin: 0;
+  padding: 0;
   background: #2f3542;
 }
 
 .container {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 .logo_text {

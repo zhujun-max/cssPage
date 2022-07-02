@@ -22,7 +22,7 @@ window.onload = function () {
 					return;
 				}
 				time++;
-				console.log(time);
+				// console.log(time);
 				addball();
 			},1000);
 			t2 = setInterval(function () {

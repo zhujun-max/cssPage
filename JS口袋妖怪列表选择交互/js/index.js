@@ -231,7 +231,7 @@ Vue.component( "List", {
         let rando = Math.floor( Math.random() * 150 ) + 1;
         if ( team.includes(rando) ) {
           i--;
-          console.log("dupe");
+          // console.log("dupe");
         } else {
           team.push( rando );
           let poke = nick = window.pokemon[ rando ];

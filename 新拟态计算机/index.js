@@ -36,7 +36,7 @@ window.onload = function () {
             txt.innerHTML = txt.innerHTML + this.value;
           } else {
             way_res[way_res.length] = txt.innerHTML;
-            console.log(way_res);
+            // console.log(way_res);
             txt.innerHTML = eval(way_res[2]);
             way_res = [];
           }

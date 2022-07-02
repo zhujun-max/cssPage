@@ -25,7 +25,7 @@ window.onload = function () {
         } else if(button.innerHTML == '开始') {
             Timer = setInterval(function () {
                 drawTime(context);
-                console.log(balls.length);
+                // console.log(balls.length);
                 update();
             },50);
             button.innerHTML = '暂停';

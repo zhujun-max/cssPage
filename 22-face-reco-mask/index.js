@@ -42,8 +42,6 @@ async function faceDetection() {
     Math.pow(positions[1]._x - positions[8]._x, 2) +
       Math.pow(positions[1]._y - positions[8]._y, 2)
   );
-  // console.log(height);
-
   mask.width = imageWidth;
   mask.height = height * 0.9;
   mask.style.transform = `translate(${x + imageWidth * 0.03}px, ${y -
@@ -60,9 +58,9 @@ async function faceDetection() {
   //   ctx.fillText(index, _x, _y);
   // });
 
-  console.log(resizedDetection);
+  // console.log(resizedDetection);
 
-  console.log("done");
+  // console.log("done");
 }
 
 faceDetection();

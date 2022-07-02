@@ -5,6 +5,8 @@
   font-family: "Helvetica", "Arial", sans-serif;
 }
 body {
+  margin: 0;
+  padding: 0;
   width: 100vw;
   min-height: 100vh;
   background-color: #f3a153;
