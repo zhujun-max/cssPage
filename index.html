@@ -14,8 +14,8 @@
   <div id="app" >
     <div v-for="(v,i) in arr">
       <div class="actions">
-        <a :href="'./'+v+'/index.html'">{{v}}</a>
-        <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">源码</a>
+        <a :href="'./'+v+'/index.html'">效果预览</a>
+        <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
       </div>
       <iframe :src="'./'+v+'/index.html'" frameborder="0" scrolling="no"
         v-if="i>=(scrollTop-200)/220*3 && i<=(scrollTop+screenHeight+220)/220*3"></iframe>
