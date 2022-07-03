@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clear {
+            clear: both;
+            background-color: olive;
+        }
+        .layout__main-wrapper,.layout__aside {
+            float: left;
+        }
+        .layout__main-wrapper {
+            width: 100%;
+        }
+        .layout__main {
+            margin: 0 210px;
+            background-color: mediumslateblue;
+        }
+        .layout__aside {
+            width: 200px;
+        }
+        .layout__aside--left {
+            margin-left: -100%;
+            background-color: sandybrown;
+        }
+        .layout__aside--right {
+            margin-left: -200px;
+            background-color: springgreen;
+        }
+    </style>
+</head>
+<body>
+        <div class="layout__main-wrapper">
+            <div class="layout__main">主内容栏宽度自适应</div>
+        </div>
+        <aside class="layout__aside layout__aside--left">左侧边栏宽度固定</aside>
+        <aside class="layout__aside layout__aside--right">右侧边栏宽度固定</aside>
+        <footer class="clear">底部</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app-1">
+    <p>{{ msg }}</p>
+  </div>
+  <div id="app-2">
+    <p>{{ msg }}</p>
+  </div>
+  <script>
+    const vue1 = new Vue({
+      el: '#app-1',
+      data: {
+        msg: 'app-1'
+      }
+    })
+    const vue2 = new Vue({
+      el: '#app-2',
+      data: {
+        msg: 'app-2'
+      }
+    })
+  </script>
+</body>
+</html>

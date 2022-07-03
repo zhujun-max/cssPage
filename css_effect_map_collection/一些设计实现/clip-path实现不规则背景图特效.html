@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clip-path实现不规则背景图特效</title>
+  <style>
+    .wrap {
+      position: relative;
+      height: 500px;
+      width: 600px;
+    }
+    .wrap>.bg-one {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg,#305b8f, #0f1b33);
+      clip-path: polygon(0 40px, 300px 40px, 350px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
+      transform: scale(.99, .99);
+      z-index: 3;
+    }
+    .wrap>.bg-two {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      background-image: linear-gradient(45deg, gold, deeppink);
+      clip-path: polygon(0 40px, 300px 40px, 350px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
+    }
+    .wrap>.bg-intermediate {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+      clip-path: polygon(0 40px, 300px 40px, 350px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
+    }
+    .wrap>.bg-intermediate::before,
+    .wrap>.bg-intermediate::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      animation: clippath 3s infinite linear;
+    }
+    .wrap>.bg-intermediate::after {
+      animation: clippath 3s infinite -1.5s linear;
+    }
+    @keyframes clippath {
+      0% {
+        clip-path: inset(0 0 95% 0);
+      }
+      25% {
+        clip-path: inset(0 95% 0 0);
+      }
+      50% {
+        clip-path: inset(95% 0 0 0);
+      }
+      75% {
+        clip-path: inset(0 0 0 95%);
+      }
+      100% {
+        clip-path: inset(0 0 95% 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 此种方案暂时无法完美实现，尚不清除为啥会闪一下 -->
+  <div class="wrap">
+    <div class="bg-one"></div>
+    <div class="bg-two"></div>
+    <div class="bg-intermediate"></div>
+  </div>
+</body>
+</html>

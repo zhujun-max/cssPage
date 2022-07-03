@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>可转动天枰</title>
+  <style>
+    /* 容器 */
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 100px;
+      background: cornsilk;
+    }
+    /* 立柱 */
+    .upright {
+      position: absolute;
+      left: 140px;
+      width: 20px;
+      height: 300px;
+      border: 1px solid #999;
+    }
+    /* 机械梁 */
+    .beam {
+      position: absolute;
+      left: 25px;
+      top: 50px;
+      width: 250px;
+      height: 20px;
+      border: 1px solid #999;
+      /* transform: rotate(30deg); */
+      transition: all .5s;
+    }
+    .tray {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 80px;
+      border: 1px solid #999;
+      transform-origin:5px 20px;
+      transition: all .5s;
+    }
+    .left-tray {
+      left: 20px;
+    }
+    .right-tray {
+      right: 20px;
+    }
+    .tick {
+      position: absolute;
+      left: 124.5px;
+      bottom: 10px;
+      width: 1px;
+      height: 50px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="beam" class="beam">
+      <div id="left-tray" class="tray left-tray"></div>
+      <div id="right-tray" class="tray right-tray"></div>
+      <div class="tick"></div>
+    </div>
+    <div class="upright">
+    </div>
+  </div>
+  <button onclick="add()">加三十度</button>
+  <div>
+    <p>left: <span id="left">0g</span></p>
+    <p>right: <span id="right">0g</span></p>
+    <button onclick="randomNum()">随机改变左右重量</button>
+  </div>
+  <script>
+    // const beam = document.getElementById('beam')
+    // let rotate = 0;
+    // setInterval(() => {
+    //   beam.style.transform = `rotate(${rotate += 30}deg)`
+    // }, 500);
+    const beam = document.getElementById('beam')
+    const leftTray = document.getElementById('left-tray')
+    const rightTray = document.getElementById('right-tray')
+    let rotate = 0;
+    function add() {
+      rotate += 30
+      beam.style.transform = `rotate(${rotate}deg)`
+      leftTray.style.transform = `rotate(${-rotate}deg)`
+      rightTray.style.transform = `rotate(${-rotate}deg)`
+    }
+    // 随机改变重量
+    const left = document.getElementById('left')
+    const right = document.getElementById('right')
+    function randomNum() {
+      const lNum = parseInt(Math.random() * 100)
+      const rNum = parseInt(Math.random() * 100)
+      rotate = parseInt((rNum - lNum) * 60 / 100)
+      left.innerHTML = `${lNum} g`
+      right.innerHTML = `${rNum} g`
+      beam.style.transform = `rotate(${rotate}deg)`
+      leftTray.style.transform = `rotate(${-rotate}deg)`
+      rightTray.style.transform = `rotate(${-rotate}deg)`
+    }
+  </script>
+</body>
+</html>

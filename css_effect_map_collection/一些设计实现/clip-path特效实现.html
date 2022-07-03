@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    div {
+      height: 100px;
+      width: 150px;
+      position: relative;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(45deg, gold, deeppink);
+      animation: hue 3s infinite linear;
+    }
+    div::before,
+    div::after {
+      content: "";
+      position: absolute;
+      top: -15px;
+      bottom: -15px;
+      left: -15px;
+      right: -15px;
+      border: 5px solid #24acf2;
+      border-image: linear-gradient(45deg, gold, deeppink) 1;
+      clip-path: inset(0px round 10px);
+      animation: clippath 3s infinite linear;
+    }
+    div::after {
+      animation: clippath 3s infinite -1.5s linear;
+    }
+    span {
+      color: white;
+      font-size: 20px;
+    }
+    @keyframes hue {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+    @keyframes clippath {
+      0% {
+        clip-path: inset(0 0 95% 0);
+        filter: hue-rotate(0deg);
+      }
+      25% {
+        clip-path: inset(0 95% 0 0);
+      }
+      50% {
+        clip-path: inset(95% 0 0 0);
+      }
+      75% {
+        clip-path: inset(0 0 0 95%);
+      }
+      100% {
+        clip-path: inset(0 0 95% 0);
+        filter: hue-rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span>hello world</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+        body * {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .head {
+            height: 60px;
+            background-color: aqua;
+            position: absolute;
+            width: 100%;
+        }
+        .atc {
+            background-color: burlywood;
+            overflow: auto;
+            width: 100%;
+            position: absolute;
+            bottom: 100px;
+            top: 60px;
+            overflow: auto;
+        }
+        .left-nav {
+            background-color: chocolate;
+            float: left;
+            width: 200px;
+            height: 100%;
+            overflow: auto;
+            margin-right: 20px;
+        }
+        .sec {
+            background-color: darkseagreen;
+            overflow: auto;
+            /* float: left; */
+            /* position: absolute;
+            left: 240px;
+            right: 140px; */
+            height: 100%;
+            /* overflow: auto; */
+        }
+        .right-sec {
+            background-color: springgreen;
+            float: right;
+            width: 100px;
+            height: 100%;
+            /* overflow: auto; */
+        }
+        .fot {
+            background-color: black;
+            color: white;
+            height: 100px;
+            position: absolute;
+            width: 100px;
+            bottom: 0;
+            width: 100%;
+        }
+        .content-head {
+            position: sticky;
+            top: 0px;
+        }
+        .sec-content {
+            width: 100%;
+            overflow: auto;
+        }
+        .sec-aside {
+            float: right;
+            width: 100px;
+            background-color: mistyrose;
+        }
+    </style>
+</head>
+<body>
+    <header class="head">页面头部</header>
+    <article class="atc">
+        <nav class="left-nav">中间左侧导航</nav>
+        <section class="sec">
+            <div class="sec-content">
+                <h1>非固定头部</h1>
+                <h2 class="content-head">滚动到顶部时固定到顶部</h2>
+                <div style="height: 2000px;"></div>
+            </div>
+            <aside class="sec-aside">
+                内容侧行
+            </aside>
+        </section>
+        <!-- <section class="right-sec">中间右侧导航</section> -->
+    </article>
+    <footer class="fot">页面底部</footer>
+</body>
+</html>

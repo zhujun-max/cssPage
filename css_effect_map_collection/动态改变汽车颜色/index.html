@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变汽车颜色</title>
+  <style>
+    html, body { height: 100%; }
+    body { margin: 0; }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    input { 
+        /* removes default styling from input color element */
+        padding: 0;
+        border: none; 
+        
+        /* makes input (color swatch) 100% size of container */
+        position: absolute;
+        width: 100%; 
+        top: 20%;
+        height: 40%;
+        /* height: 100%; */
+        /* mix blend mode makes the color of the swatch alter the image behind it. */
+        mix-blend-mode: hue; /* try screen, multiply or other blend modes for different effects */
+        cursor: pointer;
+    }
+
+    /* removes default styling from input color element */
+    ::-webkit-color-swatch {
+        border: none;
+    }
+
+    ::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    ::-moz-color-swatch,
+    ::-moz-focus-inner {
+        border: none;
+    }
+
+    ::-moz-focus-inner {
+        padding: 0;
+    }
+    /* Image Credit */
+    /* a {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #6B6BFF;
+      background: black;
+      display: block;
+      padding: 0 8px 3px;
+      font-size: 15px;
+      text-decoration: none;
+    } */
+  </style>
+</head>
+<body>
+  <!-- CLICK TO CHANGE COLOR -->
+  <input type="color" value="#0000ff">
+  <img src="./car.jpg">
+  <!-- <img src="./xianzhuang.svg"> -->
+
+  <!-- <img src="./xianzhuang2.svg"> -->
+  <!-- <img src="./chutian.jpg" alt="" srcset=""> -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./perfect-scrollbar.css">
+  <script src="./perfect-scrollbar.js"></script>
+  <style>
+    #container {
+      position: relative;
+      height: 500px;
+      width: 500px;
+      border: 1px solid #a0a0a4;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div style="height: 1000px;"></div>
+  </div>
+  <script>
+    const ps = new PerfectScrollbar('#container', {
+      wheelSpeed: 1,
+      wheelPropagation: true,
+      minScrollbarLength: 20
+    });
+  </script>
+</body>
+</html>

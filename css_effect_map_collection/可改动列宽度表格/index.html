@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .table {
+      border-collapse: collapse;
+    }
+    .table, .table td, .table th {
+      border: 1px solid #ccc;
+    }
+
+    .table th {
+      position: relative;
+    }
+    .resizer {
+      /* Displayed at the right side of column */
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5px;
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    .resizer:hover, .resizing {
+      border-right: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <table class="table" id="resizeMe">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <!-- 创建表格 -->
+  <script>
+    const tbody = document.getElementById('tbody')
+    const names = Array(12).fill('Andrea Ross')
+    names.forEach((item, index) => {
+      const tr = document.createElement('tr')
+      const arr = item.split(' ')
+      arr.unshift(index)
+      arr.forEach((item) => {
+        const td = document.createElement('td')
+        td.innerText = item
+        tr.appendChild(td)
+      })
+      tbody.appendChild(tr)
+    })
+  </script>
+  <!-- 实现拖动大小 -->
+  <script>
+    const table = document.getElementById('resizeMe');
+    // Query all headers
+    const cols = table.querySelectorAll('th');
+    const createResizableColumn = function (col, resizer) {
+      // Track the current position of mouse
+      let x = 0;
+      let w = 0;
+      const mouseDownHandler = function (e) {
+        // Get the current mouse position
+        x = e.clientX;
+        // Calculate the current width of column
+        const styles = window.getComputedStyle(col);
+        w = parseInt(styles.width, 10);
+        // Attach listeners for document's events
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+        resizer.classList.add('resizing');
+      };
+
+      const mouseMoveHandler = function (e) {
+        // Determine how far the mouse has been moved
+        const dx = e.clientX - x;
+        // Update the width of column
+        col.style.width = `${w + dx}px`;
+      };
+      // When user releases the mouse, remove the existing event listeners
+      const mouseUpHandler = function () {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+        resizer.classList.remove('resizing');
+      };
+      resizer.addEventListener('mousedown', mouseDownHandler);
+    };
+    // Loop over them
+    [].forEach.call(cols, function (col) {
+      // Create a resizer element
+      const resizer = document.createElement('div');
+      resizer.classList.add('resizer');
+      // Set the height
+      resizer.style.height = `${table.offsetHeight}px`;
+      // Add a resizer element to the column
+      col.appendChild(resizer);
+      // Will be implemented in the next section
+      createResizableColumn(col, resizer);
+    });
+  </script>
+</body>
+</html>

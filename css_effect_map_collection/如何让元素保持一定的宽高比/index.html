@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宽高比</title>
+  <style>
+    .container {
+      height: 300px;
+      width: 500px;
+      padding: 16px;
+      overflow: auto;
+      resize: both;
+      border: 1px solid gray;
+    }
+    .content {
+      position: relative;
+      border: 1px solid teal;
+    }
+    .content::before {
+      content: '';
+      display: block;
+      /* 以下两种皆可以，不过第一种比较直观看出宽高比 */
+      /* padding-bottom: calc(100% / ( 16 / 9)); */
+      padding-top: 56.25%;
+    }
+    .content > :first-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    /* 这种方式对兼容性要求较高 */
+    .content2 {
+      border: 1px solid teal;
+      aspect-ratio: 16 / 9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <p>保持宽高16：9</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content2">
+      <p>保持宽高16：9</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>局部描点</title>
+  <style>
+    div {
+      
+    }
+    #menu {
+      width: 500px;
+      height: 60px;
+      border: 1px solid #a0a0a4;
+    }
+    #list {
+      width: 500px;
+      height: 500px;
+      overflow: auto;
+      border: 1px solid #a0a0a4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="menu"></div>
+    <div id="list"></div>
+  </div>
+  <script>
+    
+    // 给容器添加元素
+    (()=> {
+      const list = document.getElementById('list')
+      const menu = document.getElementById('menu')
+      for (let i = 0; i < 10; i++) {
+        const item = document.createElement('div')
+        item.id = i
+        item.innerHTML = `${i}: asdfasdfasdf`
+        item.style = 'height: 200px;'
+        list.appendChild(item)
+
+        const btn = document.createElement('button')
+        btn.innerText = i
+        btn.style = 'margin-right: 20px;'
+        menu.appendChild(btn)
+      }
+
+      menu.onclick = (e) => {
+        e.stopPropagation();
+        const i = e.target.innerText
+        if (document.getElementById(i)) {
+          document.getElementById(i).scrollIntoView({ behavior: "smooth" })
+        }
+      }
+    })()
+
+    
+  </script>
+</body>
+</html>

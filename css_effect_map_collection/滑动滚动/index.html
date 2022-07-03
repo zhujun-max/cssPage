@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>转换实现滑动滚动</title>
+</head>
+<style>
+  #container {
+    display: flex;
+    margin: 100px;
+    height: 200px;
+    width: 800px;
+  }
+  #container button {
+    width: 32px;
+    height: 100%;
+  }
+  #warp {
+    position: relative;
+    flex: 1;
+    height: 200px;
+    overflow: hidden;
+  }
+  #images {
+    display: inline-block;
+    white-space: nowrap;
+    transition: transform .3s cubic-bezier(.645,.045,.355,1);
+  }
+  #images > img {
+    height: 200px;
+    /* width: 200px; */
+    width: auto;
+  }
+  #images > img + img {
+    margin-left: 8px;
+  }
+</style>
+<body>
+  <div id="container">
+    <button class="left-btn" onclick="scrollleft()">左</button>
+    <div id="warp">
+      <div id="images"></div>
+    </div>
+    <button class="right-btn" onclick="scrollRight()">右</button>
+  </div>
+  <script>
+    const container = document.getElementById('container');
+    const warp = document.getElementById('warp');
+    const imgCon = document.getElementById('images');
+    let offset = 0;
+    
+    imgCon.style.transform = `translate3d(${offset}px, 0px, 0px)`
+    const images = Array(10).fill('').map((item, index) => {
+      return index % 2 ? './images/1.jpg' : './images/2.jpg';
+    })
+    images.forEach((src) => {
+      const img = document.createElement('img');
+      img.src = src;
+      imgCon.appendChild(img)
+    });
+    function scrollleft() {
+      offset += 210
+      if (offset > 0) {
+        offset = 0
+      }
+      imgCon.style.transform = `translate3d(${offset}px, 0px, 0px)`
+    };
+
+    function scrollRight() {
+      offset -= 210
+      // 获取这些属性会引起重回回流，此处只为处理问题，正式不建议使用这样的方式
+      if (imgCon.clientWidth + offset < warp.clientWidth) {
+        offset -= imgCon.clientWidth + offset - warp.clientWidth
+      }
+      console.log(offset);
+      imgCon.style.transform = `translate3d(${offset}px, 0px, 0px)`
+    };
+
+    // 改变宽度
+  </script>
+</body>
+</html>

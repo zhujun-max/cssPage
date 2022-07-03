@@ -1,0 +1,27 @@
+{
+  "name": "components-server",
+  "version": "1.0.0",
+  "description": "vue load remote components demo",
+  "main": "index.js",
+  "scripts": {
+    "comp": "node index.js",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learn",
+    "vue",
+    "component"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "rollup": "^2.60.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-template-compiler": "^2.6.14"
+  }
+}

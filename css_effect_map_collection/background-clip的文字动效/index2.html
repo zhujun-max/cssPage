@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字动效</title>
+  <style>
+    html,body,p {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: #000;
+      overflow: hidden;
+    }
+    p {
+      height: 100%;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: url(./images/bg2.gif);
+      mix-blend-mode: hard-light;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <p id="wrap"></p>
+  <script>
+    const p = document.getElementById('wrap')
+    p.innerText = Array(200).fill(Math.random() * 1234567890 + 1000000000).reduce((str, item) => str + parseInt(item).toString(2), '')
+  </script>
+</body>
+</html>

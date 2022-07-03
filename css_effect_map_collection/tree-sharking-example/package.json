@@ -1,0 +1,27 @@
+{
+  "name": "tree-sharking-test",
+  "version": "1.0.0",
+  "description": "测试学习tree-sharking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --open",
+    "build": "webpack"
+  },
+  "keywords": [
+    "tree-sharking"
+  ],
+  "author": "qm",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "html-webpack-plugin": "^5.3.2",
+    "lodash": "^4.17.21",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
