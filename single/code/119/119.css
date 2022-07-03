@@ -1,0 +1,60 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 径向渐变背景 ellipse表示椭圆 */
+    background: radial-gradient(ellipse at center,#fffeea 0%,#fffeea 35%,#b7e8eb 100%);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+/* 海平面 */
+.sea{
+    width: 100%;
+    height: 5%;
+    background-color: #015871;
+    /* 绝对定位 底部 */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.wave{
+    /* 这里的背景用的是svg文件，这个文件我事先在PS里做好并导出 */
+    background: url("svg/wave.svg") repeat-x;
+    width: 6400px;
+    height: 198px;
+    /* 绝对定位 */
+    position: absolute;
+    top: -198px;
+    /* 执行波动动画：动画名 时长 贝塞尔曲线 无限次播放 */
+    animation: wave 7s cubic-bezier(0.36,0.45,0.63,0.53) infinite;
+}
+.wave:nth-child(2){
+    top: -175px;
+    /* 执行波动+上下浮动动画 */
+    animation: wave 7s cubic-bezier(0.36,0.45,0.63,0.53) infinite,swell 7s ease infinite;
+    animation-delay: -0.2s;
+}
+
+/* 定义动画 */
+/* 波动动画 */
+@keyframes wave {
+    0%{
+        margin-left: 0;
+    }
+    100%{
+        margin-left: -1600px;
+    }
+}
+/* 上下浮动动画 */
+@keyframes swell {
+    0%,100%{
+        transform: translate(0,-25px);
+    }
+    50%{
+        transform: translate(0,5px);
+    }
+}

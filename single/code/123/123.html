@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>3D圆点波浪动画特效</title>
+    <link rel="stylesheet" href="123.css">
+    <!-- 引入vue，这里我为了代码简洁，用了vue的语法 -->
+    <script src="/js/vue.min.js"></script>
+    <!-- 不想用vue的同学也可以用js实现，挑战一下，看看自己能不能写出来 -->
+</head>
+
+<body>
+    <div id="container">
+        <div class="camera -x">
+            <div class="camera -y">
+                <div class="camera -z">
+                    <div class="sea">
+                        <!-- --d为自定义属性,css中可通过var函数对其调用,这里用来存放每个wave的动画延迟时间(单位毫秒) -->
+                        <div class="wave" v-for="item in 100" :style="{'--d':item*-30+'ms'}">
+                            <div class="counter -z">
+                                <div class="counter -y">
+                                    <div class="counter -x">
+                                        <div class="ball"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    new Vue({
+        el:'#container',
+        data:{}
+    })
+</script>

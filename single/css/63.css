@@ -1,0 +1,31 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+.container{
+    /* 100%窗口宽度和高度 */
+    width: 100vw;
+    height: 100vh;
+    /* 设置滚动贴合的方式：沿Y轴滚动 mandatory表示强制滚动 */
+    scroll-snap-type: y mandatory;
+    /* 需要把滚动条设置到直接父容器，scroll-snap-type才能生效 */
+    /* 溢出时，垂直保留滚动条，水平隐藏滚动条 */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.container div{
+    /* 100%窗口宽度和高度 */
+    width: 100vw;
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 通过var函数调用自定义属性--c，设置各个div的背景颜色 */
+    background-color: var(--c);
+    font-size: 200px;
+    color: #fff;
+    /* 设置下一页的内容会滚动贴合到顶部 */
+    scroll-snap-align: start;
+}

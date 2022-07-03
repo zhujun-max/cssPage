@@ -1,0 +1,62 @@
+*{
+    /* 初始化 取消页面内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 100%窗口高度 */
+    height: 100vh;
+    background-color: #222;
+}
+svg{
+    /* 将svg标签隐藏 */
+    width: 0;
+    height: 0;
+}
+.loading{
+    /* 相对定位 */
+    position: relative;
+    width: 200px;
+    height: 200px;
+    /* 使用自定义滤镜gooey */
+    filter: url(#gooey);
+}
+.loading span{
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* 执行动画：动画名称 时长 加速后减速 无限次播放 */
+    animation: animate 4s ease-in-out infinite;
+    /* 动画延迟，通过var函数调用自定义属性--i，计算出要延迟的时间 */
+    animation-delay: calc(0.2s * var(--i));
+}
+.loading span::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(#d1f5ff,#1683ff);
+    /* 这里加个阴影，效果更好 */
+    box-shadow: 0 0 30px #1683ff;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%,100%{
+        transform: rotate(360deg);
+    }
+}

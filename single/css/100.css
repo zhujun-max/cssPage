@@ -1,0 +1,178 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* :root选择器是匹配文档根元素 */
+:root{
+    /* 声明自定义属性 */
+    --rotate-arrow:0;
+    --dropdown-height:0;
+    --list-opacity:0;
+    --translate-value:0;
+    --floating-icon-size:26;
+    --floating-icon-top:0;
+    --floating-icon-left:0;
+}
+html{
+    font-size: 80%;
+}
+body{
+    height: 100%;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #222429;
+    padding: 1.5rem;
+    line-height: 1.4rem;
+}
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+svg{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.text-truncate{
+    /* 超出显示省略号 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* 不换行 */
+    white-space: nowrap;
+}
+.dropdown-container{
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 34rem;
+}
+.dropdown-title-icon,
+.dropdown-arrow{
+    display: inline-flex;
+}
+.dropdown-title{
+    margin: 0 auto 0 1.8rem;
+}
+.dropdown-button{
+    font-weight: 400;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.8rem;
+}
+.dropdown-button svg{
+    /* 填充颜色 */
+    fill: #b1b8ca;
+    /* 设置过渡: 全部 时长 贝塞尔曲线 */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.dropdown-button svg,
+.dropdown-button span{
+    /* 元素不对指针事件做出反应 */
+    pointer-events: none;
+}
+.dropdown-button:hover,
+.dropdown-button:focus{
+    color: #fff;
+}
+.dropdown-button:hover svg,
+.dropdown-button:focus svg{
+    fill: #fff;
+}
+.main-button{
+    height: 5.2rem;
+    background-color: #333740;
+    color: #b1b8ca;
+    border-radius: 1.4rem;
+    border: 0.1rem solid #494d59;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.main-button:focus{
+    border: 0.1rem solid #2c62f6;
+    box-shadow: 0 0 0 0.2rem rgba(44,98,246,0.4);
+}
+.main-button .dropdown-arrow{
+    margin-left: 1.8rem;
+    /* 通过var函数调用自定义属性,设置旋转角度 */
+    transform: rotate(var(--rotate-arrow));
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.list-button{
+    height: 4.6rem;
+    color: #b1b8ca;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 隐藏光标 */
+    cursor: none;
+    transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.dropdown-list-container{
+    overflow: hidden;
+    max-height: var(--dropdown-height);
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.dropdown-list-wrapper{
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #333740;
+    border-radius: 1.4rem;
+    border: 0.1rem solid #494d59;
+    position: relative;
+}
+ul.dropdown-list{
+    position: relative;
+    list-style-type: none;
+}
+ul.dropdown-list::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    height: 4.6rem;
+    background-color: #2b2e34;
+    border-radius: 1.4rem;
+    pointer-events: none;
+    transform: translateY(var(--translate-value));
+    transition: all 0.4s linear;
+}
+li.dropdown-list-item{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    opacity: var(--list-opacity);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.floating-icon{
+    width: calc(var(--floating-icon-size) * 1px);
+    height: calc(var(--floating-icon-size) * 1px);
+    position: absolute;
+    left: var(--floating-icon-left);
+    top: var(--floating-icon-top);
+    background-color: #494d59;
+    border-radius: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.floating-icon svg{
+    fill: #fff;
+}
+ul.dropdown-list:hover::before,
+ul.dropdown-list:hover ~ .floating-icon{
+    opacity: 1;
+}

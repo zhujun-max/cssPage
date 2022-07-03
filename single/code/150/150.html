@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>仿制B站PC端首页的吃豆人轮播图</title>
+    <!-- 引入字体图标库 -->
+    <link rel="stylesheet" href="/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="150.css">
+    <!-- 这个案例用到的是vue的语法 -->
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app" @mouseover="stopAutoPlay" @mouseout="startAutoPlay">
+        <div class="img-box">
+            <img :src="item.image" alt="" v-for="item in list">
+        </div>
+        <div class="bottom-box" :style="{'--b-color':list[0].bottom_color}">
+            <div class="l-box">
+                <div class="title">{{list[active_index].title}}</div>
+                <ul class="dots">
+                    <li :class="[index==active_index?'pacman':'dot',is_prev?'l':'']" v-for="(item,index) in list" @click="changeBanner(index)">
+                        <!-- 吃豆人 -->
+                        <div v-if="index==active_index"></div>
+                        <div v-if="index==active_index"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="r-box">
+                <i class="fa fa-angle-left" @click="changeBanner(-1,true)"></i>
+                <i class="fa fa-angle-right" @click="changeBanner(-1,false)"></i>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="150.js"></script>

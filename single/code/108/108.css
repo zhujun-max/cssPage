@@ -1,0 +1,103 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.tabbar{
+    /* 相对定位 */
+    position: relative;
+    width: 350px;
+    height: 70px;
+}
+.tabbar ul{
+    /* 让li横向排列 */
+    display: flex;
+}
+.tabbar ul li{
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    z-index: 1;
+}
+.tabbar ul li a{
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 垂直排列 */
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+}
+.tabbar ul li a .icon{
+    line-height: 70px;
+    font-size: 30px;
+    /* 设置过渡 */
+    transition: 0.5s;
+}
+.tabbar ul li a .text{
+    /* 绝对定位 */
+    position: absolute;
+    font-size: 12px;
+    bottom: 13px;
+    /* 设置过渡 */
+    transition: 0.5s;
+    /* 默认隐藏 */
+    transform: scale(0);
+}
+.tabbar ul li.active a .icon{
+    font-size: 23px;
+    /* 图标上移 */
+    transform: translateY(-10px);
+}
+.tabbar ul li.active a .text{
+    /* 选中,文字显示 */
+    transform: scale(1);
+}
+.active-bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* --c,--cc为CSS中的自定义属性,通过var函数可对其调用 */
+    background-color: var(--c);
+    box-shadow: 0 10px 15px var(--cc);
+    transition: 0.5s;
+}
+/* 分别为每一个.active-bg设置颜色,阴影,位移 */
+.tabbar ul li:nth-child(1).active ~ .active-bg{
+    --c:#ffa502;
+    --cc:#ffa50299;
+    left: 0;
+}
+.tabbar ul li:nth-child(2).active ~ .active-bg{
+    --c:#ff6348;
+    --cc:#ff634899;
+    left: calc(1 * 70px);
+}
+.tabbar ul li:nth-child(3).active ~ .active-bg{
+    --c:#2ed573;
+    --cc:#2ed57399;
+    left: calc(2 * 70px);
+}
+.tabbar ul li:nth-child(4).active ~ .active-bg{
+    --c:#1e90ff;
+    --cc:#1e90ff99;
+    left: calc(3 * 70px);
+}
+.tabbar ul li:nth-child(5).active ~ .active-bg{
+    --c:#ff6b81;
+    --cc:#ff6b8199;
+    left: calc(4 * 70px);
+}

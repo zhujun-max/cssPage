@@ -1,0 +1,132 @@
+*{
+    /* 初始化 取消页面元素的内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    background-color: #f2be45;
+    /* 相对定位 */
+    position: relative;
+    /* 执行背景颜色变化的动画：动画名 时长 线性的 停留在最后一帧 */
+    animation: changeBg 2.5s linear forwards;
+}
+/* 添加祝贺文本 */
+.container::before,
+.container::after{
+    /* 绝对定位 */
+    position: absolute;
+    top: 5%;
+    color: #f2be45;
+    font-size: 70px;
+    font-weight: bold;
+    /* 执行显示祝贺文本的动画 */
+    animation: showText 2.5s linear forwards;
+}
+.container::before{
+    content: "热烈祝贺";
+    left: 5%;
+    /* 沿X轴倾斜15度 */
+    transform: skewX(15deg);
+}
+.container::after{
+    content: "卫冕冠军";
+    right: 5%;
+    /* 沿X轴倾斜-15度 */
+    transform: skewX(-15deg);
+}
+.letter{
+    font-size: 160px;
+    font-weight: bold;
+    color: #725e82;
+    /* 转大写 */
+    text-transform: uppercase;
+    /* 绝对固定定位 */
+    position: fixed;
+}
+.letter span{
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 200px;
+}
+.letter.letter1{
+    left: calc(50% - 270px);
+    top: -400px;
+    /* 执行动画：动画名 时长 加速后减速 */
+    animation: letter1Animate 2.5s ease-in-out;
+}
+.letter.letter2{
+    left: calc(50% - 90px);
+    top: -200px;
+    /* 执行动画：动画名 时长 加速后减速 */
+    animation: letter2Animate 2.5s ease-in-out;
+}
+.letter.letter3{
+    left: calc(50% + 90px);
+    top: -800px;
+    /* 执行动画：动画名 时长 加速后减速 */
+    animation: letter3Animate 2.5s ease-in-out;
+}
+.letter .check{
+    color: #f2be45;
+}
+
+/* 定义动画 */
+/* 改变背景颜色 */
+@keyframes changeBg {
+    0%{
+        background-color: #f2be45;
+    }
+    100%{
+        background-color: #725e82;
+    }
+}
+/* 第一个字母的滚动动画 */
+@keyframes letter1Animate {
+    0%{
+        top: -2000px;
+    }
+    100%{
+        top: -400px;
+        color: #725e82;
+    }
+}
+/* 第二个字母的滚动动画 */
+@keyframes letter2Animate {
+    0%{
+        top: -4000px;
+    }
+    100%{
+        top: -200px;
+        color: #725e82;
+    }
+}
+/* 第三个字母的滚动动画 */
+@keyframes letter3Animate {
+    0%{
+        top: -3000px;
+    }
+    100%{
+        top: -800px;
+        color: #725e82;
+    }
+}
+/* 显示祝贺文本 */
+@keyframes showText {
+    0%{
+        color: #f2be45;
+    }
+    98%{
+        color: #725e82;
+        text-shadow: none;
+    }
+    100%{
+        color: #fff;
+        /* 文字阴影 */
+        text-shadow: 5px 5px 0 #f2be45;
+    }
+}

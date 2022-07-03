@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>切片式轮播图</title>
+    <link rel="stylesheet" href="../css/102.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="big-box"></div>
+        <div class="small-box">
+            <div class="img"><img src="../images/op/1.jpg" alt=""></div>
+            <div class="img"><img src="../images/op/2.jpg" alt=""></div>
+            <div class="img"><img src="../images/op/3.jpg" alt=""></div>
+            <div class="img"><img src="../images/op/4.jpg" alt=""></div>
+            <div class="img"><img src="../images/op/5.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        // 获取需要操作的元素
+        // 左边大图
+        let big_box=document.querySelector(".big-box");
+        // 图片集合
+        let imgs=document.getElementsByClassName("img");
+        // 定时器
+        let timer=null;
+        // 当前图片下标
+        let index=0;
+
+        // 重置函数
+        function reset(){
+            for(let i=0;i<imgs.length;i++){
+                imgs[i].className="img";
+            }
+        }
+        // 选中函数
+        function selected(){
+            reset();
+            imgs[index].className="img active";
+        }
+        // 轮播函数
+        function play(){
+            timer=setInterval(function(){
+                selected();
+                index++;
+                big_box.style.backgroundImage="url(../images/op/"+index+".jpg)";
+                if(index==5){
+                    index=0;
+                }
+            },1500);
+        }
+        // 循环绑定每个小图片的鼠标移动事件
+        for(let i=0;i<imgs.length;i++){
+            // 鼠标移动到小图片上时触发
+            imgs[i].onmousemove=function(){
+                // 左边大图变成当前的小图片
+                big_box.style.backgroundImage="url(../images/op/"+(i+1)+".jpg)";
+                // 执行重置函数并关闭定时器
+                reset();
+                clearInterval(timer);
+                // 更新当前图片下标并执行轮播
+                index=i+1;
+                if(index==5){
+                    index=0;
+                }
+                play();
+            }
+        }
+        // 执行轮播
+        play();
+    </script>
+</body>
+
+</html>

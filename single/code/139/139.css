@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#f5f7fa,#c3cfe2);
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 允许换行 */
+    flex-wrap: wrap;
+}
+.card{
+    position: relative;
+    width: 240px;
+    height: 350px;
+    margin: 10px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    color: #f5f5f5;
+    /* 阴影 */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1),
+    0 2px 2px rgba(0,0,0,0.1),
+    0 4px 4px rgba(0,0,0,0.1),
+    0 8px 8px rgba(0,0,0,0.1),
+    0 16px 16px rgba(0,0,0,0.1);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.card::before{
+    content: "";
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-image: url(/images/139/1.jpg); */
+    background-size: cover;
+    background-position: 0 0;
+    /* 过渡效果: css属性名 时长 贝塞尔曲线 */
+    transition: transform 1s cubic-bezier(0.19,1,0.22,1);
+}
+/* 分别设置图片 */
+.card:nth-child(1)::before{
+    background-image: url(/images/139/1.jpg);
+}
+.card:nth-child(2)::before{
+    background-image: url(/images/139/2.jpg);
+}
+.card:nth-child(3)::before{
+    background-image: url(/images/139/3.jpg);
+}
+.card:nth-child(4)::before{
+    background-image: url(/images/139/4.jpg);
+}
+/* 遮罩 */
+.card::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.25) 55%,
+    rgba(0,0,0,0.8) 100%);
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(0);
+    /* 过渡效果 */
+    transition: transform 1.4s cubic-bezier(0.19,1,0.22,1);
+}
+.card .content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 16px 8px;
+    transform: translateY(76%);
+    transition: transform 0.7s cubic-bezier(0.19,1,0.22,1);
+}
+.card h2{
+    font-size: 23px;
+    font-weight: bold;
+}
+.card p{
+    font-size: 15px;
+    /* 字间距 */
+    letter-spacing: 2px;
+    width: 80%;
+    line-height: 30px;
+    margin-top: 25px;
+    /* 文本两端对齐 */
+    text-align: justify;
+}
+.card button{
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.card button:hover{
+    background-color: #000;
+}
+.card .content *:not(h2){
+    /* .content下，除了h2，其他元素隐藏并下移20px */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.7s cubic-bezier(0.19,1,0.22,1),opacity 0.7s cubic-bezier(0.19,1,0.22,1);
+}
+.card:hover{
+    align-items: center;
+}
+.card:hover::before{
+    transform: translateY(-5%);
+}
+.card:hover::after{
+    transform: translateY(-50%);
+}
+.card:hover .content{
+    transform: translateY(0);
+}
+.card:hover .content *:not(h2){
+    opacity: 1;
+    transform: translateY(0);
+    /* 过渡效果延迟 */
+    transition-delay: 0.1s;
+}

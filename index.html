@@ -10,16 +10,44 @@
 </head>
 
 <body>
-  <div id="app" >
-    <div v-for="(v,i) in arr">
-      <div class="actions">
-        <a :href="'./'+v+'/index.html'">效果预览</a>
-        <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+  <div id="app">
+    <!-- 零散的项目 -->
+    <div class="box" :class="(scrollTop-200)/235*3+'-----'+(scrollTop+screenHeight+235)/235*3">
+      <span class="title">零散的项目<a>{{arr1.length}}</a></span>
+      <div v-for="(v,i) in arr1">
+        <div class="actions">
+          <a :href="'./single/'+v+'/index.html'">效果预览</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+        </div>
+        <!-- 由于是直接使用的iframe标签，如果一次引入全部文件，极其消耗性能，
+                便根据滚动条距离来判断页面显示的区域 -->
+        <iframe :src="'./single/'+v+'/index.html'" frameborder="0" scrolling="no"
+          v-if="i>=(scrollTop-200)/235*3 && i<=(scrollTop+screenHeight+235)/235*3"></iframe>
       </div>
-      <!-- 由于是直接使用的iframe标签，如果一次引入全部文件，极其消耗性能，
-        便根据滚动条距离来判断页面显示的区域 -->
-      <iframe :src="'./'+v+'/index.html'" frameborder="0" scrolling="no"
-        v-if="i>=(scrollTop-200)/220*3 && i<=(scrollTop+screenHeight+220)/220*3"></iframe>
+    </div>
+    <!-- 好看的样式 -->
+    <div class="box">
+      <span class="title">好看的样式<a>{{105}}</a></span>
+      <div v-for="(v,i) in 105">
+        <div class="actions">
+          <a :href="'./html_css_demo/html/'+v+'.html'">效果预览</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+        </div>
+        <iframe :src="'./html_css_demo/html/'+v+'.html'" frameborder="0" scrolling="no"
+          v-if="i+arr1.length>=(scrollTop-200-50)/235*3 && i+arr1.length<=(scrollTop+screenHeight+235+50)/235*3"></iframe>
+      </div>
+    </div>
+    <!-- 奇思妙想的创意 -->
+    <div class="box">
+      <span class="title">奇思妙想的创意<a>{{arr.length}}</a></span>
+      <div v-for="(v,i) in arr">
+        <div class="actions">
+          <a :href="'./css_effect_map_collection/'+v">效果预览</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+        </div>
+        <iframe :src="'./css_effect_map_collection/'+v" frameborder="0" scrolling="no"
+          v-if="i+105+arr1.length>=(scrollTop-200-100)/235*3 && i+105+arr1.length<=(scrollTop+screenHeight+235+100)/235*3"></iframe>
+      </div>
     </div>
   </div>
   <style>
@@ -37,10 +65,10 @@
 
     }
 
-    #app>div {
+    .box>div {
       display: inline-block;
       vertical-align: top;
-      margin: 10px;
+      margin: 17.5px 10px;
       width: 300px;
       height: 200px;
       background-size: 300px 200px;
@@ -49,6 +77,27 @@
       box-shadow: 0 0 30px -10px rgb(75 44 44);
       border-radius: 2px;
       position: relative;
+    }
+
+    .title {
+      display: block;
+      width: 100%;
+      height: 50px;
+      font-size: 30px;
+      font-weight: 700;
+      color: black;
+      margin: 10px;
+    }
+
+    .title>a {
+      display: inline-flex;
+      font-size: 13px;
+      background-color: #4d38389e;
+      color: black;
+      vertical-align: text-top;
+      border-radius: 6px;
+      padding: 1px;
+      margin-left: 5px;
     }
 
     iframe {
@@ -60,37 +109,279 @@
     }
 
     .actions {
+      display: flex;
+      justify-content: space-around;
       z-index: 9;
       position: absolute;
-      top: 0;
+      top: -16px;
       left: 0;
       width: 100%;
-      padding: 5px 0;
+      /* padding: 5px 0; */
       text-align: center;
-      background-color: rgb(227, 205, 164);
-      transition: .2s;
+      /* background-color: rgb(227, 205, 164); */
+      /* transition: .2s; */
     }
 
-    .actions:hover {
+    /* .actions:hover {
       padding: 20px 0;
       transition: .2s;
-    }
+    } */
 
     .actions>a {
-      padding: 5px;
-      color: rgb(126, 130, 122);
+      /* padding: 5px; */
+      color: rgb(255, 255, 255);
       text-decoration-line: none;
       font-family: '微软雅黑';
       font-weight: 200;
+      font-size: 10px;
     }
 
     .actions>a:hover {
       color: rgb(47, 52, 59);
       text-decoration-line: none;
-      font-weight: 200;
+      font-weight: 500;
     }
   </style>
-  <script src="./index.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        screenHeight: 0, //当前屏幕的高度
+        scrollTop: 0, // 滚动条当前的位置
+        arr: [
+          "3d翻转和蒙版展示/收集样式演示.html",
+          "background-clip的文字动效/index.html",
+          // "background-clip的文字动效/index2.html",
+          "canvas点阵图/index.html",
+          "CSS-Only Carousel/index.html",
+          // "CSS-Only Carousel/index2.html",
+          // "CSS-Only Carousel/index3.html",
+          "CSS-Only Carousel/溢出滚动不兼容ie.html",
+          // "CSS-Only Carousel/溢出滚动兼容ie10.html",
+          "CSS3和SVG实现的圆环菜单动画/index.html",
+          "css单位与值/color-picker.html",
+          // "css单位与值/px-em-rem.html",
+          // "css实现右上角标签条/index.html",
+          "css实现右上角标签条/index2.html",
+          "css煽动翅膀的蝴蝶/index.html",
+          "css登录含动态背景图/qq登录界面.html",
+          "css边框四角/index.html",
+          "css风车/index.html",
+          "geo2wkt/index.html",
+          "JqueryParallax滚动视差hm/index.html",
+          // "js读取csv/index.html",
+          // "tree-sharking-example/index.html",
+          // "vector键盘/index.html",
+          // "vuesript方式/index.html",
+          "一些小动画/椭圆运动.html",
+          "一些小动画/环绕运动.html",
+          "一些小动画/连续衔接动画.html",
+          "一些小动画/部分loading.html",
+          "一些设计实现/clip-path实现不规则背景图特效.html",
+          "一些设计实现/clip-path特效实现.html",
+          // "一些设计实现/index.html",
+          "一些设计实现/index2.html",
+          "一些设计实现/index3.html",
+          "一些设计实现/拖拽换位置.html",
+          "两栏布局文章/index.html",
+          // "主题切换实现方案/body添加样式实现.html",
+          "主题切换实现方案/css变量实现.html",
+          // "使用resize拉伸分栏/index.html",
+          // "使用resize拉伸分栏/test.html",
+          // "使用resize拉伸分栏/test2.html",
+          "使用resize拉伸分栏/test3.html",
+          // "使用resize拉伸分栏/改变flex调整大小.html",
+          // "使用resize拉伸分栏/改变width调整大小.html",
+          "全屏滚动/index.html",
+          "动态改变汽车颜色/index.html",
+          "可改动列宽度表格/index.html",
+          // "可改动列宽度表格/可拖动输入和校验的表格.html",
+          "可转动天枰/index.html",
+          "垂直居中的问题/index.html",
+          "大屏随机抽奖/index.html",
+          "如何使div元素充满td/index.html",
+          // "如何使div元素充满td/index2.html",
+          "如何让元素保持一定的宽高比/index.html",
+          "实现modal弹框动画/index.html",
+          "局部描点/index.html",
+          "手动旋转地图方向/index.html",
+          "文字雨/index.html",
+          "斜角样式/index.html",
+          // "斜角样式/index2.html",
+          // "斜角样式/index3.html",
+          // "斜角样式/index4.html",
+          "毛玻璃效果/index.html",
+          // "时空穿梭背景效果/index.html",
+          "时空穿梭背景效果/index使用css替换背景图.html",
+          // "时空穿梭背景效果/画点.html",
+          "浮动定位实现圣杯布局/index.html",
+          // "浮动定位实现圣杯布局/two.html",
+          // "浮动定位实现圣杯布局/双翼圣杯.html",
+          // "浮动定位实现圣杯布局/双翼圣杯变种.html",
+          // "清明上河图卷轴/index.html",
+          "清明上河图卷轴/temp.html",
+          "滑动滚动/index.html",
+          "滚动指示器/index.html",
+          // "漂亮的点赞效果/index.html",
+          "生命的幻象-简单的仿物css/生命的幻象.html",
+          "百分比水球/index.html",
+          "碰撞的小彩球/index.html",
+          "碰撞的小彩球分裂加恶魔圈/index.html",
+          "第三方滚动条/index.html",
+          // "第三方滚动条/官方demo.html",
+          "粘性页尾/index.html",
+          "纯css气泡背景/index.html",
+          // "缺角矩形/index.html",
+          // "缺角矩形/index2.html",
+          // "缺角矩形/index3.html",
+          "缺角矩形/svg绘制多边形.html",
+          "网页中加入命令行/index.html",
+          "转盘/index.html",
+          "遥感飞船/index.html",
+          "雪花背景/必应雪花背景.html",
+        ],
+        arr1: [
+          "2020",
+          "2021.10.10.广告名片",
+          "2021.10.24.鼠标跟随",
+          "2021.11.13.选项卡",
+          "2021.11.21鼠标视差滚轮响应",
+          "2021.6.27.Css键盘",
+          "2021.7.25.360度全景图",
+          "2021.9.12.侧边导航栏",
+          "2022.3.27.鼠标悬停方向感应名片",
+          "32-place-item-center",
+          "34-drag-drop-api",
+          "3dCard",
+          "3D折叠效果",
+          "3D排版",
+          "3D旋转",
+          "3D旋转-魔方",
+          "3D旋转星球模型",
+          "3D翻牌",
+          "3D翻转",
+          "404-1",
+          "43-css-gradient-shadow",
+          "book",
+          "Canvas光束光线爆炸特效",
+          "ClipTransition",
+          "clock",
+          "CSS3时钟效果",
+          "CSS鹦鹉",
+          "douyin",
+          "egg",
+          "file_manager",
+          "H5粒子时间+弹跳小球",
+          "hjiaoben84",
+          "iphone",
+          "iPhone12页面卷动逐行滑入效果",
+          "iPhone镂空动画",
+          "jianzhi",
+          "jiaoben5961",
+          "jiaoben6024",
+          "JS口袋妖怪列表选择交互",
+          "light",
+          "LightOff",
+          "line-font",
+          "loading",
+          "login",
+          "login-3D旋转",
+          "login2",
+          "login3",
+          "login5",
+          "login6",
+          "page-404",
+          "polaroid",
+          "pxLineBg",
+          "shaolei",
+          "slider",
+          "split",
+          "split-font",
+          "svg-animation-truck",
+          "svg_animation",
+          "svg_text_animation",
+          "svg文字",
+          "switch-button",
+          "todo-list",
+          "wave",
+          "wushiyin",
+          "yijiansanlian",
+          "五星红旗",
+          "刮刮乐",
+          "卡片-简历",
+          "响应式导航栏",
+          "多款炫酷鼠标悬停图文动画效果",
+          "导航条",
+          "导航栏3D",
+          "打字机",
+          "技能条",
+          "拉伸和透明",
+          "按钮",
+          "按钮-q弹",
+          "按钮-五彩",
+          "按钮-故障风",
+          "按钮特效20种",
+          "搜索框1",
+          "新拟态-指纹按钮",
+          "新拟态-播放器",
+          "新拟态-选项卡",
+          "新拟态-按钮组",
+          "新拟态UI",
+          "新拟态指纹按钮",
+          "新拟态计算机",
+          "柱状图",
+          "水滴融合",
+          "浮动文字",
+          "漂亮的input输入框",
+          "瀑布流",
+          "瀑布流-图片",
+          "瀑布流-页面滑动",
+          "瀑布流3",
+          "瀑布流布局",
+          "火焰文字",
+          "百叶窗",
+          "粒子特效",
+          "纯CSS3图片滤镜效果",
+          "纯CSS3花瓣旋转加载动画",
+          "翻页漫画",
+          "视差滚动",
+          "视差滚动2",
+          "视差滚动3",
+          "视差滚动6",
+          "轮播图",
+          "轮播图-3D",
+          "轮播图-纯CSS轮",
+          "轮播图-高级切换、",
+          "轮播图2",
+          "轮播图3",
+          "输入框-动态",
+          "选项卡-高级",
+          "闪光文字",
+          "黑金卡片",
+        ],
+      },
+      methods: {
+        //滚动事件
+        handleScroll () {
+          this.scrollTop =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+        },
+      },
+      mounted () {
+        this.screenHeight = window.screen.height;
+        console.log("页面高度", window.screen.height);
+        // 向页面添加滚动事件
+        window.addEventListener("scroll", this.handleScroll, true);
+      },
+      destroyed () {
+        //离开这个界面之后，删除滚动事件，不然容易除bug
+        window.removeEventListener("scroll", this.handleScroll);
+      },
+    });
+
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,112 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.container{
+    /* 相对定位 */
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .circle{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    margin: -30px;
+    /* 通过var函数调用自定义属性--c（颜色） */
+    border-top: 5px solid var(--c);
+    /* 通过var函数调用自定义属性--a（动画名称） */
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: var(--a) 3s linear infinite;
+}
+/* 发光头 */
+.container .circle::before{
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 15px;
+    height: 15px;
+    /* 通过var函数调用自定义属性--c（颜色） */
+    background-color: var(--c);
+    border-radius: 50%;
+    /* 阴影（发光效果） */
+    box-shadow: 
+    0 0 5px var(--c),
+    0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 40px var(--c),
+    0 0 80px var(--c);
+}
+/* 第三个圆 */
+.container .circle:nth-child(3){
+    position: absolute;
+    top: -66.66px;
+    /* 设置自定义属性--c（颜色） */
+    --c: lightgreen;
+    /* 设置自定义属性--a（动画） */
+    --a: animate2;
+    /* 调整边框 */
+    border-top: 5px solid transparent;
+    border-left: 5px solid var(--c);
+    /* 调整动画延迟时间 */
+    animation-delay: -2s;
+}
+/* 第二个圆 */
+.container .circle:nth-child(2){
+    /* 设置自定义属性--c（颜色） */
+    --c: lightsalmon;
+    /* 设置自定义属性--a（动画） */
+    --a: animate2;
+    /* 调整边框 */
+    border-top: 5px solid transparent;
+    border-left: 5px solid var(--c);
+    /* 调整动画延迟时间 */
+    animation-delay: -0.5s;
+}
+/* 第一个圆 */
+.container .circle:nth-child(1){
+    /* 设置自定义属性--c（颜色） */
+    --c: lightskyblue;
+    /* 设置自定义属性--a（动画） */
+    --a: animate1;
+}
+.container .circle:nth-child(3):before,
+.container .circle:nth-child(2):before{
+    /* initial关键字用于设置CSS属性为它的默认值 */
+    top: initial;
+    left: 12px;
+    bottom: 12px;
+}
+
+/* 定义动画 */
+@keyframes animate1 {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes animate2 {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

@@ -1,0 +1,124 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+/* 轮播图主体 */
+.swipe{
+    /* 相对定位 */
+    position: relative;
+    width: 100%;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+/* 模糊背景 */
+.swipe .bg{
+    /* 绝对定位 */
+    position: absolute;
+    width: 500%;
+    height: 100%;
+    z-index: 1;
+    background-image: url("../images/cloud_music/1.jpg");
+    background-size: 6000px;
+    background-position: center center;
+    /* 模糊滤镜 */
+    filter: blur(140px);
+}
+/* 图片区域 */
+.swipe section{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1500px;
+    height: 600px;
+    /* 居中 */
+    margin: 0 auto;
+}
+/* 图片盒子 */
+.swipe .img-box{
+    width: 100%;
+    height: 100%;
+}
+/* 图片 */
+.swipe .img-box .img{
+    width: 100%;
+    height: 100%;
+    /* 保持原有尺寸比例, 裁切长边 */
+    object-fit: cover;
+}
+/* 指示器 */
+.swipe .select{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    bottom: 20px;
+    text-align: center;
+}
+.swipe .select .item{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    /* 阴影 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+/* 鼠标移入指示器 */
+.swipe .select .item:hover{
+    background-color: #ff4400;
+}
+/* 指示器选中状态 */
+.swipe .select .item.checked{
+    background-color: #ff4400;
+}
+/* 两侧翻页按钮 */
+.swipe .btn{
+    width: 40px;
+    height: 100px;
+    color: #fff;
+    /* 绝对定位 垂直居中 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    background-color: rgba(0,0,0,0.05);
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    /* 鼠标移入光标变小手 */
+    cursor: pointer;
+    /* 动画过渡 */
+    transition: 0.3s;
+}
+.swipe .btn.left{
+    left: -60px;
+}
+.swipe .btn.right{
+    right: -60px;
+}
+.swipe .btn:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* 响应式 屏幕尺寸小于1620px时以下代码生效(让两个按钮移动到图片主体内部) */
+@media screen and (max-width:1620px){
+    .swipe .btn.left{
+        left: 20px;
+    }
+    .swipe .btn.right{
+        right: 20px;
+    }
+}

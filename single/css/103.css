@@ -1,0 +1,40 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top,#a3bded,#6991c7);
+}
+.img1{
+    width: 900px;
+    height: 500px;
+    background: url("../images/op1/1.jpg") no-repeat;
+    /* 保持原有尺寸比例,裁切长边 */
+    background-size: cover;
+    /* 背景定位正中间 */
+    background-position: center center;
+    /* 弹性布局 */
+    display: flex;
+}
+.img2{
+    background: url("../images/op1/3.jpg") no-repeat;
+    background-size: cover;
+    /* 通过var函数调用自定义属性--i,计算每个元素的背景图水平定位 */
+    background-position-x: calc(var(--i) * 10%);
+    flex: 1;
+    /* 默认沿Y轴旋转90度(看不见) */
+    transform: rotateY(90deg);
+    /* 设置过渡 */
+    transition: 0.8s;
+}
+.img1:hover .img2{
+    /* 鼠标移入,图2沿Y轴旋转0度(出现) */
+    transform: rotateY(0deg);
+}

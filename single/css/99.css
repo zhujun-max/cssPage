@@ -1,0 +1,47 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #06252e;
+}
+.container{
+    /* 投影效果 */
+    -webkit-box-reflect: below 1px linear-gradient(transparent,rgba(0,0,0,0.2));
+}
+h2{
+    color: #fff;
+    font-size: 96px;
+    /* 字间距 */
+    letter-spacing: 15px;
+    /* 转大写 */
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 76px;
+    outline: none;
+    /* 自定义属性--c，可通过var函数对其调用 */
+    --c:lightseagreen;
+    /* 调用自定义属性--c，设置文字阴影（发光效果） */
+    text-shadow: 0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 40px var(--c),
+    0 0 80px var(--c),
+    0 0 160px var(--c);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: animate 5s linear infinite;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    to{
+        /* 色相旋转滤镜（设置度数可改变颜色） */
+        filter: hue-rotate(360deg);
+    }
+}

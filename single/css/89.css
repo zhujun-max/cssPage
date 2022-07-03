@@ -1,0 +1,82 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 垂直排列元素 */
+    flex-direction: column;
+    background-color: #333;
+}
+button{
+    margin: 10px;
+    width: 280px;
+    height: 90px;
+    font-size: 35px;
+    font-weight: bold;
+    background: transparent;
+    border: 1px solid transparent;
+    /* 相对定位 */
+    position: relative;
+    /* 设置内阴影 */
+    box-shadow: inset 1px 1px 2px #000,
+    inset -1px -1px 2px #808080;
+    color: #333;
+    /* 文本阴影 */
+    text-shadow: 1px 1px 0 #808080;
+    overflow: hidden;
+    /* 加个过渡 */
+    transition: 0.3s linear 0.15s;
+}
+/* 分别为各个按钮设置自定义属性--c（颜色） */
+button:nth-child(1){
+    --c:#ff4757;
+}
+button:nth-child(2){
+    --c:#ffa502;
+}
+button:nth-child(3){
+    --c:#2ed573;
+}
+button:nth-child(4){
+    --c:#1e90ff;
+}
+/* 射灯 */
+button::before{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    width: 100px;
+    height: 8px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background: var(--c); */
+    border-radius: 0 0 50% 50%;
+    /* 模糊滤镜 */
+    filter: blur(5px);
+    /* 设置过渡 */
+    transition: 0.3s;
+}
+button:hover::before{
+    /* 通过var函数调用自定义属性--c，设置射灯颜色 */
+    background: var(--c);
+    box-shadow: 0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 30px var(--c),
+    0 0 40px var(--c),
+    0 0 50px var(--c);
+}
+button:hover{
+    color: #fff;
+    text-shadow: 0 0 10px var(--c),
+    0 5px 5px #000;
+    box-shadow: inset 1px 1px 2px #000,
+    inset -1px -1px 2px var(--c);
+}

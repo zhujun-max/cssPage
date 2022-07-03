@@ -3,7 +3,7 @@
 // 思路： 使用WebContainers，在浏览器中使用node。但是使用fs文件模块一直报错，就不想管了
 var fs = require("fs");
 fs.readdir(process.cwd(), function (err, data) {
-  // 找出所有文件夹，排除掉了以下字段中的后缀名。
+  // 找出所有文件夹，排除掉以下字段中的文件，或者带有该字段的后缀名的文件。
   console.log(JSON.stringify(data.filter((v) =>
     !["js", "json", "md", "git", "html"].includes(v.split(".").pop())
   )))

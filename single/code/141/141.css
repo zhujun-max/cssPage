@@ -1,0 +1,241 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 430px;
+    height: 100px;
+}
+/* 模糊背景图 */
+.bg{
+    /* 固定定位 */
+    position: fixed;
+    top: -40px;
+    right: -40px;
+    bottom: -40px;
+    left: -40px;
+    background: url(/mp3/cover/红模仿.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* 模糊滤镜 */
+    filter: blur(40px);
+    z-index: 1;
+}
+/* 半透明白色遮罩层 */
+.bg-mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255,255,255,0.5);
+    z-index: 2;
+}
+.player{
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+/* 歌曲信息轨道区域 */
+.player-track{
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    left: 15px;
+    padding: 13px 22px 10px 184px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 15px 15px 0 0;
+    /* 改变top时的过渡效果 */
+    transition: top 0.3s ease;
+}
+/* 歌曲信息轨道区域活动态 */
+.player-track.active{
+    /* 上移 */
+    top: -95px;
+}
+.album-name{
+    color: #333;
+    font-size: 17px;
+    font-weight: bold;
+}
+.track-name{
+    color: #888;
+    font-size: 13px;
+    margin: 3px 0 12px 0;
+}
+.track-time{
+    height: 12px;
+    line-height: 12px;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+.current-time,
+.total-time{
+    color: #ff668f;
+    font-size: 11px;
+    transition: 0.3s ease;
+}
+.current-time{
+    float: left;
+}
+.total-time{
+    float: right;
+}
+/* 播放进度区域 */
+.progress-box{
+    position: relative;
+    height: 4px;
+    background-color: #ead2d7;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* 悬停进度条显示时间 */
+.hover-time{
+    position: absolute;
+    top: -30px;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 6px;
+    border-radius: 4px;
+    display: none;
+}
+/* 悬停进度条颜色 */
+.hover-bar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.12);
+    border-radius: 4px;
+    z-index: 2;
+}
+/* 已播放的进度条颜色 */
+.progress-bar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fd6d94;
+    border-radius: 4px;
+    z-index: 1;
+    width: 0;
+    /* 改变width时的过渡效果 */
+    transition: width 0.2s ease;
+}
+.player-content{
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    z-index: 2;
+    box-shadow: 0 30px 80px #656565;
+}
+/* 封面 */
+.album-cover{
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    box-shadow: 0 0 0 10px #fff;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+/* 唱片中间的小圆点 */
+.album-cover::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #d6dee6;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    margin: -10px auto auto auto;
+    box-shadow: inset 0 0 0 2px #fff;
+    z-index: 1;
+}
+/* 封面活动态 */
+.album-cover.active{
+    top: -60px;
+    box-shadow: 0 0 0 4px #fff7f7,
+    0 30px 50px -15px #afb7c1;
+}
+.album-cover img{
+    display: block;
+    width: 100%;
+    height: 0%;
+    object-fit: cover;
+    opacity: 0;
+}
+.album-cover img.active{
+    height: 100%;
+    opacity: 1;
+}
+/* 播放时封面旋转 */
+.album-cover.active img.active{
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: rotateAlbumCover 3s linear infinite;
+}
+/* 控制区 */
+.play-controls{
+    width: 255px;
+    height: 100%;
+    float: right;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-right: 2px;
+}
+.control{
+    flex: 1;
+}
+.control .button{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.control .button i{
+    color: #d6dee6;
+    font-size: 30px;
+    transition: 0.2s ease;
+}
+.control .button:hover{
+    background-color: #d6d6de;
+}
+.control .button:hover i{
+    color: #fff;
+}
+
+/* 定义动画 */
+@keyframes rotateAlbumCover {
+    0%{
+        transform: rotateZ(0);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}

@@ -1,0 +1,56 @@
+body{
+    /* 取消页面内外边距 */
+    margin: 0;
+    padding: 0;
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#517fa4,#243949);
+}
+.btn-box a{
+    font-size: 40px;
+    color: #88bef5;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 16px;
+    display: inline-block;
+    /* 相对定位 */
+    position: relative;
+    /* 动画过渡：时长 线性的 */
+    transition: 0.5s linear;
+}
+.btn-box a::before,.btn-box a::after{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    /* 这个是告诉浏览器：你想要设置的边框和内边距的值是包含在总宽高内的 */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    /* 加个动画过渡 */
+    transition: 0.5s linear;
+}
+.btn-box a:hover{
+    /* 缩小为原来的0.8倍 */
+    transform: scale(0.8);
+}
+.btn-box a:hover::before{
+    border-left: 4px solid;
+    border-right: 4px solid;
+    /* 沿X轴倾斜20度 */
+    transform: skewX(20deg);
+}
+.btn-box a:hover::after{
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    /* 沿Y轴倾斜-20度 */
+    transform: skewY(-20deg);
+}

@@ -1,0 +1,64 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口宽高 */
+    height: 100vh;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#9795f0 0%,#fbc8d4 45%,#fbc8d4 55%,#9795f0 100%);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.container::before,
+.container::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* 彩虹+山 */
+.container::after{
+    /* 设置背景图像 */
+    background-image:
+    /* 左边的山（径向渐变，黑色到透明）  */
+    radial-gradient(ellipse at 0% 100%,#0b0b31 50%,transparent 50.5%),
+    /* 右边的山（同上） */
+    radial-gradient(ellipse at 100% 100%,#0b0b31 50%,transparent 50.5%),
+    /* 彩虹（径向渐变 彩虹的七颜色+中心镂空底色） */
+    radial-gradient(circle at 50% 100%,#f5c4d1aa 30%,#845FA7AA 30.5%,#845FA7AA 35%,#5461ACAA 35.5%,#5461ACAA 40%,#64CDF3AA 40.5%,#64CDF3AA 45%,#91C83DAA 45.5%,#91C83DAA 50%,#FAF04FAA 50.5%,#FAF04FAA 55%,#FAAE51AA 55.5%,#FAAE51AA 60%,#DF4348AA 60.5%,#DF4348AA 65%,transparent 65.5%);
+    /* 背景不平铺 */
+    background-repeat: no-repeat;
+    /* 分别指定三个背景的大小（左山，右山，彩虹） */
+    background-size: 75% 86px,75% 86px,416px 208px;
+    /* 分别指定三个背景的定位（左山，右山，彩虹） */
+    background-position: 0% 50%,100% 50%,50% 40%;
+}
+.container::before{
+    /* 设置背景图像 */
+    background-image:
+    /* 左边的山（径向渐变，黑色到透明）  */
+    radial-gradient(ellipse at 0% 0%,#0b0b31 50%,transparent 50.5%),
+    /* 右边的山（同上） */
+    radial-gradient(ellipse at 100% 0%,#0b0b31 50%,transparent 50.5%),
+    /* 彩虹（径向渐变 彩虹的七颜色+中心镂空底色） */
+    radial-gradient(circle at 50% 0%,#f5c4d1aa 30%,#845FA7AA 30.5%,#845FA7AA 35%,#5461ACAA 35.5%,#5461ACAA 40%,#64CDF3AA 40.5%,#64CDF3AA 45%,#91C83DAA 45.5%,#91C83DAA 50%,#FAF04FAA 50.5%,#FAF04FAA 55%,#FAAE51AA 55.5%,#FAAE51AA 60%,#DF4348AA 60.5%,#DF4348AA 65%,transparent 65.5%);
+    /* 背景不平铺 */
+    background-repeat: no-repeat;
+    /* 分别指定三个背景的大小（左山，右山，彩虹） */
+    background-size: 85% 86px,85% 86px,400px 200px;
+    /* 分别指定三个背景的定位（左山，右山，彩虹） */
+    background-position: 0% 57%,100% 57%,50% 65%;
+    /* 模糊滤镜 */
+    filter: blur(13px);
+    /* 放大（沿X轴放大1.05倍，沿Y轴放大1.2倍） */
+    transform: scale(1.05,1.2);
+}

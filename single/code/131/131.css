@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+.text{
+    /* 相对定位 */
+    position: relative;
+    color: #fff;
+    font-size: 62px;
+    /* 字间距 */
+    letter-spacing: 3px;
+    /* 单个字宽度 */
+    width: 65px;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 自定义属性(变量),通过var函数进行调用,这里用来记录字数(6个字,根据你的实际字数而定) */
+    --count: 6;
+    /* 执行动画: 动画名 时长 分步过渡(这里分6步) 停留在最后一帧 */
+    /* 时长要根据字数而定,字数多的话要适当延长 */
+    animation: typing 1.8s steps(var(--count)) forwards;
+    /* 加个倒影可能会比较好看 */
+    -webkit-box-reflect: below 1px linear-gradient(transparent 30%,rgba(0,0,0,0.05));
+}
+/* 光标 */
+.text::after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    /* 执行光标动画: 动画名 时长 线性的 无限次播放 */
+    animation: blink 1s linear infinite;
+}
+
+/* 定义动画 */
+/* 光标闪烁 */
+@keyframes blink {
+    0%,49%{
+        opacity: 0;
+    }
+    50%,100%{
+        opacity: 1;
+    }
+}
+/* 打字动画 */
+@keyframes typing {
+    0%{
+        width: 0;
+    }
+    100%{
+        /* 计算字全部显示完的宽度,65px表示单个字宽度 */
+        width: calc(var(--count) * 65px);
+    }
+}

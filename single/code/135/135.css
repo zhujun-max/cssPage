@@ -1,0 +1,181 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top,#e6e9f0,#eef1f5);
+}
+a{
+    text-decoration: none;
+}
+a:link,a:visited{
+    color: #5e5e5e;
+}
+.container{
+    width: 95vw;
+    max-width: 1200px;
+    height: 460px;
+    position: relative;
+    overflow: hidden;
+}
+.banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.banner-slide{
+    width: 100%;
+    height: 100%;
+    /* 默认都隐藏 */
+    display: none;
+}
+.slide1{
+    background: url(/images/135/banner1.jpg) no-repeat;
+}
+.slide2{
+    background: url(/images/135/banner2.jpg) no-repeat;
+}
+.slide3{
+    background: url(/images/135/banner3.jpg) no-repeat;
+}
+/* banner激活态 */
+.slide-active{
+    display: block;
+}
+/* 上一张、下一张按钮 */
+.button{
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 244px;
+    margin-top: -40px;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.button.next{
+    left: auto;
+    right: 0;
+}
+.button .fa{
+    font-size: 50px;
+    color: #fff;
+}
+.button:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+/* 指示器 */
+.dots{
+    position: absolute;
+    right: 0;
+    bottom: 24px;
+    padding-right: 24px;
+}
+.dots span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(7,17,27,0.4);
+    margin-left: 8px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+}
+/* 激活态 */
+.dots span.dot-active{
+    background-color: #fff;
+    box-shadow: inset 0 0 0 2px rgba(7,17,27,0.4);
+}
+/* 左侧分类菜单 */
+.menu-content{
+    width: 244px;
+    height: 460px;
+    background-color: rgba(7,17,27,0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 6px;
+}
+.menu-item{
+    height: 64px;
+    line-height: 66px;
+    padding: 0 24px;
+    cursor: pointer;
+}
+.menu-item a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    height: 64px;
+    font-size: 16px;
+}
+.menu-item:last-child a{
+    border-bottom: none;
+}
+.menu-item a span{
+    flex: 1;
+}
+.menu-item a .fa{
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+}
+/* 二级分类菜单 */
+.sub-menu{
+    border: 1px solid #d9dde1;
+    background-color: #fff;
+    width: calc(80vw - 244px);
+    max-width: 730px;
+    height: 458px;
+    position: absolute;
+    left: 244px;
+    top: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.hide{
+    display: none;
+}
+.inner-box{
+    width: 100%;
+    height: 100%;
+    background: url(/images/135/fe.png) no-repeat;
+    overflow: auto;
+}
+.sub-inner-box{
+    width: 100%;
+    margin-left: 40px;
+    width: calc(100% - 40px);
+}
+.sub-inner-box .title{
+    color: #f01414;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 30px;
+}
+.sub-inner-box .sub-row{
+    margin-bottom: 25px;
+    line-height: 25px;
+}
+.sub-inner-box .sub-row .bold{
+    font-weight: 700;
+    margin-right: 15px;
+}
+.sub-inner-box .sub-row a{
+    margin-right: 15px;
+}

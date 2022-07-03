@@ -1,0 +1,61 @@
+/* 引入Jura字体 */
+@import url("http://fonts.googleapis.com/css?family=Jura:200,300,400,500,600,700,800,900");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #0e141b;
+    color: #e0e6eb;
+    font-family: 'Jura';
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 8px;
+    overflow: hidden;
+}
+.column,
+.colon{
+    /* 行内块元素 */
+    display: inline-block;
+    font-size: 86px;
+    line-height: 86px;
+    /* 顶部对齐 */
+    vertical-align: top;
+}
+.column{
+    /* 设置过渡 */
+    transition: 0.3s;
+}
+/* 冒号 */
+.colon{
+    /* 垂直居中（偏上一点） */
+    transform: translateY(calc(50vh - 55px));
+    /* 过渡 */
+    transition: 0.3s;
+}
+.colon::after{
+    content: ":";
+}
+/* 数字默认样式 */
+.num{
+    opacity: 0.25;
+    transition: 0.5s;
+}
+/* 当前时间（正中间数字） */
+.num.visible{
+    opacity: 1;
+    text-shadow: 1px 1px 0 #2c6299;
+}
+/* 邻近的 */
+.num.near{
+    opacity: 0.35;
+}
+/* 远的 */
+.num.far{
+    opacity: 0.15;
+}
+/* 更远的（越远越透明） */
+.num.distant{
+    opacity: 0.1;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>自定义滤镜实现液体加载动画</title>
+    <link rel="stylesheet" href="../css/26.css">
+</head>
+
+<body>
+    <div class="loading">
+        <!-- --i是CSS的自定义属性，通过var函数可以调用 -->
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+    </div>
+    <!-- 接下来我们来自定义一个滤镜 -->
+    <svg>
+        <!-- <filter>标签是用来定义SVG滤镜，通过id进行调用使用 -->
+        <filter id="gooey">
+            <!-- <feGaussianBlur>元素是用于创建模糊滤镜 -->
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"></feGaussianBlur>
+            <!-- <feColorMatrix>是过滤中的一种类型，使用矩阵来影响颜色的每个通道(基于RGBA)，可以将其想象成Photoshop中的通道编辑一样 -->
+            <feColorMatrix values="
+                1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 20 -10
+            "></feColorMatrix>
+        </filter>
+        <!-- 到这里自定义滤镜就写好了，接下来我们对它进行调用 -->
+    </svg>
+</body>
+
+</html>

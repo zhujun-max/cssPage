@@ -1,0 +1,80 @@
+*{
+    /* 初始化 取消页面元素的内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 自定义属性 背景颜色 可通过var函数调用 */
+    --bgc: #353b48;
+    background-color: var(--bgc);
+}
+.container{
+    /* 弹性布局 */
+    display: flex;
+    /* 水平排列 */
+    flex-direction: row;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 500px;
+}
+.container .btn{
+    width: 200px;
+    height: 60px;
+    background: none;
+    border: 4px solid;
+    color: var(--c);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px;
+    /* 相对定位 */
+    position: relative;
+}
+.container .btn::before,
+.container .btn::after{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    width: 14px;
+    height: 4px;
+    /* 颜色与背景色同色 */
+    background-color: var(--bgc);
+    /* 沿X轴倾斜30度 */
+    transform: skewX(30deg);
+    /* 动画过渡 */
+    transition: 0.4s linear;
+}
+.container .btn::before{
+    top: -4px;
+    left: 10%;
+}
+.container .btn::after{
+    bottom: -4px;
+    right: 10%;
+}
+.container .btn:hover::before{
+    left: 80%;
+}
+.container .btn:hover::after{
+    right: 80%;
+}
+/* 接下来设置每一个按钮的自定义颜色属性--c */
+.container .btn:nth-child(1){
+    --c: #4ad3e2;
+}
+.container .btn:nth-child(2){
+    --c: #93edd4;
+}
+.container .btn:nth-child(3){
+    --c: #f9cb8f;
+}
+.container .btn:nth-child(4){
+    --c: #ffb1a3;
+}

@@ -1,0 +1,52 @@
+*{
+    /* 初始化 取消页面内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#89f7fe,#66a6ff);
+}
+.wave{
+    width: 200px;
+    height: 200px;
+    background-color: #2797e7;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 50px rgba(255,255,255,0.2);
+    /* 加个溢出隐藏 */
+    overflow: hidden;
+}
+.wave::before{
+    content: "";
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255,255,255,0.8);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-65%);
+    border-radius: 40%;
+    /* 执行动画：动画名称 时长 线性的 无限次播放 */
+    animation: wave 5s linear infinite;
+}
+.wave::after{
+    content: "加载中...";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,40px);
+    color: #2797e7;
+}
+
+/* 定义动画 */
+@keyframes wave{
+    100%{
+        transform: translate(-50%,-65%) rotate(360deg);
+    }
+}

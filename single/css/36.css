@@ -1,0 +1,55 @@
+body{
+    /* 初始化 取消内外边距 */
+    margin: 0;
+    padding: 0;
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#e3eeff,#f3e7e9);
+}
+.search-box{
+    /* 绝对定位 水平垂直居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #2f3640;
+    height: 40px;
+    padding: 10px;
+    border-radius: 40px;
+}
+.search-txt{
+    border:none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0;
+    /* 动画过渡 */
+    transition: 0.4s;
+}
+.search-btn{
+    color: #e84118;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2f3640;
+    /* 弹性布局 水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* 动画过渡 */
+    transition: 0.4s;
+}
+.search-box:hover .search-txt{
+    width: 200px;
+    padding: 0 6px;
+}
+.search-box:hover .search-btn{
+    background-color: #fff;
+}

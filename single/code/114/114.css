@@ -1,0 +1,161 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+/* :root选择器匹配文档根元素 */
+:root{
+    /* 定义自定义颜色 */
+    --bg-color:#2962ff60;
+    --blue:#2962ff;
+    --blue30:#2962ff30;
+    --blue60:#2962ff60;
+    --red:#ff6776;
+    --red30:#ff677630;
+    --red60:#ff677660;
+    --green:#00c853;
+    --green30:#00c85330;
+    --green60:#00c85360;
+    --purple:#bf3eff;
+    --purple30:#bf3eff30;
+    --purple60:#bf3eff60;
+    --orange:#ff6d00;
+    --orange30:#ff6d0030;
+    --orange60:#ff6d0060;
+}
+body{
+    /* 最小高度：100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 通过var函数调用自定义属性--bg-color，设置body背景色 */
+    background-color: var(--bg-color);
+    /* 设置背景色改变时的过渡效果 */
+    transition: background-color 1s;
+}
+.tabbar{
+    /* 相对定位 */
+    position: relative;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 12px 15px;
+}
+.tabbar ul{
+    /* 去掉前面的小黑点 */
+    list-style: none;
+    /* 让li横向排列 */
+    display: flex;
+}
+.tabbar ul li{
+    /* 相对定位 */
+    position: relative;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    /* 光标变小手 */
+    cursor: pointer;
+    /* 设置过渡 */
+    transition: 1s;
+}
+.tabbar ul li img{
+    width: 80%;
+    height: 80%;
+    /* 对图片进行剪切，保留原始比例 */
+    object-fit: cover;
+    /* 图片在容器的正中间 */
+    object-position: center;
+    /* 圆形图片 */
+    border-radius: 50%;
+}
+.tabbar ul li .fa{
+    /* 字体图标大小 */
+    font-size: 28px;
+    transition: 0.5s;
+}
+/* 分别为每一个选中项的字体图标设置颜色（通过var函数调用自定义颜色进行设置） */
+.tabbar ul li:nth-child(2).active .fa{
+    color: var(--red);
+}
+.tabbar ul li:nth-child(3).active .fa{
+    color: var(--green);
+}
+.tabbar ul li:nth-child(4).active .fa{
+    color: var(--purple);
+}
+.tabbar ul li:nth-child(5).active .fa{
+    color: var(--orange);
+}
+/* 选中项的背景圆 */
+.active-circle{
+    width: 48px;
+    height: 48px;
+    background-color: red;
+    border-radius: 50%;
+    /* 绝对定位 */
+    position: absolute;
+    z-index: 0;
+    top: 27px;
+    left: 30px;
+    /* 设置过渡 */
+    transition: 0.4s ease-in-out;
+}
+/* 分别为每一个选中项的背景圆设置位置、背景色 */
+.tabbar ul li:nth-child(1).active ~ .active-circle{
+    left: 30px;
+    background-color: var(--blue30);
+}
+.tabbar ul li:nth-child(2).active ~ .active-circle{
+    left: 108px;
+    background-color: var(--red30);
+}
+.tabbar ul li:nth-child(3).active ~ .active-circle{
+    left: 186px;
+    background-color: var(--green30);
+}
+.tabbar ul li:nth-child(4).active ~ .active-circle{
+    left: 264px;
+    background-color: var(--purple30);
+}
+.tabbar ul li:nth-child(5).active ~ .active-circle{
+    left: 342px;
+    background-color: var(--orange30);
+}
+/* 选中项的背景圆的果冻动画 */
+.jello{
+    /* 执行动画：动画名 时长 线性的 停留在最后一帧 */
+    animation: jello 0.8s linear forwards;
+}
+
+/* 定义动画 */
+/* 果冻Q弹感觉 */
+@keyframes jello {
+    0%{
+        transform: scale(1,1);
+    }
+    30%{
+        transform: scale(1.25,0.75);
+    }
+    40%{
+        transform: scale(0.75,1.25);
+    }
+    50%{
+        transform: scale(1.15,0.85);
+    }
+    65%{
+        transform: scale(0.95,1.05);
+    }
+    75%{
+        transform: scale(1.05,0.95);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}

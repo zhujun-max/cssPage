@@ -1,0 +1,102 @@
+/* 先引入字体 */
+@import url("http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700,800,900&display=swap");
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 渐变背景 */
+    background: linear-gradient(to top,#dfe9f3,#fff);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.container{
+    /* 相对定位 */
+    position: relative;
+    /* 最小高度：100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 设置引入的字体 */
+    font-family: 'Work Sans';
+    font-size: 60px;
+    font-weight: 900;
+    /* 转大写 */
+    text-transform: uppercase;
+}
+.text{
+    /* 相对定位 */
+    position: relative;
+    z-index: 1;
+    /* 行内块元素 */
+    display: inline-block;
+    color: #666;
+    /* 光标移入变小手 */
+    cursor: pointer;
+    /* 颜色改变时的过渡效果 */
+    transition: color 0.35s ease;
+}
+.hover-text{
+    /* 绝对定位 */
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    /* 设置元素不对指针事件做出反应（如：hover、click） */
+    pointer-events: none;
+    /* --x、--y为自定义属性（变量），通过var函数可进行调用 */
+    /* 将元素剪切为一个圆形【75px表示圆的半径，后面两个参数表示圆心位置】 */
+    clip-path: circle(75px at var(--x) var(--y));
+    /* 默认不透明度为0 */
+    opacity: 0;
+    /* 不透明度改变时的过渡效果 */
+    transition: opacity 0.35s ease;
+}
+.img-con{
+    /* 绝对定位 */
+    position: absolute;
+    z-index: -2;
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    /* 默认不透明度为0 */
+    opacity: 0;
+    /* 不透明度改变时的过渡效果 */
+    transition: opacity 0.35s ease;
+}
+.hover-img{
+    /* 块级元素 */
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* 50%圆角 */
+    border-radius: 50%;
+    /* 对图片进行剪切，保留原始比例 */
+    object-fit: cover;
+    /* 图片在容器的正中间 */
+    object-position: center;
+    /* 调整图片亮度（这里调暗一点点） */
+    filter: brightness(0.9);
+}
+/* 鼠标移入文字，对应元素的变化 */
+.text:hover{
+    color: #333;
+}
+.text:hover ~ .hover-text{
+    opacity: 1;
+}
+.text:hover ~ .img-con{
+    opacity: 1;
+}

@@ -1,0 +1,95 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    /* 自定义属性，--s为太阳的颜色，--e为地球的颜色，--m为月球的颜色，可通过var函数对其调用 */
+    --s: #f39c12;
+    --e: #3498db;
+    --m: #1abc9c;
+}
+/* 太阳 */
+.sun{
+    /* 绝对定位 */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* 通过var函数调用自定义属性--s，设置太阳的颜色 */
+    background-color: var(--s);
+    /* 通过设置阴影，实现发光的效果 */
+    box-shadow: 0 0 10px var(--s),
+    0 0 20px var(--s),
+    0 0 30px var(--s),
+    0 0 40px var(--s);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: rotate 36.5s linear infinite;
+}
+/* 太阳外圈（地球轨道） */
+.sun::after{
+    content: "";
+    width: 330px;
+    height: 330px;
+    /* 绝对定位 居中 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+/* 地球 */
+.earth{
+    position: absolute;
+    left: 200px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--e);
+    box-shadow: 0 0 10px var(--e),
+    0 0 20px var(--e),
+    0 0 30px var(--e),
+    0 0 40px var(--e);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: rotate 3s linear infinite;
+}
+/* 地球外圈（月球轨道） */
+.earth::after{
+    content: "";
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+/* 月球 */
+.moon{
+    position: absolute;
+    left: 50px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--m);
+    box-shadow: 0 0 5px var(--m),
+    0 0 10px var(--m),
+    0 0 20px var(--m);
+}
+
+/* 定义动画 */
+@keyframes rotate {
+    to{
+        transform: rotateZ(360deg);
+    }
+}

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.content{
+    /* 内容有多宽，盒子就有多宽 */
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+}
+.content img{
+    height: 640px;
+}

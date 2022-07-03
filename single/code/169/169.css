@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background-color: #1b2735;
+    overflow: hidden;
+}
+.wave{
+    /* 弹性布局 */
+    display: flex;
+    /* 设置投影 */
+    filter: drop-shadow(120px 0 0 rgba(149,191,218,0.5));
+    position: absolute;
+    bottom: 0;
+}
+.wave div{
+    position: relative;
+    width: 40px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.wave div::before{
+    content: "";
+    width: 300%;
+    height: 100%;
+    background-color: rgba(149,191,218,1);
+    position: absolute;
+    left: -100%;
+    top: 50%;
+    /* 执行动画：动画名 时长 贝塞尔曲线 无限播放 来回轮流播放 */
+    animation: upDown 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate, wave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+    /* 通过var函数调用自定义属性--d1、--d2，设置动画延迟 */
+    animation-delay: var(--d1), var(--d2);
+}
+
+/* 定义动画 */
+@keyframes upDown {
+    0%{
+        top: 70%;
+    }
+    100%{
+        top: 30%;
+    }
+}
+@keyframes wave {
+    0%{
+        transform: rotateZ(-20deg);
+    }
+    100%{
+        transform: rotateZ(20deg);
+    }
+}

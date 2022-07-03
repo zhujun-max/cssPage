@@ -1,0 +1,75 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#80d0c7,#13547a);;
+}
+.btn-box{
+    width: 500px;
+    /* 弹性布局 */
+    display: flex;
+    /* 横向排列 */
+    flex-direction: row;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    /* 平均分配宽度给每一个子元素 */
+    justify-content: space-around;
+}
+.btn-box button{
+    /* 相对定位 */
+    position: relative;
+    border: none;
+    background: linear-gradient(to right,#52d1c2,#1ab3a1);;
+    width: 200px;
+    height: 60px;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #fff;
+    /* 字间距 */
+    letter-spacing: 3px;
+    border-radius: 30px;
+    /* 阴影 */
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    /* 这里加个溢出隐藏 */
+    overflow: hidden;
+}
+.btn-box button:hover{
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
+}
+.btn-box button span{
+    /* 绝对定位 */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    /* 设置元素不对指针事件做出反应 */
+    pointer-events: none;
+    /* 执行动画 */
+    animation: animate 1s ease;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    from{
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    to{
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,78 @@
+*{
+    /* 初始化 取消内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000;
+}
+.container{
+    width: 300px;
+    height: 450px;
+    /* 这个属性用来增加卡片旋转的立体感 */
+    perspective: 1000px;
+    /* 相对定位 */
+    position: relative;
+}
+.card-box{
+    /* 绝对定位 */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* 给父元素加一个3D盒子属性 */
+    transform-style: preserve-3d;
+    transform:  rotateY(0) translateZ(-700px);
+    /* 执行动画：动画名 时长 贝塞尔曲线 无限次播放 */
+    animation: cardRotate 10s cubic-bezier(0.77,0,0.175,1) infinite;
+}
+.card{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 设置元素的倒影效果，below是倒影在元素下方，15px是元素和倒影的距离，后面的属性是设置倒影渐变 */
+    -webkit-box-reflect: below 15px -webkit-linear-gradient(transparent 50%,rgba(255,255,255,0.3));
+}
+.card img{
+    width: 100%;
+    height: 100%;
+}
+/* 为每一个卡片设置初始化位置和旋转角度 */
+.card:nth-child(1){
+    transform: rotateY(0) translateZ(700px);
+}
+.card:nth-child(2){
+    transform: rotateY(120deg) translateZ(700px);
+}
+.card:nth-child(3){
+    transform: rotateY(240deg) translateZ(700px);
+}
+
+/* 定义动画 */
+@keyframes cardRotate {
+    0%,20%{
+        transform: translateZ(-700px) rotateY(0);
+    }
+    45%{
+        transform: translateZ(-700px) rotateY(-120deg);
+    }
+    75%{
+        transform: translateZ(-700px) rotateY(-240deg);
+    }
+    100%{
+        transform: translateZ(-700px) rotateY(-360deg);
+    }
+}

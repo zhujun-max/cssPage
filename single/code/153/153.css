@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top,#ebf4ff,#f6f6f6);
+}
+.nav{
+    display: flex;
+    list-style: none;
+    background-color: #222;
+    width: 900px;
+    max-width: 90vw;
+}
+.nav li{
+    min-width: 130px;
+    padding: 12px 0;
+    /* 过渡效果 */
+    transition: 0.3s;
+}
+.nav li:hover{
+    background-color: #000;
+}
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.nav li a span{
+    position: relative;
+    transition: 0.3s;
+}
+.nav li a span::before{
+    /* data-text是自定义属性（会在js代码里赋值），attr函数可以获取元素的属性值 */
+    content: attr(data-text);
+    position: absolute;
+    /* 默认下移130% */
+    transform: translateY(130%);
+}
+.nav li a:hover span{
+    /* 悬停时上移130% */
+    transform: translateY(-130%);
+}

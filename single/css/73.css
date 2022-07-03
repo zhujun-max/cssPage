@@ -1,0 +1,94 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b2b2b;
+}
+.container{
+    /* 弹性布局 纵向排列 */
+    display: flex;
+    flex-direction: column;
+}
+.container label{
+    /* 相对定位 */
+    position: relative;
+    margin: 5px 0;
+    cursor: pointer;
+}
+.container label span{
+    position: relative;
+    display: block;
+    width: 80px;
+    height: 40px;
+    background-color: #222;
+    border-radius: 40px;
+    /* 内阴影 */
+    box-shadow: inset 0 2px 15px rgba(0,0,0,0.2),
+    inset 0 2px 2px rgba(0,0,0,0.2),
+    inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+/* 滑块 */
+.container label .indicator{
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#444,#222);
+    border-radius: 50%;
+    /* 阴影 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+    /* 缩小 */
+    transform: scale(0.9);
+    /* 动画过渡 */
+    transition: 0.5s;
+}
+/* 滑块中心的发光点 */
+.container label .indicator::before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    /* 绝对定位 居中 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f00;
+    border-radius: 50%;
+    /* 阴影制造发光效果 */
+    box-shadow: 0 0 2px #f00,
+    0 0 5px #f00,
+    0 0 10px #f00,
+    0 0 15px #f00,
+    0 0 20px #f00,
+    0 0 25px #f00,
+    0 0 30px #f00,
+    0 0 35px #f00;
+    transition: 0.5s;
+}
+/* 勾选复选框后滑块的变化 */
+.container label input:checked ~ .indicator{
+    left: 40px;
+}
+.container label input:checked ~ .indicator::before{
+    background-color: #0f0;
+    box-shadow: 0 0 2px #0f0,
+    0 0 5px #0f0,
+    0 0 10px #0f0,
+    0 0 15px #0f0,
+    0 0 20px #0f0,
+    0 0 25px #0f0,
+    0 0 30px #0f0,
+    0 0 35px #0f0;
+}

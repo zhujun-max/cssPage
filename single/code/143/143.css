@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.container{
+    position: relative;
+}
+.logo{
+    width: 40px;
+    height: 218px;
+    background-color: #fff;
+    /* 两种方式,两个投影(红色和青色) */
+    box-shadow: 10.6px 10px 0 #ff0050;
+    /* 提供一篇关于drop-shadow的文章,看完你会恍然大悟的 */
+    /* https://zhuanlan.zhihu.com/p/195792157 */
+    filter: drop-shadow(-10px -10px 0 #00ffff);
+    /* 执行动画: 动画名 时长 由慢到快 停留在最后一帧 */
+    animation: logo 3.5s ease-in forwards;
+    position: absolute;
+    left: 52%;
+}
+/* 音符左下角的圆圈部分 */
+.logo::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 40px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    transform: rotate(45deg);
+    top: 125px;
+    left: -140px;
+    filter: drop-shadow(15px 0 0 #ff0050);
+}
+/* 音符右上角的尾巴部分 */
+.logo::after{
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 40px solid transparent;
+    border-radius: 50%;
+    border-bottom-color: #fff;
+    transform: rotate(45deg);
+    top: -110px;
+    right: -180px;
+    filter: drop-shadow(15px 0 0 #ff0050);
+}
+.text{
+    color: #fff;
+    margin-top: 380px;
+    font-size: 90px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    width: 100vw;
+    text-align: center;
+    position: relative;
+}
+.text::before,
+.text::after{
+    content: "hello world";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.text::before{
+    left: -3px;
+    text-shadow: -2px 0 #00ffff;
+    /* 执行动画:动画名 时长 线性的 无限次播放 反向播放 */
+    animation: fault1 1.5s linear infinite reverse;
+}
+.text::after{
+    left: -3px;
+    text-shadow: -2px 0 #ff0050;
+    animation: fault2 1.5s linear infinite reverse;
+}
+
+/* 定义动画 */
+/* logo动画 */
+@keyframes logo {
+    5%{
+        transform: skewX(7deg) translate(-30px);
+    }
+    7%{
+        transform: skewX(-6deg) translate(18px);
+    }
+    9%{
+        transform: skewX(5deg) translate(-8px);
+    }
+    10%{
+        transform: skewX(-4deg) translate(6px);
+    }
+    11%{
+        transform: skewX(7deg) translate(-30px);
+    }
+    12%{
+        transform: skewX(-2deg) translate(2px);
+    }
+    13%{
+        transform: skewX(0deg) translate(0px);
+        /* 加一点模糊 */
+        filter: drop-shadow(-10px -10px 0 #00ffff) blur(1px);
+    }
+    20%{
+        /* 取消模糊 */
+        filter: drop-shadow(-10px -10px 0 #00ffff) blur(0px);
+    }
+}
+/* 故障动画1 */
+@keyframes fault1 {
+    0%{
+        /* --t,--b为自定义属性,通过var函数对其调用 */
+        /* 这两个数值是随机生成的,可以自己进行设定,数值不一样,抖动的效果也会不一样 */
+        --t:132px;
+        --b:101px;
+        /* 剪裁一个矩形(top,right,bottom,left) 和margin是一样的 */
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    10%{
+        --t:40px;
+        --b:66px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    20%{
+        --t:137px;
+        --b:61px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    30%{
+        --t:133px;
+        --b:74px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    40%{
+        --t:59px;
+        --b:130px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    50%{
+        --t:22px;
+        --b:67px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    60%{
+        --t:10px;
+        --b:105px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    70%{
+        --t:105px;
+        --b:13px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    80%{
+        --t:66px;
+        --b:39px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    90%{
+        --t:36px;
+        --b:128px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    100%{
+        --t:14px;
+        --b:100px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+}
+/* 故障动画2 */
+@keyframes fault2 {
+    0%{
+        --t:129px;
+        --b:36px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    10%{
+        --t:85px;
+        --b:66px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    20%{
+        --t:148px;
+        --b:138px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    30%{
+        --t:69px;
+        --b:54px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    40%{
+        --t:146px;
+        --b:34px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    50%{
+        --t:102px;
+        --b:80px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    60%{
+        --t:106px;
+        --b:99px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    70%{
+        --t:20px;
+        --b:78px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    80%{
+        --t:78px;
+        --b:52px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    90%{
+        --t:67px;
+        --b:70px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+    100%{
+        --t:83px;
+        --b:40px;
+        clip: rect(var(--t),100vw,var(--b),0px);
+    }
+}
