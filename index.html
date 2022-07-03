@@ -17,7 +17,7 @@
       <div v-for="(v,i) in arr1">
         <div class="actions">
           <a :href="'./single/'+v+'/index.html'">效果预览</a>
-          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/single/'+v+'/index.html'">查看源码</a>
         </div>
         <!-- 由于是直接使用的iframe标签，如果一次引入全部文件，极其消耗性能，
                 便根据滚动条距离来判断页面显示的区域 -->
@@ -31,7 +31,7 @@
       <div v-for="(v,i) in 105">
         <div class="actions">
           <a :href="'./html_css_demo/html/'+v+'.html'">效果预览</a>
-          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/html_css_demo/html/'+v+'.html'">查看源码</a>
         </div>
         <iframe :src="'./html_css_demo/html/'+v+'.html'" frameborder="0" scrolling="no"
           v-if="i+arr1.length>=(scrollTop-200-50)/235*3 && i+arr1.length<=(scrollTop+screenHeight+235+50)/235*3"></iframe>
@@ -43,7 +43,7 @@
       <div v-for="(v,i) in arr">
         <div class="actions">
           <a :href="'./css_effect_map_collection/'+v">效果预览</a>
-          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/'+v">查看源码</a>
+          <a :href="'https://github.com/zhujun-max/cssPage/tree/master/css_effect_map_collection/'+v">查看源码</a>
         </div>
         <iframe :src="'./css_effect_map_collection/'+v" frameborder="0" scrolling="no"
           v-if="i+105+arr1.length>=(scrollTop-200-100)/235*3 && i+105+arr1.length<=(scrollTop+screenHeight+235+100)/235*3"></iframe>
