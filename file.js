@@ -23,3 +23,29 @@ fs.readdir(process.cwd(), function (err, data) {
     });
   });
 });
+
+// 查找css_effect_map_collection当中文件夹的
+var fs = require("fs");
+fs.readdir(process.cwd(), function (err, dat) {
+  // console.log(process.cwd());
+  // 找出所有文件夹，排除掉了以下字段中的后缀名。
+  let data1 = dat.filter(
+    (v) =>
+      !["js", "json", "md", "git", "html", "gitignore", "LICENSE"].includes(
+        v.split(".").pop()
+      )
+  );
+  // console.log(data1)
+  data1.map((d) => {
+    // console.log(d);
+    fs.readdir(__dirname + "/" + d, function (err, data) {
+      if (err) throw err;
+      let arrr = data.filter((v) => !!v.match(".html"));
+
+      arrr.map((v) => {
+        v = `/${d}/${v}`;
+        console.log(v);
+      });
+    });
+  });
+});
