@@ -1,0 +1,123 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+    /* 盒子模型 改变盒子宽高的计算方式 */
+    box-sizing: border-box;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#517fa4,#243949);
+}
+.container{
+    width: 1000px;
+    height: 700px;
+}
+.container ul{
+    list-style: none;
+    /* 相对定位 */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* 弹性布局 */
+    display: flex;
+    /* 让子元素平均分配宽度 */
+    justify-content: space-around;
+    /* 让子元素在交叉轴（Y轴）的最下方排列 */
+    align-items: flex-end;
+}
+.container ul li{
+    width: 200px;
+    cursor: pointer;
+}
+/* 小图 */
+.container ul li img{
+    width: 100%;
+    height: 110px;
+    /* 加个透明边框，让图片看起来有距离 */
+    border: 5px solid transparent;
+}
+/* 大图 */
+.container ul .big-img{
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 550px;
+    /* 背景图片 不平铺 */
+    background: url("../images/op1/1.jpg") no-repeat;
+    /* 对图片进行剪切，保留原始比例 */
+    background-size: cover;
+    /* 图片定位正中间 */
+    background-position: center;
+    /* 和小图片一样的透明边框，为了对齐 */
+    border: 5px solid transparent;
+    /* 动画过渡 */
+    transition: 0.5s;
+}
+/* 移动框 */
+.container ul .frame{
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 200px;
+    height: 110px;
+    border: 5px solid #fff;
+    /* 这里有一个bug（闪烁） */
+    /* 加这个属性可以让移动框不会被鼠标捕捉到（解决闪烁这个bug） */
+    pointer-events: none;
+    /* 加个动画过渡 */
+    transition: 0.5s;
+}
+/* 移动框上的三角形 */
+.container ul .frame::before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: #fff;
+    /* 计算 居中 */
+    left: calc(50% - 15px);
+    top: -18px;
+    /* 裁切出一个三角形 */
+    clip-path: polygon(0 100%,50% 0,100% 100%);
+}
+/* 鼠标移入小图，改变大图 */
+.container ul li:nth-child(1):hover ~ .big-img{
+    background-image: url("../images/op1/1.jpg");
+}
+.container ul li:nth-child(2):hover ~ .big-img{
+    background-image: url("../images/op1/2.jpg");
+}
+.container ul li:nth-child(3):hover ~ .big-img{
+    background-image: url("../images/op1/3.jpg");
+}
+.container ul li:nth-child(4):hover ~ .big-img{
+    background-image: url("../images/op1/4.jpg");
+}
+.container ul li:nth-child(5):hover ~ .big-img{
+    background-image: url("../images/op1/5.jpg");
+}
+/* 鼠标移入小图，改变移动框的位置 */
+.container ul li:nth-child(1):hover ~ .frame{
+    left: 0;
+}
+.container ul li:nth-child(2):hover ~ .frame{
+    left: 200px;
+}
+.container ul li:nth-child(3):hover ~ .frame{
+    left: 400px;
+}
+.container ul li:nth-child(4):hover ~ .frame{
+    left: 600px;
+}
+.container ul li:nth-child(5):hover ~ .frame{
+    left: 800px;
+}

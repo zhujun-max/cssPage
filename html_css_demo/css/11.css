@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 背景径向渐变 */
+    background: radial-gradient(circle at center,mediumpurple,#000);
+}
+.heart{
+    width: 280px;
+    height: 220px;
+    display: flex;
+    justify-content: space-between;
+}
+.heart span{
+    /* 自定义属性值【划重点】 */
+    --c:plum;
+    --h:50%;
+    --t:25%;
+    /* var()函数用于插入自定义的属性值，如果一个属性值在多处被使用，该方法就很有用 */
+    background-color: var(--c);
+    width: 20px;
+    border-radius: 10px;
+    position: relative;
+    height: var(--h);
+    top: var(--t);
+    /* 执行动画 infinite是无限次播放 */
+    animation: beating 1s infinite;
+}
+.heart span:nth-child(1),
+.heart span:nth-child(9){
+    --c:lightcoral;
+    --h:60px;
+    --t:44px;
+}
+.heart span:nth-child(2),
+.heart span:nth-child(8){
+    --c:lightskyblue;
+    --h:120px;
+    --t:12px;
+}
+.heart span:nth-child(3),
+.heart span:nth-child(7){
+    --c:lightgreen;
+    --h:160px;
+    --t:0;
+}
+.heart span:nth-child(4),
+.heart span:nth-child(6){
+    --c:gold;
+    --h:180px;
+    --t:16px;
+}
+.heart span:nth-child(5){
+    --c:plum;
+    --h:188px;
+    --t:32px;
+}
+
+/* 接下来我们定义动画 */
+@keyframes beating{
+    0%,30%{
+        height: var(--h);
+        top: var(--t);
+        background-color: var(--c);
+        filter: blur(0);
+    }
+    60%,70%{
+        height: 50%;
+        top: 25%;
+        background-color: plum;
+        /* 模糊度 */
+        filter: blur(5px);
+    }
+}

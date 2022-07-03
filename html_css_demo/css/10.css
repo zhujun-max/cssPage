@@ -1,0 +1,47 @@
+*{
+    /* 初始化 取消页面的内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 渐变背景 本人比较偏爱渐变背景 */
+    background: linear-gradient(200deg,#dad4ec,#f3e7e9);
+}
+ul{
+    /* 绝对定位 水平、垂直居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* 弹性布局 */
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+    /* 这里加个动画过渡 */
+    transition: 0.5s;
+}
+ul li a{
+    /* 相对定位 */
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: 0 30px;
+    color: #333;
+    font-size: 40px;
+    text-decoration: none;
+}
+ul:hover li{
+    /* 不透明度 */
+    opacity: 0.2;
+    /* 模糊度 */
+    filter: blur(2px);
+}
+ul li:hover{
+    opacity: 1;
+    filter: blur(0px);
+}

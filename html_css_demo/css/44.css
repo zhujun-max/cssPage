@@ -1,0 +1,74 @@
+*{
+    /* 初始化 取消内外边距 */
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 相对定位 */
+    position: relative;
+    background-color: #000;
+}
+.circle{
+    /* 绝对定位 */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* 渐变背景 */
+    background: linear-gradient(0deg,
+                #2f66ff,
+                #9940ff 30%,
+                #ee37ff 60%,
+                #ff004c 100%);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: circleRotate 1s linear infinite;
+}
+/* 发光效果 */
+.circle::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* 渐变背景 */
+    background: linear-gradient(0deg,
+                #2f66ff,
+                #9940ff 30%,
+                #ee37ff 60%,
+                #ff004c 100%);
+    /* 模糊 */
+    filter: blur(35px);
+}
+/* 黑圆 */
+.circle::after{
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #000;
+}
+span{
+    color: #fff;
+    position: absolute;
+}
+
+/* 定义动画 */
+@keyframes circleRotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

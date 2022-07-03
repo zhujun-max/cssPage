@@ -1,0 +1,21 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#005bea,#00c6fb);
+}
+#plane{
+    color: #fff;
+    font-size: 70px;
+    /* 绝对定位 */
+    position: absolute;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

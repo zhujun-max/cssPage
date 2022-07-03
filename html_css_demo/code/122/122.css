@@ -1,0 +1,90 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #353540;
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+}
+.card{
+    /* 相对定位 */
+    position: relative;
+    /* 自动放大占满剩余空间 */
+    flex: 1;
+    height: 460px;
+    margin: 0 20px;
+    /* 设置视距 */
+    perspective: 1000px;
+}
+/* 投影效果 */
+.card::before{
+    content: "";
+    width: 90%;
+    height: 90%;
+    background-color: rgba(0,0,0,0.5);
+    /* 绝对定位 */
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    /* 投影 */
+    box-shadow: 0 6px 12px 12px rgba(0,0,0,0.4);
+    opacity: 1;
+    /* 设置旋转元素的基点位置 */
+    transform-origin: top center;
+    /* 设置过渡:时长 加速后减速 */
+    transition: 0.3s ease-in-out;
+}
+/* 鼠标移上,投影的变化 */
+.card:hover::before{
+    opacity: 0.6;
+    transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+/* 封面 */
+.card-cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 开启3D */
+    transform-style: preserve-3d;
+    /* 设置旋转元素的基点位置 */
+    transform-origin: top center;
+    /* 设置过渡 */
+    transition: transform 0.35s ease-in-out;
+}
+.card-cover::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120%;
+    /* 背景渐变(高光效果) */
+    background: linear-gradient(226deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 60%);
+    /* 默认上移出可视范围 */
+    transform: translateY(-100%);
+    /* 设置过渡 */
+    transition: transform 0.85s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.card:hover .card-cover{
+    transform: rotateX(7deg) translateY(-6px);
+}
+.card:hover .card-cover::after{
+    transform: translateY(100%);
+}

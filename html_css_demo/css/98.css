@@ -1,0 +1,74 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.container{
+    display: flex;
+}
+.container .box{
+    /* 相对定位 */
+    position: relative;
+    /* 弹性布局 水平居中 */
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    height: 400px;
+    /* 自定义属性, 可通过var函数对其调用 */
+    --c1: #c7cc97;
+    --c2: #e6a28c;
+    /* 条纹背景 */
+    background: linear-gradient(45deg,var(--c1) 25%,#444 25%,#444 50%,var(--c1) 50%,var(--c1) 75%,#444 75%,#444 100%);
+    background-size: 40px 40px;
+    border-radius: 20px;
+    margin: 0 20px;
+    /* 灰度滤镜 */
+    filter: grayscale(1);
+    /* 设置灰度滤镜的过渡时间为1秒 */
+    transition: filter 1s;
+    /* 执行动画: 动画名 时长 线性的 无限次播放 */
+    animation: animateBg 0.5s linear infinite;
+    /* 默认动画状态为暂停 */
+    animation-play-state: paused;
+}
+/* 改变第二个卡片的背景条纹颜色 */
+.container .box:nth-child(2){
+    background: linear-gradient(135deg,var(--c2) 25%,#444 25%,#444 50%,var(--c2) 50%,var(--c2) 75%,#444 75%,#444 100%);
+    background-size: 40px 40px;
+}
+.container .box img{
+    height: 90%;
+    /* 绝对定位 */
+    position: absolute;
+    bottom: 0;
+    /* 设置过渡 */
+    transition: 0.5s;
+}
+.container .box:hover img{
+    /* 鼠标移入, 图片变大 */
+    height: 480px;
+}
+.container .box:hover{
+    /* 鼠标移入, 灰度无效, 动画播放 */
+    filter: grayscale(0);
+    animation-play-state: running;
+}
+
+/* 定义动画 */
+@keyframes animateBg {
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 40px;
+    }
+}

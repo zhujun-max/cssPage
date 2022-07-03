@@ -1,0 +1,46 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.text{
+    font-size: 100px;
+    font-weight: 900;
+    color: #fff;
+    /* 字间距 */
+    letter-spacing: 10px;
+    /* 设置旋转角度和倾斜角度 */
+    transform: rotate(-25deg) skew(30deg);
+    /* 字体阴影(立体厚度) */
+    text-shadow: -1px 1px 0 #ddd,
+    -2px 2px 0 #ddd,
+    -3px 3px 0 #ddd,
+    -4px 4px 0 #ddd,
+    -5px 5px 0 #ddd,
+    -6px 6px 0 #ddd,
+    -7px 7px 0 #ddd,
+    -8px 8px 0 #ddd,
+    -9px 9px 0 #ddd,
+    -10px 10px 0 #ddd,
+    -11px 11px 0 #ddd,
+    -12px 12px 0 #ddd,
+    -13px 13px 0 #ddd,
+    -14px 14px 0 #ddd,
+    -15px 15px 0 #ddd,
+    -16px 16px 0 #ddd,
+    -17px 17px 0 #ddd,
+    -18px 18px 0 #ddd,
+    -19px 19px 0 #ddd,
+    -20px 20px 0 #ddd;
+}
+.text p{
+    outline: none;
+}

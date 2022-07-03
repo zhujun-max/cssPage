@@ -1,0 +1,71 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.container{
+    width: 200px;
+    height: 700px;
+    /* 开启3D效果 */
+    transform-style: preserve-3d;
+    /* 定义3D元素距视图的距离 */
+    perspective: 1000px;
+    /* 沿Z轴旋转15度 */
+    transform: rotateZ(15deg);
+}
+.container .line{
+    width: 200px;
+    height: 30px;
+    /* 绝对定位 */
+    position: absolute;
+    /* 结合自定义属性--d，计算top */
+    top: calc(50px * var(--d));
+    /* 执行动画：动画名 时长 线性 无限播放 */
+    animation: roll 4s linear infinite;
+    /* 结合自定义属性--d，计算动画延迟时间 */
+    animation-delay: calc(0.3s * var(--d));
+}
+/* 两边两个圆的统一样式 */
+.container .line::before,.container .line::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+/* 左圆 */
+.container .line::before{
+    background-color: #e60116;
+    position: absolute;
+    left: 0;
+}
+/* 右圆 */
+.container .line::after{
+    background-color: #0588da;
+    position: absolute;
+    right: 0;
+}
+/* 中间的线 */
+.container .line span{
+    width: 140px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 30px;
+    top: 15px;
+}
+
+/* 定义旋转动画 */
+@keyframes roll {
+    100%{
+        transform: rotateY(360deg);
+    }
+}

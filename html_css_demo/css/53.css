@@ -1,0 +1,67 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+.container{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    background-color: #000;
+}
+h2{
+    display: flex;
+    font-size: 160px;
+    color: #fff;
+    text-align: center;
+    /* 转大写 */
+    text-transform: uppercase;
+}
+h2 span{
+    /* 动画过渡 */
+    transition: 1.5s;
+}
+h2:hover span{
+    /* 模糊 */
+    filter: blur(20px);
+    /* 不透明度 */
+    opacity: 0;
+    /* 放大 */
+    transform: scale(2);
+}
+/* 接下来分别为每一个span元素设置动画延迟时间 */
+h2 span:nth-child(1){
+    transition-delay: 0.1s;
+}
+h2 span:nth-child(2){
+    transition-delay: 0.2s;
+}
+h2 span:nth-child(3){
+    transition-delay: 0.3s;
+}
+h2 span:nth-child(4){
+    transition-delay: 0.4s;
+}
+h2 span:nth-child(5){
+    transition-delay: 0.5s;
+}
+h2 span:nth-child(6){
+    transition-delay: 0.6s;
+}
+h2 span:nth-child(7){
+    transition-delay: 0.7s;
+}
+h2 span:nth-child(8){
+    transition-delay: 0.8s;
+}
+h2 span:nth-child(9){
+    transition-delay: 0.9s;
+}
+h2 span:nth-child(10){
+    transition-delay: 1s;
+}

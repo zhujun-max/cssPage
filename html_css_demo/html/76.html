@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>旋转的圣诞树</title>
+    <link rel="stylesheet" href="../css/76.css">
+</head>
+
+<body>
+    <div class="star"></div>
+    <ul class="tree" id="tree"></ul>
+    <script>
+        // 构造一棵树
+        function createTree(){
+            for(let i=0;i<128;i++){
+                // 创建li元素
+                let li=document.createElement('li');
+                // 设置li元素的样式
+                // --h、--d为自定义属性，可通过var函数对其调用
+                // --h：线条高度
+                // --d：动画的延迟时间
+                li.style.cssText='--h:calc(60vh / 128 * '+i+');--d:calc(-28s / 128 * '+i+');';
+                // 追加li元素
+                document.getElementById('tree').appendChild(li);
+            }
+        }
+        window.addEventListener('load',()=>{
+            // 加载完毕后，构建树
+            createTree();
+        })
+    </script>
+</body>
+
+</html>

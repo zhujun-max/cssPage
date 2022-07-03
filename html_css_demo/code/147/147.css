@@ -1,0 +1,83 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#fff,#ddeede);
+}
+.container{
+    /* 最大宽度: 100%窗口宽度 */
+    max-width: 100vw;
+    /* 弹性布局 水平排列 允许换行 */
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    /* 相对定位 */
+    position: relative;
+    width: 285px;
+    height: 190px;
+    margin: 15px;
+    /* 视距 */
+    perspective: 600px;
+}
+.img{
+    /* 绝对定位 */
+    position: absolute;
+    /* 设置旋转的基点为右边 */
+    transform-origin: right;
+    /* 图片默认沿Y轴旋转0度,不透明度为1 */
+    transform: rotateY(0deg);
+    opacity: 1;
+    /* 设置过渡 */
+    transition: 0.5s;
+}
+.caption{
+    position: absolute;
+    z-index: 0;
+    background-color: #97b8a3;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    /* 元素的宽度和高度包含内边距和边框 */
+    box-sizing: border-box;
+    /* 字间距 */
+    letter-spacing: 2px;
+    /* 弹性布局 垂直排列 垂直居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 设置旋转的基点为左边 */
+    transform-origin: left;
+    /* 文字默认沿Y轴旋转90度,不透明度为0 */
+    transform: rotateY(90deg);
+    opacity: 0;
+    /* 过渡 */
+    transition: 0.5s;
+}
+.item:hover .img{
+    /* 悬停时图片消失 */
+    transform: rotateY(-90deg);
+    opacity: 0;
+}
+.item:hover .caption{
+    /* 悬停时文字显示 */
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+.caption h3{
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.caption p{
+    font-size: 14px;
+}

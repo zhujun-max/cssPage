@@ -1,0 +1,83 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 相对定位 */
+    position: relative;
+    left: 7.5px;
+}
+.loader::before,
+.loader::after{
+    content: "";
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 15px solid #57606f;
+    box-sizing: border-box;
+    position: relative;
+    z-index: -1;
+}
+.loader::after{
+    left: -15px;
+}
+.loader div{
+    width: 150px;
+    height: 150px;
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    /* 利用clip-path的方式遮盖掉下半部分 */
+    clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+}
+.loader div div{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 15px;
+    border-color: #ff6b81 #ff6b81 transparent transparent;
+    border-radius: 50%;
+    /* 默认旋转135度，让圆环处于遮盖处 */
+    transform: rotate(135deg);
+    animation: roll 4s linear infinite;
+}
+.lb{
+    transform: scale(-1,-1);
+}
+.rt{
+    transform: translateX(calc(100% - 15px)) scale(-1,1);
+}
+.rb{
+    transform: translateX(calc(100% - 15px)) scale(1,-1);
+}
+/* 接下来设置动画延迟 */
+.loader .rb div{
+    animation-delay: 1s;
+}
+.loader .rt div{
+    animation-delay: 2s;
+}
+.loader .lb div{
+    animation-delay: 3s;
+}
+
+/* 定义动画 */
+@keyframes roll {
+    50%,100%{
+        transform: rotate(495deg);
+    }
+}

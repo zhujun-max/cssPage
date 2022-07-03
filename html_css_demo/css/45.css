@@ -1,0 +1,85 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#80d0c7,#13547a);
+}
+.container{
+    /* 相对定位 */
+    position: relative;
+    /* 弹性布局 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    padding: 30px;
+}
+.container .card{
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background-color: #fff;
+    margin: 30px 15px;
+    padding: 20px 15px;
+    border-radius: 5px;
+    /* 阴影 */
+    box-shadow: 0 5px 200px rgba(0,0,0,0.5);
+    /* 动画过渡 */
+    transition: 0.3s ease-in-out;
+}
+.container .card:hover{
+    height: 420px;
+}
+.container .card .img-box{
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 5px;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    top: -60px;
+    left: 20px;
+    /* 阴影 */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.container .card .img-box img{
+    width: 100%;
+}
+.container .card .text-box{
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    /* 设置元素不可见 */
+    visibility: hidden;
+    /* 不透明度 */
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+.container .card .text-box p{
+    text-align: left;
+    line-height: 25px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #555;
+}
+.container .card:hover .text-box{
+    /* 鼠标移入，设置元素可见 */
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    /* 动画延迟0.2秒 */
+    transition-delay: 0.2s;
+}

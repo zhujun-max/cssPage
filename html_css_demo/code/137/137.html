@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>仿制腾讯视频的轮播图</title>
+    <link rel="stylesheet" href="137.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app" :style="'background-color:'+active_color+';'">
+        <div class="banner" :style="'background-image:url('+active_image+');'"></div>
+        <div class="title-box">
+            <div :class="['title',index==active_index?'active':'']" v-for="(item,index) in list" @mouseover="changeBanner(index)">
+                {{item.title}}
+                <span>{{item.sub_title}}</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="137.js"></script>

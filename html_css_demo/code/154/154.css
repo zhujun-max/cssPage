@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+.table-box{
+    width: 800px;
+    max-width: 90vw;
+    position: relative;
+}
+table{
+    width: 100%;
+    background-color: #fff;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+th{
+    background-color: #e7f3ff;
+    height: 25px;
+    cursor: pointer;
+}
+th,td{
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+}
+/* 悬浮层 */
+.box{
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: move;
+    display: none;
+}
+.box p{
+    line-height: 37.5px;
+    font-size: 15px;
+}

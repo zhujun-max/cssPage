@@ -1,0 +1,46 @@
+/* 引用网络字体（Kanit字体） */
+@import url("http://fonts.googleapis.com/css?family=Kanit");
+
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 背景色：白桃粉 */
+    background-color: #eacccc;
+    /* 禁止文本被选取 */
+    user-select: none;
+}
+.clock{
+    display: flex;
+}
+.clock p{
+    width: 95px;
+    font-size: 150px;
+    color: #fff;
+    text-align: center;
+    /* 设置字体 */
+    font-family: "Kanit";
+    font-weight: 900;
+    /* 文字阴影 实现3D效果 */
+    text-shadow: 0 1px 0 #deafaf,
+    0 2px 0 #bda8a8,
+    0 3px 0 #d8a1a1,
+    0 4px 0 #d59999,
+    0 5px 0 #d29292,
+    0 6px 0 #cf8b8b,
+    0 7px 0 #cc8484,
+    0 8px 0 #c97d7d,
+    0 0 5px rgba(231,156,156,0.05),
+    0 -1px 3px rgba(231,156,156,0.2),
+    0 9px 9px rgba(231,156,156,0.3),
+    0 12px 12px rgba(231,156,156,0.3),
+    0 15px 15px rgba(231,156,156,0.3);
+}

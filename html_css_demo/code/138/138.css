@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top,#1e3c72,#2a5298);
+}
+.loader{
+    width: 125px;
+    /* 相对定位 */
+    position: relative;
+    /* 设置视距 */
+    perspective: 200px;
+}
+.loader::before,
+.loader::after{
+    content: "";
+    width: 50px;
+    height: 50px;
+    /* 默认透明背景色 */
+    background-color: transparent;
+    /* 绝对定位 */
+    position: absolute;
+    /* 执行动画：动画名 时长 慢速开始慢速结束中间加快 无限次播放 来回轮流 */
+    animation: jumping 0.5s ease infinite alternate;
+}
+.loader::before{
+    left: 0;
+}
+.loader::after{
+    right: 0;
+    /* 这一个设置动画延迟 */
+    animation-delay: 0.15s;
+}
+
+/* 定义动画 */
+@keyframes jumping {
+    0%{
+        transform: scale(1) translateY(0) rotateX(0);
+        box-shadow: 0 0 0 transparent;
+    }
+    100%{
+        background-color: #fff;
+        transform: scale(1.2) translateY(-55px) rotateX(45deg);
+        box-shadow: 0 55px 100px #fff;
+    }
+}

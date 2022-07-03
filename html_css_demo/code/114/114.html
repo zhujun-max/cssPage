@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>Tabbar图标栏动画切换特效</title>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="114.css">
+</head>
+
+<body>
+    <div class="tabbar">
+        <ul>
+            <li class="item active" onclick="setActive(this,'--blue60')">
+                <img src="/images/op/asl/a.jpg" alt="">
+            </li>
+            <li class="item" onclick="setActive(this,'--red60')">
+                <i class="fa fa-heart-o"></i>
+            </li>
+            <li class="item" onclick="setActive(this,'--green60')">
+                <i class="fa fa-plus-square-o"></i>
+            </li>
+            <li class="item" onclick="setActive(this,'--purple60')">
+                <i class="fa fa-bell-o"></i>
+            </li>
+            <li class="item" onclick="setActive(this,'--orange60')">
+                <i class="fa fa-user-o"></i>
+            </li>
+            <div class="active-circle"></div>
+        </ul>
+    </div>
+    <script src="114.js"></script>
+</body>
+
+</html>

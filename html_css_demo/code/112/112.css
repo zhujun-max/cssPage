@@ -1,0 +1,38 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+h1{
+    /* 文本透明 */
+    color: transparent;
+    font-size: 60px;
+    letter-spacing: 5px;
+    /* 渐变背景 */
+    background: linear-gradient(to right,#000,#fff,#000);
+    /* 裁剪掉文字以外的区域 */
+    -webkit-background-clip: text;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* 执行动画：动画名 时长 线性 无线播放 */
+    animation: move 2s linear infinite;
+}
+
+/* 定义动画 */
+@keyframes move {
+    0%{
+        background-position: -500%;
+    }
+    100%{
+        background-position: 500%;
+    }
+}

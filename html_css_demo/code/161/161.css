@@ -1,0 +1,51 @@
+/* 引入字体 */
+@import url('https://fonts.font.im/css?family=Righteous');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f7e8;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 禁止选取 */
+    user-select: none;
+}
+.circle{
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    color: #62bfad;
+    font-size: 6vh;
+    font-weight: bold;
+    /* 转大写 */
+    text-transform: uppercase;
+    /* 使用引入的字体 */
+    font-family: 'Righteous';
+    text-align: center;
+    /* 执行动画：动画名 时长 线性 无限次播放 */
+    animation: spin 20s linear infinite;
+}
+.circle span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* 定义动画 */
+@keyframes spin {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}

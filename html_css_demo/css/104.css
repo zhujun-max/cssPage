@@ -1,0 +1,112 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#e4efe9,#93a5cf);
+}
+.container{
+    width: 500px;
+    height: 320px;
+    background-color: #382f45;
+    border-radius: 20px;
+    /* 弹性布局 垂直排列 居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* 阴影 */
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+    padding: 0 15px;
+}
+p{
+    width: 80%;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+.input-box{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.input-box label{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 5px;
+}
+.input-box label span{
+    /* 相对定位 */
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    /* 设置过渡 */
+    transition: 0.5s;
+}
+.input-box label span::before{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    /* 通过阴影的方式绘制上边框 */
+    box-shadow: 0 -26px 0 #fff;
+    transition: 0.5s;
+}
+.input-box label span::after{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    /* 通过阴影的方式绘制右边框 */
+    box-shadow: 26px 0 0 #fff;
+    transition: 0.5s;
+}
+/* 选中"必须滴"的图形变化 */
+.input-box label input:checked ~ span.yes::before{
+    background-color: #0f0;
+    box-shadow: none;
+}
+.input-box label input:checked ~ span.yes::after{
+    background-color: #0f0;
+    box-shadow: none;
+    height: 55%;
+}
+.input-box label input:checked ~ span.yes{
+    transform: rotate(-45deg) translate(2px,-10px);
+}
+/* 选中"下次一定"的图形变化 */
+.input-box label input:checked ~ span.no::before{
+    background-color: #f00;
+    box-shadow: none;
+    transform: rotate(-45deg) translate(7px,-8px);
+}
+.input-box label input:checked ~ span.no::after{
+    background-color: #f00;
+    box-shadow: none;
+    transform: rotate(-45deg) translate(7px,11px);
+}
+.input-box input{
+    display: none;
+}

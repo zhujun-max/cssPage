@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom,#fdfbfb,#ebedee);
+}
+.container{
+    position: relative;
+}
+/* 倒计时数字区域 */
+/* 默认显示 */
+.counter{
+    width: 100%;
+    text-align: center;
+}
+/* 倒计时结束后隐藏 */
+.counter.hide{
+    transform: scale(0);
+    /* 执行动画 */
+    animation: hide 0.2s ease-out;
+}
+/* 数字 */
+.nums{
+    width: 250px;
+    height: 80px;
+    color: #5696ff;
+    font-size: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.nums span{
+    /* 绝对定位 */
+    position: absolute;
+    /* 设置旋转基点 */
+    transform-origin: bottom center;
+    /* 默认旋转120度 */
+    transform: rotate(120deg);
+}
+/* 数字进入 */
+.nums span.in{
+    /* 执行动画：动画名 时长 加速后减速 */
+    animation: goIn 0.5s ease-in-out;
+}
+/* 数字离开 */
+.nums span.out{
+    animation: goOut 0.5s ease-in-out;
+}
+/* 倒计时结束区域 */
+/* 默认隐藏 */
+.final{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: scale(0);
+}
+/* 倒计时结束后显示 */
+.final.show{
+    transform: scale(1);
+    animation: show 0.3s ease-in;
+}
+.replay{
+    width: 100%;
+    background-color: #5696ff;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* 定义动画 */
+/* 倒计时数字区域的隐藏动画 */
+@keyframes hide {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+/* 倒计时结束区域的显示动画 */
+@keyframes show {
+    0%{
+        transform: scale(0);
+    }
+    80%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/* 数字进入动画 */
+@keyframes goIn {
+    0%{
+        transform: rotate(120deg);
+    }
+    30%{
+        transform: rotate(-20deg);
+    }
+    60%{
+        transform: rotate(10deg);
+    }
+    90%,100%{
+        transform: rotate(0);
+    }
+}
+/* 数字离开动画 */
+@keyframes goOut {
+    0%,30%{
+        transform: rotate(0);
+    }
+    60%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(-120deg);
+    }
+}

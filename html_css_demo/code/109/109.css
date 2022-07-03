@@ -1,0 +1,123 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
+}
+.loader{
+    /* 相对定位 */
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.loader span{
+    /* 绝对定位 */
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    /* 默认状态：旋转180度、不透明度为0 */
+    transform: rotate(180deg);
+    opacity: 0;
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: move 2.5s linear infinite;
+}
+/* 加个投影效果 */
+.loader span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 30px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.15);
+    /* 模糊滤镜 */
+    filter: blur(1.5px);
+}
+/* 接下来为每一个span设置动画延迟 */
+/* 第一个不用改它，直接第二个开始设置 */
+.loader span:nth-child(2){
+    animation-delay: 0.2s;
+}
+.loader span:nth-child(3){
+    animation-delay: 0.4s;
+}
+.loader span:nth-child(4){
+    animation-delay: 0.6s;
+}
+.loader span:nth-child(5){
+    animation-delay: 0.8s;
+}
+.loader span:nth-child(6){
+    animation-delay: 1s;
+}
+.loader span:nth-child(7){
+    animation-delay: 1.2s;
+}
+.loader span:nth-child(8){
+    animation-delay: 1.4s;
+}
+.loader span:nth-child(9){
+    animation-delay: 1.6s;
+}
+.loader span:nth-child(10){
+    animation-delay: 1.8s;
+}
+/* 最后面的三个span（圆），统一样式 */
+.loader span:nth-child(8)::before,
+.loader span:nth-child(9)::before,
+.loader span:nth-child(10)::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 13px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+/* 分别为三个圆设置不同的颜色 */
+.loader span:nth-child(8)::before{
+    background-color: #eccc68;
+}
+.loader span:nth-child(9)::before{
+    background-color: #7bed9f;
+}
+.loader span:nth-child(10)::before{
+    background-color: #ff6b81;
+}
+
+/* 定义动画 */
+@keyframes move {
+    0%{
+        right: 0;
+        opacity: 0;
+    }
+    35%{
+        right: 41%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65%{
+        right: 59%;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100%{
+        right: 100%;
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+}

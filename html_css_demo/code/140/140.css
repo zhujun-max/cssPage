@@ -1,0 +1,94 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2e2e5;
+}
+.container{
+    width: 640px;
+    height: 320px;
+    display: flex;
+}
+.left{
+    width: 50%;
+    height: calc(100% - 40px);
+    background-color: #fff;
+    position: relative;
+    top: 20px;
+}
+.left h1{
+    color: #222;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 55px 40px 40px 40px;
+}
+.left p{
+    color: #999;
+    font-size: 14px;
+    margin: 40px;
+    line-height: 22px;
+}
+.right{
+    width: 50%;
+    height: 100%;
+    background-color: #474a59;
+    color: #f1f1f1;
+    position: relative;
+    box-shadow: 0 0 40px 16px rgba(0,0,0,0.2);
+}
+.right svg{
+    position: absolute;
+    width: 320px;
+}
+.right path{
+    /* 取消填充 */
+    fill: none;
+    /* 定义一条线,引用定义好的线性渐变 */
+    stroke: url(#linearGradient1);
+    /* 线的厚度 */
+    stroke-width: 4;
+    /* 设置虚线:虚线长度 间距 */
+    stroke-dasharray: 240 1386;
+}
+.form{
+    margin: 40px;
+    position: absolute;
+}
+.form label{
+    color: #c2c2c2;
+    display: block;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.form input{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #f2f2f2;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-indent: 2px;
+}
+.form button{
+    width: 100%;
+    height: 30px;
+    color: #d0d0d0;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    margin-top: 40px;
+    cursor: pointer;
+    outline: none;
+}

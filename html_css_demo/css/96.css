@@ -1,0 +1,96 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* 100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#fff1eb,#ace0f9);
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 开启3D效果 */
+    transform-style: preserve-3d;
+}
+.card{
+    /* 相对定位 */
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 20px;
+    /* 开启3D效果 */
+    transform-style: preserve-3d;
+    /* 视距 */
+    perspective: 1000px;
+}
+.card .box{
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    /* 设置过渡 */
+    transition: 1s ease;
+}
+.card .box .img-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.card .box .img-box img{
+    width: 100%;
+    height: 100%;
+    /* 保持原有的尺寸比例，裁切长边 */
+    object-fit: cover;
+}
+.card .box .con-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 隐藏旋转div元素的背面 */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    /* 默认沿Y轴旋转180度（在背面） */
+    transform: rotateY(180deg);
+}
+.card .box .con-box div{
+    color: #fff;
+    padding: 20px;
+    /* 渐变背景 */
+    background: linear-gradient(30deg,#514a9d,#24c6dc);
+    /* 默认沿Z轴偏移100px */
+    transform: translateZ(100px);
+}
+.card .box .con-box div h2{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.card .box .con-box div p{
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 5px;
+}
+.card:hover .box{
+    /* 鼠标移入，盒子旋转180度 */
+    transform: rotateY(180deg);
+}

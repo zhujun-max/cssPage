@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    /* 弹性布局 默认水平排列 */
+    display: flex;
+}
+.item{
+    width: 320px;
+    height: 215px;
+    margin: 0 20px;
+    position: relative;
+}
+.item img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* 过渡效果：时长 贝塞尔曲线 */
+    transition: 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.item .border{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 316px;
+    height: 213px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* 分别设置各个边框的位置 */
+.item .border:nth-child(1){
+    top: 8px;
+    left: 8px;
+}
+.item .border:nth-child(2){
+    top: 6px;
+    left: 6px;
+}
+.item .border:nth-child(3){
+    top: 4px;
+    left: 4px;
+}
+.item .border:nth-child(4){
+    top: 2px;
+    left: 2px;
+}
+.item:hover img,
+.item:hover .border{
+    /* 悬停加阴影 */
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.08);
+}
+/* 分别设置悬停时图片和各个边框的旋转角度 */
+.item:hover img{
+    transform: rotate(-1deg);
+}
+.item:hover .border:nth-child(1){
+    transform: rotate(18deg);
+}
+.item:hover .border:nth-child(2){
+    transform: rotate(1deg);
+}
+.item:hover .border:nth-child(3){
+    transform: rotate(-1deg);
+}
+.item:hover .border:nth-child(4){
+    transform: rotate(-5deg);
+}

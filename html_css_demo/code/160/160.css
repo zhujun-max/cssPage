@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#1e405a,#83b2d9);
+}
+.container{
+    /* 弹性布局 水平排列 */
+    display: flex;
+}
+.card-box{
+    /* 设置视距 */
+    perspective: 1000px;
+    margin: 0 25px;
+}
+.card-box .card{
+    width: 200px;
+    height: 290px;
+    position: relative;
+    /* 保持原有尺寸比例，裁切长边 */
+    background-size: cover;
+    /* 设置背景图的起始位置：中上 */
+    background-position: center top;
+    /* 背景不平铺 */
+    background-repeat: no-repeat;
+    /* 设置变换基点：中下 */
+    transform-origin: center bottom;
+    /* 开启3D */
+    transform-style: preserve-3d;
+    /* 过渡效果 */
+    transition: transform 1s;
+}
+/* 为每一个卡片设置背景图片 */
+.card-box:nth-child(1) .card{
+    background-image: url('/images/160/1.jpg');
+}
+.card-box:nth-child(2) .card{
+    background-image: url('/images/160/2.jpg');
+}
+.card-box:nth-child(3) .card{
+    background-image: url('/images/160/3.jpg');
+}
+/* 标题区域 */
+.card-box .title{
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 290px;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    /* 设置变换基点：中上 */
+    transform-origin: center top;
+    /* 默认沿X轴旋转-90度 */
+    transform: rotateX(-90deg);
+}
+/* 为每一个卡片的标题区域设置背景图片 */
+.card-box:nth-child(1) .title{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),url('/images/160/1.jpg');
+}
+.card-box:nth-child(2) .title{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),url('/images/160/2.jpg');
+}
+.card-box:nth-child(3) .title{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),url('/images/160/3.jpg');
+}
+/* 投影 */
+.card-box .card::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 50px 50px rgba(0,0,0,0.1),
+    inset 0 0 250px 250px rgba(0,0,0,0.1);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    transform-origin: center bottom;
+    transform: rotateX(95deg) translateZ(-50px) scale(0.75);
+    transition: 1s;
+}
+/* 鼠标悬停改变样式 */
+.card-box:hover .card{
+    transform: rotateX(75deg) translateZ(40px);
+}
+.card-box:hover .card::before{
+    box-shadow: 0 0 25px 25px rgba(0,0,0,0.3),
+    inset 0 0 250px 250px rgba(0,0,0,0.3);
+    transform: rotateX(-5deg) translateZ(-50px) scale(0.9);
+}

@@ -1,0 +1,119 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.loader{
+    /* 相对定位 */
+    position: relative;
+    text-align: center;
+}
+.left-box{
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 默认旋转0度 */
+    transform: rotate(0deg);
+}
+.right-box{
+    /* 绝对定位 */
+    position: absolute;
+    top: -29px;
+    left: -9px;
+    /* 默认旋转90度 */
+    transform: rotate(90deg);
+}
+.dots-top{
+    position: absolute;
+    top: -78px;
+    right: 196px;
+    transform: rotate(0deg);
+}
+.dots-bottom{
+    position: absolute;
+    top: 40px;
+    right: -216px;
+    transform: rotate(180deg);
+}
+.dot{
+    /* 绝对定位 */
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    z-index: 5;
+    /* 默认旋转45度 */
+    transform: rotate(45deg);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: spin 2s linear infinite;
+}
+/* 圆点 */
+.dot::after{
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: #a08fd5;
+    border-radius: 50%;
+}
+/* 接下来为每一个圆点设置不同的层级、动画延迟时间、背景颜色、缩放 */
+/* 第一个默认就好，不用改 */
+/* 从第二个开始 */
+.dot:nth-child(2){
+    z-index: 4;
+    animation-delay: 0.1s;
+}
+.dot:nth-child(2)::after{
+    background-color: #c0b1eb;
+    transform: scale(0.8);
+}
+.dot:nth-child(3){
+    z-index: 3;
+    animation-delay: 0.2s;
+}
+.dot:nth-child(3)::after{
+    background-color: #f5e866;
+    transform: scale(0.6);
+}
+.dot:nth-child(4){
+    z-index: 2;
+    animation-delay: 0.3s;
+}
+.dot:nth-child(4)::after{
+    background-color: #ffef3d;
+    transform: scale(0.4);
+}
+.dot:nth-child(5){
+    z-index: 1;
+    animation-delay: 0.4s;
+}
+.dot:nth-child(5)::after{
+    background-color: #ffea00;
+    transform: scale(0.2);
+}
+
+/* 定义动画 */
+@keyframes spin {
+    0%{
+        transform: rotate(45deg);
+    }
+    5%{
+        transform: rotate(45deg);
+        animation-timing-function: ease-out;
+    }
+    70%{
+        transform: rotate(405deg);
+        animation-timing-function: ease-in;
+    }
+    100%{
+        transform: rotate(405deg);
+    }
+}

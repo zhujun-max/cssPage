@@ -1,0 +1,48 @@
+/* 引入网络字体（Montserrat） */
+@import url("http://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap");
+
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    background: url("../images/yj.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 禁止文本被选取 */
+    user-select: none;
+}
+canvas{
+    /* 设置混合模式：变亮 */
+    mix-blend-mode: lighten;
+}
+.container{
+    /* 绝对定位 居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* 设置混合模式：颜色减淡 */
+    mix-blend-mode: color-dodge;
+}
+.year{
+    font-size: 30vw;
+    color: #aaa;
+    /* 字体设置为上面引入的字体 */
+    font-family: Montserrat;
+    font-weight: 700;
+    /* 字间距 */
+    letter-spacing: 15px;
+}
+.greetings{
+    color: #eee;
+    font-size: 3.5vw;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 10px;
+}

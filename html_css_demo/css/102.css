@@ -1,0 +1,69 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 背景径向渐变 */
+    background: radial-gradient(circle at top,#444,#000);
+}
+.container{
+    width: 650px;
+    /* 弹性布局 均匀排列每个元素 */
+    display: flex;
+    /* 每个元素之间的间隔相等 */
+    justify-content: space-evenly;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 加个倒影 */
+    -webkit-box-reflect: below 13px linear-gradient(transparent 70%,rgba(0,0,0,0.2));
+}
+.big-box{
+    width: 400px;
+    height: 500px;
+    /* 背景图片保持原有尺寸比例，裁切长边 */
+    background-size: cover;
+    /* 设置过渡 */
+    transition: 0.4s;
+}
+.small-box{
+    width: 200px;
+    height: 500px;
+    /* 弹性布局 垂直排列 均匀排列每个元素 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.small-box .img{
+    /* 相对定位 */
+    position: relative;
+    width: 200px;
+    height: 90px;
+    right: 0;
+    transition: 0.5s;
+}
+.small-box .img img{
+    width: 100%;
+    height: 100%;
+    /* 保持原有尺寸比例，裁切长边 */
+    object-fit: cover;
+    /* 绝对定位 */
+    position: absolute;
+    right: 0;
+    /* 设置过渡 */
+    transition: 0.5s;
+}
+.small-box .img.active{
+    opacity: 0;
+    right: 250px;
+}
+.small-box .img:hover img{
+    opacity: 0;
+    right: 250px;
+}

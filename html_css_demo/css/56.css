@@ -1,0 +1,88 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#e7f0fd,#accbee);
+}
+.btn-box{
+    width: 500px;
+    /* 弹性布局 */
+    display: flex;
+    /* 横向排列 */
+    flex-direction: row;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    /* 平均分配宽度 */
+    justify-content: space-around;
+}
+.btn-box .btn{
+    /* 相对定位 */
+    position: relative;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #00adff;
+    border: 2px solid #00adff;
+    font-size: 18px;
+    margin: 20px 0;
+    /* 字间距 */
+    letter-spacing: 4px;
+    cursor: pointer;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.btn-box .btn span{
+    position: relative;
+    z-index: 1;
+    /* 动画过渡 */
+    transition: 1s;
+}
+.btn-box .btn .wave{
+    /* 绝对定位 */
+    position: absolute;
+    top: calc(100% + 22px);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00adff;
+    transition: 1s;
+}
+.btn-box .btn .wave::before{
+    content: "";
+    position: absolute;
+    top: -22px;
+    left: 0;
+    background-image: url("../images/wave.png");
+    width: 100%;
+    height: 22px;
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: animate 0.5s linear infinite;
+}
+.btn-box .btn:hover .wave{
+    top: 0;
+}
+.btn-box .btn:hover span{
+    color: #fff;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    0%{
+        background-position-x: 0;
+        background-position-y: -22px;
+    }
+    100%{
+        background-position-x: 118px;
+        background-position-y: -22px;
+    }
+}

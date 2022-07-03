@@ -1,0 +1,16 @@
+body{
+    margin: 3px;
+}
+.container{
+    /* 将元素分为5列 */
+    column-count: 5;
+    /* 设置列之间的间隙 */
+    column-gap: 0px;
+}
+.item{
+    padding: 3px;
+}
+.item img{
+    display: block;
+    width: 100%;
+}

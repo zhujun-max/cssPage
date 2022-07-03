@@ -1,0 +1,127 @@
+*{
+    /* 初始化 取消页面元素的内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    /* 相对定位 */
+    position: relative;
+}
+/* 电池 */
+.battery{
+    width: 200px;
+    height: 320px;
+    background-color: #fff;
+    /* 设置圆角 */
+    border-radius: 10px 10px 5px 5px;
+    position: relative;
+}
+/* 电池顶部 正极 */
+.battery::before{
+    content: "";
+    width: 50px;
+    height: 20px;
+    background-color: #fff;
+    /* 绝对定位 */
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 5px 5px 0 0;
+}
+/* 充电效果层 */
+.battery::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 90%;
+    bottom: 0;
+    border-radius: 10px 10px 5px 5px;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#04e963 0%,#0bdf9f 44%,#0bdfc3 100%);
+    /* 执行充电动画：动画名称 时长 线性的 无限次播放 */
+    animation: charge 10s linear infinite;
+}
+/* 接下来制作充电时的波浪效果 */
+.cover{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 5px 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /* 加个溢出隐藏 */
+    overflow: hidden;
+}
+.cover::before{
+    content: "";
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.8);
+    position: absolute;
+    border-radius: 40% 30%;
+    left: -50%;
+    /* 执行动画 */
+    animation: coverBefore 10s linear infinite;
+}
+.cover::after{
+    content: "";
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.7);
+    position: absolute;
+    border-radius: 42% 40%;
+    left: -50%;
+    /* 执行动画 */
+    animation: coverAfter 10s linear infinite;
+}
+
+/* 定义动画 */
+/* 充电动画 */
+@keyframes charge {
+    0%{
+        top: 100%;
+        border-radius: 0 0 5px 5px;
+        /* hue-rotate是颜色滤镜，可以设置不同的度数来改变颜色 */
+        filter: hue-rotate(90deg);
+    }
+    95%{
+        top: 5%;
+        border-radius: 0 0 5px 5px;
+    }
+    100%{
+        top: 0%;
+        filter: hue-rotate(0deg);
+    }
+}
+/* 波浪1动画 */
+@keyframes coverBefore {
+    0%{
+        transform: rotate(0deg);
+        bottom: 0%;
+    }
+    100%{
+        transform: rotate(360deg);
+        bottom: 100%;
+    }
+}
+/* 波浪2动画 */
+@keyframes coverAfter {
+    0%{
+        transform: rotate(30deg);
+        bottom: 2%;
+    }
+    100%{
+        transform: rotate(360deg);
+        bottom: 95%;
+    }
+}

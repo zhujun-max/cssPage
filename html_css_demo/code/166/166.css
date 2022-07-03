@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口宽高 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.75);
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.image{
+    width: 100%;
+    height: 100%;
+    /* 背景图像 */
+    background-image: url('/images/camera.jpg');
+    /* 不平铺 */
+    background-repeat: no-repeat;
+    /* 保持图像比例，裁切长边 */
+    background-size: cover;
+    /* 图像定位正中 */
+    background-position: center;
+    /* 固定背景图像 */
+    background-attachment: fixed;
+    /* 模糊 */
+    filter: blur(6px);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+/* 半透明白色蒙版 */
+.image::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+}
+/* 高清圆 */
+.cursor{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.25);
+    position: absolute;
+    background-image: url('/images/camera.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

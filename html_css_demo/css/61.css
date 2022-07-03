@@ -1,0 +1,91 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#eef1f5,#e6e9f0);
+}
+.swipe{
+    /* 相对定位 */
+    position: relative;
+    width: 800px;
+    height: 500px;
+    text-align: center;
+    color: #fff;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.swipe ul{
+    padding: 0;
+    width: calc(800px * 3);
+    transition: 0.5s;
+}
+.swipe li{
+    float: left;
+    width: 800px;
+    height: 500px;
+    list-style: none;
+    line-height: 500px;
+    font-size: 50px;
+}
+.swipe li:nth-child(1){
+    background-color: lightcoral;
+}
+.swipe li:nth-child(2){
+    background-color: lightseagreen;
+}
+.swipe li:nth-child(3){
+    background-color: lightsalmon;
+}
+/* for属性值以“indicator”开头的所有label元素（指示器） */
+.swipe label[for^="indicator"]{
+    /* 绝对定位 */
+    position: absolute;
+    top: 450px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* for属性值为“indicator1”的label元素 */
+.swipe label[for="indicator1"]{
+    left: 44%;
+}
+/* for属性值为“indicator2”的label元素 */
+.swipe label[for="indicator2"]{
+    left: 49%;
+}
+/* for属性值为“indicator3”的label元素 */
+.swipe label[for="indicator3"]{
+    left: 54%;
+}
+/* 选中指示器设置ul的margin-left */
+#indicator1:checked ~ ul{
+    margin-left: 0;
+}
+#indicator2:checked ~ ul{
+    margin-left: -800px;
+}
+#indicator3:checked ~ ul{
+    margin-left: -1600px;
+}
+/* 选中指示器改变指示器颜色 */
+#indicator1:checked ~ label[for="indicator1"]{
+    background-color: #fff;
+}
+#indicator2:checked ~ label[for="indicator2"]{
+    background-color: #fff;
+}
+#indicator3:checked ~ label[for="indicator3"]{
+    background-color: #fff;
+}

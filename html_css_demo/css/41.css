@@ -1,0 +1,46 @@
+*{
+    /* 初始化 取消内外边距 */
+    margin: 0;
+    padding: 0;
+    /* 设置的边框和内边距的值是包含在总宽高内的 */
+    box-sizing: border-box;
+}
+body{
+    /* 弹性布局 水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 100%窗口高度 */
+    height: 100vh;
+    background-color: #000;
+}
+h2{
+    font-size: 96px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+h2 span{
+    /* 动画过渡 */
+    transition: 0.5s;
+}
+h2:hover span:nth-child(1){
+    margin-right: 10px;
+}
+h2:hover span:nth-child(1)::after{
+    content: "'";
+}
+h2:hover span:nth-child(2){
+    margin-left: 40px;
+}
+h2:hover span{
+    color: #fff;
+    /* 文字阴影 */
+    text-shadow: 0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #fff,
+                0 0 80px #fff,
+                0 0 120px #fff,
+                0 0 160px #fff;
+}

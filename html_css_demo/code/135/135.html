@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>左侧分类菜单右侧轮播图的组合布局</title>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="135.css">
+    <!-- 这里我用的是vue的写法，并不是原生JS，用原生也可实现，只是代码量会多一些 -->
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <!-- banner -->
+        <div class="banner" @mouseover="stopAutoPlay" @mouseout="startAutoPlay">
+            <a href="" v-for="item in banner_size">
+                <div :class="['banner-slide', 'slide'+item, item==banner_index?'slide-active':'']"></div>
+            </a>
+        </div>
+        <!-- 上一张、下一张按钮 -->
+        <div class="button prev" @click="prevBanner">
+            <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="button next" @click="nextBanner">
+            <i class="fa fa-angle-right"></i>
+        </div>
+        <!-- 指示器 -->
+        <div class="dots">
+            <span v-for="item in banner_size" :class="item==banner_index?'dot-active':''" @click="changeBanner(item)"></span>
+        </div>
+        <!-- 分类菜单 -->
+        <div class="menu-content" @mouseout="hideSubMenu">
+            <div class="menu-item" v-for="(item,index) in menu_list" @mouseover="showSubMenu(index)">
+                <a href="">
+                    <span>{{item.title}}</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- 二级菜单 -->
+        <div class="sub-menu hide" @mouseover="showSubMenu(-1)" @mouseout="hideSubMenu">
+            <div class="inner-box" v-for="(item,index) in menu_list" v-if="menu_item_index==index">
+                <div class="sub-inner-box">
+                    <div class="title">{{item.title}}</div>
+                    <div class="sub-row" v-for="item1 in item.list">
+                        <span class="bold">{{item1.menu_title}} :</span>
+                        <a href="" class="menu" v-for="item2 in item1.menus">{{item2}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="135.js"></script>

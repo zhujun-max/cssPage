@@ -1,0 +1,73 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+.loader{
+    /* 相对定位 */
+    position: relative;
+    /* 执行变色动画 */
+    animation: changeColor 10s linear infinite;
+}
+.loader span{
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 2px;
+    /* 设置旋转的基点位置 */
+    transform-origin: right;
+    /* 通过var函数调用自定义属性--i，计算每一个span元素的旋转角度 */
+    transform: rotate(calc(18deg * var(--i)));
+}
+.loader span::before{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /* 自定义属性--c（颜色值） */
+    --c:gold;
+    background-color: var(--c);
+    /* 阴影（发光效果） */
+    box-shadow: 0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 40px var(--c),
+    0 0 60px var(--c),
+    0 0 80px var(--c),
+    0 0 100px var(--c);
+    /* 执行动画：动画名 时长 线性的 无线播放 */
+    animation: animate 2s linear infinite;
+    /* 计算并设置动画延迟时间 */
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+/* 定义动画 */
+@keyframes animate {
+    0%{
+        transform: translateX(0) scale(0.5);
+    }
+    50%{
+        transform: translateX(200px) scale(1);
+    }
+    100%{
+        transform: translateX(0) scale(0.5);
+    }
+}
+@keyframes changeColor {
+    to{
+        /* 颜色滤镜 */
+        filter: hue-rotate(1000deg);
+    }
+}

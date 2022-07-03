@@ -1,0 +1,119 @@
+*{
+    /* 初始化 取消内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.navbar{
+    /* 相对定位 */
+    position: relative;
+    /* 100%窗口宽度 */
+    width: 100vw;
+}
+#checkbox{
+    /* 隐藏复选框 */
+    display: none;
+}
+.navbar label{
+    position: absolute;
+    top: 0;
+    left: 70px;
+    width: 100%;
+    height: 43px;
+    font-size: 30px;
+    color: #5a738e;
+    background-color: #ededed;
+    padding-left: 20px;
+    border: 1px solid #d9dee4;
+    cursor: pointer;
+    /* 加个动画过渡 */
+    transition: all 0.5s;
+}
+.navbar ul{
+    list-style: none;
+    width: 70px;
+    /* 100%窗口高度 */
+    height: 100vh;
+    background-color: #2a3f54;
+    transition: all 0.5s;
+    /* 再加个溢出隐藏 */
+    overflow: hidden;
+}
+.navbar ul li{
+    height: 70px;
+    margin-bottom: 10px;
+}
+.navbar ul li:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+.navbar ul li:first-child img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.navbar ul li:first-child span{
+    color: #fff;
+    /* 文字禁止换行 */
+    white-space: nowrap;
+    padding-left: 10px;
+    /* 先把文字隐藏 */
+    display: none;
+}
+.navbar ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 垂直排列 */
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: #d1d1d1;
+    /* 去掉下划线 */
+    text-decoration: none;
+}
+.navbar ul li a i{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.navbar ul li a span{
+    font-size: 12px;
+    white-space: nowrap;
+}
+.navbar ul li a:hover{
+    color: #fff;
+    background-color: #35495d;
+}
+/* :checked选择器是判断复选框是否被选中 */
+/* +是相邻兄弟选择器，找到input的下一个兄弟label */
+.navbar input:checked + label{
+    left: 200px;
+}
+/* ~也是兄弟选择器，但它可以找到隔了几代的兄弟 */
+.navbar input:checked ~ ul{
+    width: 200px;
+}
+.navbar input:checked ~ ul li:first-child{
+    /* 将居中改为开头对齐 */
+    justify-content: flex-start;
+}
+.navbar input:checked ~ ul li:first-child span{
+    /* 文字显示 */
+    display: block;
+}
+.navbar input:checked ~ ul li a{
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.navbar input:checked ~ ul li a i{
+    font-size: 18px;
+    margin: 0 15px 0 30px;
+}
+.navbar input:checked ~ ul li a span{
+    font-size: 14px;
+}

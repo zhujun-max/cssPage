@@ -1,0 +1,122 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    min-height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top,#d3e7ff,#f3f8ff);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+.container{
+    /* 弹性布局 横向排列 */
+    display: flex;
+}
+.card{
+    width: 300px;
+    height: 380px;
+    background-color: #999;
+    border-radius: 10px;
+    margin: 0 15px;
+    /* 投影 */
+    box-shadow: 0 80px 60px -60px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 相对定位 */
+    position: relative;
+    overflow: hidden;
+    /* 设置过渡效果 */
+    transition: 0.8s;
+}
+.card .border{
+    width: 290px;
+    height: 370px;
+    border-radius: 10px;
+    /* 设置boder变化时的过渡效果 */
+    transition: border 1s;
+}
+.card .border:hover{
+    border: 1px solid #fff;
+}
+.card h2{
+    color: #fff;
+    font-size: 30px;
+    margin: 20px;
+    /* 字间距 */
+    letter-spacing: 8px;
+    /* 默认隐藏 */
+    opacity: 0;
+    /* 设置不透明度变化时的过渡效果 */
+    transition: opacity 1s;
+}
+.card .icons{
+    color: #fff;
+    font-size: 18px;
+    /* 弹性布局 垂直排列 */
+    display: flex;
+    flex-direction: column;
+    /* 平均分配高度给每一个子元素 */
+    justify-content: space-around;
+    align-items: center;
+    width: 50px;
+    height: 150px;
+    /* 绝对定位 */
+    position: absolute;
+    bottom: 20px;
+}
+.card .fa{
+    /* 默认隐藏 */
+    opacity: 0;
+    /* 过渡效果 */
+    transition: opacity 1s;
+}
+/* 卡片一 */
+.card:nth-child(1){
+    background: url("/images/op/black/1.jpg") no-repeat;
+    background-position: right bottom;
+    background-size: 300px;
+}
+.card:nth-child(1):hover{
+    background-position: left center;
+    background-size: 500px;
+}
+.card:nth-child(1):hover h2,
+.card:nth-child(1):hover .fa{
+    opacity: 1;
+}
+/* 卡片二 */
+.card:nth-child(2){
+    background: url("/images/op/black/2.jpg") no-repeat;
+    background-position: right bottom;
+    background-size: 300px;
+}
+.card:nth-child(2):hover{
+    background-position: left center;
+    background-size: 500px;
+}
+.card:nth-child(2):hover h2,
+.card:nth-child(2):hover .fa{
+    opacity: 1;
+}
+/* 卡片三 */
+.card:nth-child(3){
+    background: url("/images/op/black/3.jpg") no-repeat;
+    background-position: right bottom;
+    background-size: 300px;
+}
+.card:nth-child(3):hover{
+    background-position: left center;
+    background-size: 500px;
+}
+.card:nth-child(3):hover h2,
+.card:nth-child(3):hover .fa{
+    opacity: 1;
+}

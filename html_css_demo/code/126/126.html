@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>纯CSS实现瀑布流布局</title>
+    <link rel="stylesheet" href="126.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="item" v-for="item in 15">
+            <img :src="'images/'+item+'.jpg'" alt="">
+        </div>
+        <!-- 图片加多点 -->
+        <div class="item" v-for="item in 15">
+            <img :src="'images/'+item+'.jpg'" alt="">
+        </div>
+        <div class="item" v-for="item in 15">
+            <img :src="'images/'+item+'.jpg'" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{}
+    })
+</script>

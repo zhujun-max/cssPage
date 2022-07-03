@@ -1,0 +1,69 @@
+*{
+    /* 初始化 取消页面内外边距 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 渐变背景 */
+    background: linear-gradient(to bottom,#2b5876,#09203f);
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading{
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-top: 10px solid #63a69f;
+    /* 相对定位 */
+    position: relative;
+    /* 执行动画（动画a1 时长 线性的 无限次播放） */
+    animation: a1 2s linear infinite;
+}
+.loading::before,.loading::after{
+    content: "";
+    width: 200px;
+    height: 200px;
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    top: -10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.loading::before{
+    border-top: 10px solid #f2e1ac;
+    /* 旋转120度 */
+    transform: rotate(120deg);
+}
+.loading::after{
+    border-top: 10px solid #f2836b;
+    /* 旋转240度 */
+    transform: rotate(240deg);
+}
+.loading span{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    color: #fff;
+    /* 执行动画（动画a2 时长 线性的 无限次播放） */
+    animation: a2 2s linear infinite;
+}
+
+/* 定义动画 */
+@keyframes a1{
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes a2{
+    to{
+        transform: rotate(-360deg);
+    }
+}

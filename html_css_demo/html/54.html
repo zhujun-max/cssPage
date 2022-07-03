@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>涟漪特效按钮</title>
+    <link rel="stylesheet" href="../css/54.css">
+</head>
+
+<body>
+    <div class="btn-box">
+        <button>点赞</button>
+        <button>关注</button>
+        <button>收藏</button>
+        <button>转发</button>
+    </div>
+    <script type="text/javascript">
+        // 获取所有按钮对象
+        const btns=document.querySelectorAll("button");
+        // 循环所有按钮,并为每一个按钮添加点击事件
+        btns.forEach(btn=>{
+            btn.addEventListener("click",e=>{
+                // 创建span元素,并设置其位置为鼠标点击的位置
+                let span=document.createElement("span");
+                span.style.left=e.offsetX+"px";
+                span.style.top=e.offsetY+"px";
+                // 将span元素添加到按钮标签里
+                btn.appendChild(span);
+                // 1秒后删除span元素
+                setTimeout(() => {
+                    span.remove();
+                }, 1000);
+            })
+        })
+    </script>
+</body>
+
+</html>

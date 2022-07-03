@@ -1,0 +1,191 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口宽度和高度 */
+    width: 100vw;
+    height: 100vh;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 设置背景 */
+    background: url("/images/mountain.jpg") no-repeat;
+    background-size: cover;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    /* 弹性布局 水平排列 */
+    display: flex;
+}
+/* 字体图标 */
+.icon{
+    color: #fff;
+    font-size: 24px;
+}
+/* 左侧导航栏 */
+.left-box{
+    width: 250px;
+    height: 100%;
+    /* 半透明背景 */
+    background-color: rgba(0,0,0,0.65);
+    /* 背景模糊（毛玻璃） */
+    backdrop-filter: blur(30px);
+    /* 相对定位 */
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    /* 弹性布局 垂直排列 */
+    display: flex;
+    flex-direction: column;
+    /* 设置过渡 */
+    transition: 0.5s ease;
+    /* 不让文字换行 */
+    white-space: nowrap;
+}
+.left-box ul{
+    list-style: none;
+    width: 90%;
+    margin: 25px auto;
+    /* 高度铺满 */
+    flex: 1;
+}
+.left-box li{
+    height: 46px;
+    /* 弹性布局 垂直居中 */
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* 过渡 */
+    transition: 0.3s;
+}
+/* 选中态样式 */
+.left-box li.active,
+.left-box li.active:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+.left-box li:hover{
+    background-color: rgba(255,255,255,0.1);
+}
+.left-box hr{
+    width: 90%;
+    margin: 18px auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.left-box .icon{
+    margin-right: 16px;
+}
+/* 用户信息区域 */
+.user-info{
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    padding: 24px;
+}
+.user-info img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 14px;
+}
+.user-info span{
+    flex: 1;
+}
+.user-info .icon{
+    font-size: 20px;
+    margin-right: 0;
+}
+/* 右侧区域 */
+.right-box{
+    background-color: #0f0f11;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.right-box .top{
+    margin: 25px 35px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+}
+.right-box .top .current-tag{
+    flex: 1;
+    color: #fff;
+    font-weight: 600;
+}
+.right-box .top .btn{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.right-box .top .btn:last-child{
+    background-color: #446dff;
+    margin-left: 20px;
+}
+.right-box .middle{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-size: 6vw;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* 展开收起开关 */
+.right-box .handler{
+    width: 10px;
+    height: 50px;
+    /* 绝对定位 垂直居中 */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    /* 光标变小手 */
+    cursor: pointer;
+    /* 默认不透明度为0 */
+    opacity: 0;
+    /* 过渡 */
+    transition: opacity 0.3s;
+}
+.right-box .handler::before,
+.right-box .handler::after{
+    content: "";
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    /* 过渡 */
+    transition: 0.2s;
+}
+.right-box .handler::after{
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+.right-box:hover .handler{
+    opacity: 1;
+}
+.right-box .handler:hover::before{
+    transform: skewX(-15deg);
+}
+.right-box .handler:hover::after{
+    transform: skewX(15deg);
+}
+.right-box .handler.close:hover::before{
+    transform: skewX(15deg);
+}
+.right-box .handler.close:hover::after{
+    transform: skewX(-15deg);
+}

@@ -1,0 +1,65 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.container{
+    /* 给图片应用一种线性乘法，使其看起来更亮或更暗 */
+    filter: brightness(300%);
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+span.text{
+    color: #fff;
+    font-size: 200px;
+    font-weight: bold;
+    background-color: #000;
+}
+span.text::before{
+    content: "HELLO!";
+    /* 绝对定位 */
+    position: absolute;
+    /* 设置混合模式为：差别 */
+    mix-blend-mode: difference;
+    /* 模糊 */
+    filter: blur(2px);
+}
+span.back{
+    /* 渐变背景 */
+    background: linear-gradient(113deg,rgba(193,148,63,1),rgba(238,205,108,1));
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* 设置混合模式为：乘法（类似PS的正片叠底） */
+    mix-blend-mode: multiply;
+}
+span.shine{
+    /* 径向渐变背景，并且尺寸缩放为25%，按照默认方式平铺 */
+    background: radial-gradient(circle at center,#fff,#000 35%) center / 25% 25%;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    bottom: 0;
+    right: 0;
+    /* 设置混合模式为：颜色减淡 */
+    mix-blend-mode: color-dodge;
+    animation: move 2s linear infinite;
+}
+
+/* 定义动画 */
+@keyframes move {
+    to{
+        transform: translate(50%,50%);
+    }
+}

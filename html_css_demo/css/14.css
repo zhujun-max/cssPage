@@ -1,0 +1,85 @@
+*{
+    /* 初始化 取消页面元素内外边距 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#eef1f5,#e6e9f0);
+}
+.nav{
+    display: flex;
+    background-color: #b7a1eb;
+    height: 100px;
+    /* 圆角 */
+    border-radius: 20px;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 阴影 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.nav .menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.nav .menu .item{
+    position: relative;
+    cursor: pointer;
+    padding: 0 10px;
+    width: 150px;
+    height: 100%;
+    /* 加个动画过渡 */
+    transition: all 0.4s ease;
+}
+.nav .menu .item:hover{
+    background-color: #a38bdb;
+}
+.nav .menu .item .link{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    /* 加个动画过渡 */
+    transition: all 0.4s ease;
+}
+.nav .menu .item .link .fa{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    /* 加个动画过渡 */
+    transition: all 0.4s ease;
+}
+.nav .menu .item .link span{
+    position: absolute;
+    width: 100%;
+    bottom: -50%;
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    /* 加个动画过渡 */
+    transition: all 0.4s ease;
+}
+.nav .menu .item:hover .link span{
+    /* 鼠标移入文本出现、上移 */
+    opacity: 1;
+    bottom: 18px;
+}
+.nav .menu .item:hover .link .fa{
+    /* 鼠标移入图标上移 */
+    transform: translateY(-95%);
+}

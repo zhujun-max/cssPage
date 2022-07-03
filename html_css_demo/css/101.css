@@ -1,0 +1,69 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeef0;
+}
+.loader{
+    display: flex;
+}
+.loader span{
+    /* 相对定位 */
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #eaeef0;
+    margin: 0 10px;
+    border-radius: 50%;
+    /* 阴影 inset表示内阴影 */
+    box-shadow: -8px -8px 15px rgba(255,255,255,1),
+    8px 8px 15px rgba(0,0,0,0.2),
+    inset 3px 3px 5px rgba(0,0,0,0.1),
+    inset -1px -1px 5px rgba(255,255,255,1);
+    border: 6px solid #eaeef0;
+}
+.loader span::before{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightseagreen;
+    border-radius: 50%;
+    box-shadow: inset 3px 3px 5px rgba(0,0,0,0.1),
+    inset -1px -1px 5px rgba(255,255,255,1);
+    opacity: 0;
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: animate 3.5s linear infinite,
+    animateColor 5s linear infinite;
+    /* 设置动画延迟时间（通过var函数调用自定义属性--i，计算每个元素动画的延迟时间，使得每个元素的动画错开） */
+    animation-delay: calc(var(--i) * 0.15s);
+}
+
+/* 定义动画 */
+/* 中间圆出现 */
+@keyframes animate {
+    0%,9.99%,70.01%{
+        opacity: 0;
+    }
+    10%,70%{
+        opacity: 1;
+    }
+}
+/* 中间圆变色 */
+@keyframes animateColor {
+    to{
+        filter: hue-rotate(360deg);
+    }
+}

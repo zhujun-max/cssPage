@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    /* 自定义属性，这几个属性等会是通过js随机生成，通过var函数可对其调用 */
+    /* 上外边距 */
+    --margin-top: 0;
+    /* 左外边距 */
+    --margin-left: 0;
+    /* 动画时长 */
+    --animation-duration: 0s;
+    /* 动画延迟时间 */
+    --animation-delay: 0s;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 设置视距 */
+    perspective: 1300px;
+}
+div{
+    /* 所有div默认开启3D属性 */
+    transform-style: preserve-3d;
+}
+.word-box,
+.word-box .word{
+    position: absolute;
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: rotY 0s linear infinite;
+    /* 设置动画时长 */
+    animation-duration: var(--animation-duration);
+    /* 设置动画延迟 */
+    animation-delay: var(--animation-delay);
+}
+.word-box{
+    margin-top: var(--margin-top);
+}
+.word-box .word{
+    margin-left: var(--margin-left);
+}
+.word-box .word{
+    /* 反向动画 */
+    animation-direction: reverse;
+}
+
+/* 定义动画 */
+@keyframes rotY {
+    to{
+        /* 1turn表示一圈 */
+        transform: rotateY(1turn);
+    }
+}

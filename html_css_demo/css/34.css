@@ -1,0 +1,83 @@
+*{
+    /* 初始化 取消页面元素的内外边距 */
+    margin: 0;
+    padding: 0;
+}
+.container{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+span{
+    font-size: 100px;
+    font-weight: bold;
+    color: #111;
+    /* 大写 */
+    text-transform: uppercase;
+    /* 字间距 */
+    letter-spacing: 5px;
+    /* 模糊滤镜 */
+    filter: blur(2px);
+    /* 执行动画：动画名称 时长 线性的 无限次播放 */
+    animation: animate 2.5s linear infinite;
+}
+/* 接下来为每一个span元素设置动画延迟时间 */
+span:nth-child(1){
+    animation-delay: 0s;
+}
+span:nth-child(2){
+    animation-delay: 0.25s;
+}
+span:nth-child(3){
+    animation-delay: 0.5s;
+}
+span:nth-child(4){
+    animation-delay: 0.75s;
+}
+span:nth-child(5){
+    animation-delay: 1s;
+}
+span:nth-child(6){
+    animation-delay: 1.25s;
+}
+span:nth-child(7){
+    animation-delay: 1.5s;
+}
+span:nth-child(8){
+    animation-delay: 1.75s;
+}
+span:nth-child(9){
+    animation-delay: 2s;
+}
+span:nth-child(10){
+    animation-delay: 2.25s;
+}
+
+/* 定义动画 */
+@keyframes animate {
+    0%,100%{
+        color: #fff;
+        /* 模糊滤镜 */
+        filter: blur(2px);
+        /* 文字阴影 */
+        text-shadow: 
+        0 0 10px #32ff7e,
+        0 0 20px #32ff7e,
+        0 0 30px #32ff7e,
+        0 0 40px #32ff7e,
+        0 0 100px #32ff7e,
+        0 0 200px #32ff7e,
+        0 0 300px #32ff7e,
+        0 0 400px #32ff7e
+        ;
+    }
+    5%,95%{
+        color: #111;
+        filter: blur(0px);
+        text-shadow: none;
+    }
+}
