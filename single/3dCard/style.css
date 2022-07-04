@@ -5,12 +5,13 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 1000px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
 }
 .container {
   width: 50%;
@@ -20,44 +21,44 @@ body {
 }
 .card {
   transform-style: preserve-3d;
-  min-height: 80vh;
-  width: 35rem;
-  border-radius: 30px;
+  min-height: 85vh;
+  display: flex;
+  width: 27rem;
+  flex-direction: column;
+  justify-content: center;
   padding: 0rem 5rem;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  box-shadow: 0 20px 20px rgb(0 0 0 / 20%), 0px 0px 50px rgb(0 0 0 / 20%);
 }
 
 .sneaker {
-  min-height: 35vh;
+  height: 31vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .sneaker img {
-  width: 20rem;
+  width: 14rem;
   z-index: 2;
   transition: all 0.75s ease-out;
 }
 .circle {
-  width: 15rem;
-  height: 15rem;
-  background: linear-gradient(
-    to right,
-    rgba(116, 25, 2, 0.75),
-    rgba(0, 0, 0, 0.75)
-  );
+  width: 12rem;
+  height: 12rem;
+  background: linear-gradient( to right, rgba(116, 25, 2, 0.75), rgba(0, 0, 0, 0.75) );
   position: absolute;
   border-radius: 50%;
   z-index: 1;
 }
 
 .info h1 {
-  font-size: 3rem;
+  padding-top: 1rem;
+  font-size: 2rem;
   transition: all 0.75s ease-out;
 }
 .info h3 {
-  font-size: 1.3rem;
-  padding: 2rem 0rem;
+  font-size: 1rem;
+  padding: 1rem 0rem;
   color: #585858;
   font-weight: lighter;
   transition: all 0.75s ease-out;
